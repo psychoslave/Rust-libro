@@ -1,13 +1,13 @@
-# The Rust Programming Language
+# Rust programlingvo
 
 [![Build Status](https://travis-ci.org/rust-lang/book.svg?branch=master)](https://travis-ci.org/rust-lang/book)
 
-This repository contains the source of all editions of "the Rust Programming
-Language".
+Tiu deponejo enhavas fontaro de ĉiuj eldonoj de "*the Rust Programming Language*".
+Plie ĝi servas kiel esperanta tradukejo de tiuj verkoj.
 
-The second edition will also be available in dead-tree form by No Starch
-Press, available around June 2018. Check [the No Starch Page][nostarch] for
-the latest information on the release date and how to order.
+La dua eldone ankaŭ estos havebla morta-arbe de *No Starch Press*, havebla
+ĉirkaŭ Juno 2018. Kontrolu [la *No Starch* paĝon][nostarch] por la lastaj
+informoj de la elliga dato kaj kiel mendi.
 
 [nostarch]: https://nostarch.com/rust
 
