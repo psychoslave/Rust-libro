@@ -5,7 +5,7 @@
 Tiu deponejo enhavas fontaro de ĉiuj eldonoj de "*the Rust Programming Language*".
 Plie ĝi servas kiel esperanta tradukejo de tiuj verkoj.
 
-La dua eldone ankaŭ estos havebla morta-arbe de *No Starch Press*, havebla
+La dua eldono ankaŭ estos havebla morta-arbe de *No Starch Press*, havebla
 ĉirkaŭ Juno 2018. Kontrolu [la *No Starch* paĝon][nostarch] por la lastaj
 informoj de la elliga dato kaj kiel mendi.
 
