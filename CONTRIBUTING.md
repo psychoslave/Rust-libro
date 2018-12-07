@@ -34,8 +34,8 @@ enhance the book in some way!
 ## Translations
 
 We'd especially love help translating the second edition of the book! See the
-[Translations] label to join in efforts that are currently in progress. Open
-a new issue to start working on a new language! We're waiting on [mdbook
+[Translations] label to join in efforts that are currently in progress. [Open
+a new issue](https://github.com/rust-lang/book/issues/new) to start working on a new language! We're waiting on [mdbook
 support] for multiple languages before we merge any in, but feel free to
 start! The second edition is frozen and won't see major changes, so if 
 you start with that, you won't have to redo work :)
