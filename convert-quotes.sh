@@ -1,13 +1,12 @@
 #!/bin/bash
-# Copyright 2017 The Rust Project Developers. See the COPYRIGHT
-# file at the top-level directory of this distribution and at
-# http://rust-lang.org/COPYRIGHT.
+# Kopirajto 2017 far la Rust komunaĵo. Vidu la datenujon KOPIRAJTO
+# ĉe la supra-nivela dosio de tiu disdono kaj ĉe http://rust-lang.org/COPYRIGHT.
 #
-# Licensed under the Apache License, Version 2.0 <LICENSE-APACHE or
-# http://www.apache.org/licenses/LICENSE-2.0> or the MIT license
-# <LICENSE-MIT or http://opensource.org/licenses/MIT>, at your
-# option. This file may not be copied, modified, or distributed
-# except according to those terms.
+# Licencigita laŭ la Apache licenco, Versio 2.0 <LICENSE-APACHE aŭ
+# http://www.apache.org/licenses/LICENSE-2.0> aŭ MIT-a licenco
+# <LICENSE-MIT or http://opensource.org/licenses/MIT>, laŭ via elekto.
+# Ĉi tiu datenujo ne povas esti kopiita, ŝanĝita aŭ disdonita
+# escepte laŭ tiuj termoj.
 
 set -eu
 
