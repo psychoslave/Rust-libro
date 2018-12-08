@@ -1,8 +1,8 @@
 [package]
-name = "rust-book"
+name = "Rust-libro"
 version = "0.0.1"
-authors = ["Steve Klabnik <steve@steveklabnik.com>"]
-description = "The Rust Book"
+# authors = Vidu `git shortlog -s -e`
+description = "La libro pri la programadolingvo nomita Rust"
 
 [[bin]]
 name = "concat_chapters"
