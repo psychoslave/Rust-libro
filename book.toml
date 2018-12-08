@@ -1,6 +1,6 @@
 [book]
 title = "Rust: la programadlingvo"
-author = "Kontribuanaro de la Rust komunaĵo"
+author = "Kontribuanaro de la Rust-a komunaĵo"
 
 [output.html]
 additional-css = ["ferris.css", "theme/2018-edition.css"]
