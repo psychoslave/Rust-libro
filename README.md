@@ -2,23 +2,30 @@
 
 [![Build Status](https://travis-ci.org/rust-lang/book.svg?branch=master)](https://travis-ci.org/rust-lang/book)
 
-Tiu deponejo enhavas fontaro de ĉiuj eldonoj de "*the Rust Programming Language*".
-Plie ĝi servas kiel esperanta tradukejo de tiuj verkoj.
+Tiu deponejo enhavas fontaro de ĉiuj eldonoj de "*the Rust Programming Language*",
+kiel la [oficiala deponejo], sed plie celanta plene esperante traduki la verkaron.
 
-La dua eldono ankaŭ estos havebla morta-arbe de *No Starch Press*, havebla
-ĉirkaŭ Juno 2018. Kontrolu [la *No Starch* paĝon][nostarch] por la lastaj
+[oficiala deponejo](https://github.com/rust-lang/book)
+
+La projekto estas ĵus komencanta, helpo estas ja bonvena. Laborfluo ne jam estas
+difinita, se ne hezitu krei novan bileton por esprimi viajn ideon, deziron helpi
+pri io, kaj tiel plu.  
+
+Vi povas legi ĉiujn eldonojn de la libro origina-versie senpage rete! 
+Bonvolu vidi la libron kiel provizita en la lasta [stabila], [testa] aŭ [ĵusta]
+Rust-a eligo.
+Atentu ke koncernoj de tiuj versioj eble estus jam korektitaj en la deponejo,
+kiel tiuj ĉi eligoj ĝistagigiĝas malpliofte.
+
+[stabila]: https://doc.rust-lang.org/stable/book/
+[testa]: https://doc.rust-lang.org/beta/book/
+[ĵusa]: https://doc.rust-lang.org/nightly/book/
+
+Krom, notu ke la angla dua eldono ankaŭ estos havebla morta-arbe de *No Starch Press*,
+havebla ĉirkaŭ Juno 2018. Kontrolu [la *No Starch* paĝon][nostarch] por la lastaj
 informoj de la elliga dato kaj kiel mendi.
 
 [nostarch]: https://nostarch.com/rust
-
-You can read all editions of the book for free online! Please see the book as
-shipped with the latest [stable], [beta], or [nightly] Rust releases. Be
-aware that issues in those versions may have been fixed in this repository
-already, as those releases are updated less frequently.
-
-[stable]: https://doc.rust-lang.org/stable/book/
-[beta]: https://doc.rust-lang.org/beta/book/
-[nightly]: https://doc.rust-lang.org/nightly/book/
 
 ## Requirements
 
@@ -123,24 +130,24 @@ the word doc as markdown in order to backport changes to the online book:
 1. Inspect changes made to the markdown file in the *nostarch* directory and
    copy the changes to the *src* directory as appropriate.
 
-## Graphviz dot
+   ## Graphviz dot
 
-We're using [Graphviz](http://graphviz.org/) for some of the diagrams in the
-book. The source for those files live in the `dot` directory. To turn a `dot`
-file, for example, `dot/trpl04-01.dot` into an `svg`, run:
+   We're using [Graphviz](http://graphviz.org/) for some of the diagrams in the
+   book. The source for those files live in the `dot` directory. To turn a `dot`
+   file, for example, `dot/trpl04-01.dot` into an `svg`, run:
 
-```bash
-$ dot dot/trpl04-01.dot -Tsvg > src/img/trpl04-01.svg
-```
+   ```bash
+   $ dot dot/trpl04-01.dot -Tsvg > src/img/trpl04-01.svg
+   ```
 
-In the generated SVG, remove the width and the height attributes from the `svg`
-element and set the `viewBox` attribute to `0.00 0.00 1000.00 1000.00` or other
-values that don't cut off the image.
+   In the generated SVG, remove the width and the height attributes from the `svg`
+   element and set the `viewBox` attribute to `0.00 0.00 1000.00 1000.00` or other
+   values that don't cut off the image.
 
-## Spellchecking
+   ## Spellchecking
 
-To scan source files for spelling errors, you can use the `spellcheck.sh`
-script. It needs a dictionary of valid words, which is provided in
-`dictionary.txt`. If the script produces a false positive (say, you used word
-`BTreeMap` which the script considers invalid), you need to add this word to
-`dictionary.txt` (keep the sorted order for consistency).
+   To scan source files for spelling errors, you can use the `spellcheck.sh`
+   script. It needs a dictionary of valid words, which is provided in
+   `dictionary.txt`. If the script produces a false positive (say, you used word
+   `BTreeMap` which the script considers invalid), you need to add this word to
+   `dictionary.txt` (keep the sorted order for consistency).
