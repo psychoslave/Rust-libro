@@ -20,26 +20,27 @@ fokusantaj al ofta datena strukturo: ĉenoj.
 
 > ### La stako kaj la staplo
 >
-> In many programming languages, you don’t have to think about the stack and
-> the heap very often. But in a systems programming language like Rust, whether
-> a value is on the stack or the heap has more of an effect on how the language
-> behaves and why you have to make certain decisions. Parts of ownership will
-> be described in relation to the stack and the heap later in this chapter, so
-> here is a brief explanation in preparation.
+> Multe da elordonalingvoj ne devigas ke disvolvistoj ofte zorgas pri stako kaj
+> staplo. Sed en sistema lordonalingvo kiel Rust, la taksada konduto kaj
+> kial vi farendas iajn decidojn ege dependas de ĉu la stako ĉu la staplo uzado.
+> Partoj de propreco estos priskribitaj rilate al la stako kaj la staplo en tiu
+> ĉapitro, do tie estas eta antaŭa klarigo.
 >
-> Both the stack and the heap are parts of memory that are available to your code
-> to use at runtime, but they are structured in different ways. The stack stores
-> values in the order it gets them and removes the values in the opposite order.
-> This is referred to as *last in, first out*. Think of a stack of plates: when
-> you add more plates, you put them on top of the pile, and when you need a
-> plate, you take one off the top. Adding or removing plates from the middle or
-> bottom wouldn’t work as well! Adding data is called *pushing onto the stack*,
-> and removing data is called *popping off the stack*.
+> Stako kaj staplo estas partoj de memoro kiuj estas havebla koduzante rultempe,
+> sed ili estas malsame strukturitaj pri pluraj iaj. La stako stokas kiomojn
+> akirorde, kaj forigas ilin inversorde. Tio estas nomita
+> *lasta eniro, unua eliro*. Pensu pri stako de telero: kiam vi aldonas pli da
+> telero, vi prenas unu el la supro. Aldoni kaj forigi telerojn el la mezo aŭ
+> el la fundo ne funkcius tiel bone! Aldoni datenojn estas nomita
+> *almeti supren la stako* kaj forigi dateno estas nomita *elmeti el la stako*.
 >
-> The stack is fast because of the way it accesses the data: it never has to
-> search for a place to put new data or a place to get data from because that
-> place is always the top. Another property that makes the stack fast is that
-> all data on the stack must take up a known, fixed size.
+> La stako estas rapida pro la maniero ĝi aliras datenojn: ĝi neniam bezonas
+> serĉi ejon kie almeti novan datenon aŭ ejo de kie akiri datenon ĉar le ejo
+> ĉiam estas la supron. Alia eco kiu faras ke la stako estas rapida estas ke
+> ĉiuj datenoj supre la stako devas havi konitan, fiksitan amplekson.
+>
+> Datenoj kun gentempe nekonitaj ampleksoj aŭ variaj ampleksoj storiĝeblas al
+> staplo anstataŭ.
 >
 > Data with a size unknown at compile time or a size that might change can be
 > stored on the heap instead. The heap is less organized: when you put data on
