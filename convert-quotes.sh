@@ -1,6 +1,6 @@
 #!/bin/bash
 # Kopirajto 2017 far la Rust komunaĵo. Vidu la datenujon KOPIRAJTO
-# ĉe la supra-nivela dosio de tiu disdono kaj ĉe http://rust-lang.org/COPYRIGHT.
+# ĉe la supra-nivela datenujaro de tiu disdono kaj ĉe http://rust-lang.org/COPYRIGHT.
 #
 # Licencigita laŭ la Apache licenco, Versio 2.0 <LICENSE-APACHE aŭ
 # http://www.apache.org/licenses/LICENSE-2.0> aŭ MIT-a licenco
