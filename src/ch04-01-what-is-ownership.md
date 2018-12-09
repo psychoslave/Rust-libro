@@ -1,27 +1,24 @@
-## What Is Ownership?
+## Kio estas propreco?
 
-Rust’s central feature is *ownership*. Although the feature is straightforward
-to explain, it has deep implications for the rest of the language.
+La ĉefa ivo de Rust estas *propreco*. Kvankam la klarigo de la  ivo estas
+simpla, ĝi havas profundajn implicojn por la resto de la lingvo.
 
-All programs have to manage the way they use a computer’s memory while running.
-Some languages have garbage collection that constantly looks for no longer used
-memory as the program runs; in other languages, the programmer must explicitly
-allocate and free the memory. Rust uses a third approach: memory is managed
-through a system of ownership with a set of rules that the compiler checks at
-compile time. None of the ownership features slow down your program while it’s
-running.
+Ĉiuj elordonoj endas estri kia uzi memoro de komputilo rultempe.
+Iuj lingvoj havas senrubigo kiu senĉese zorgas pri ne plu uzanta memoro
+rultempe; en aliaj lingvoj, elordonisto endas eksplicite okupi kaj malokupi
+memoron. Rust uzas tria vojo: memoro estas estrita per sistemo de propreco kun
+regularo, kiujn la kodgenilo gentempe kontrolas. Neniu el la ivo de propreco
+malrapidigas vian elordonon rultempe.
 
-Because ownership is a new concept for many programmers, it does take some time
-to get used to. The good news is that the more experienced you become with Rust
-and the rules of the ownership system, the more you’ll be able to naturally
-develop code that is safe and efficient. Keep at it!
+Ĉar propreco estas nova koncepto por multe da elordonistoj, kutimiĝo daŭras.
+La bona novaĵo estas ke ju pli vi spertiĝu Rust kaj la propreco-sistemo-rularo,
+des pli vi eblos spontane disvolvi sekuran kaj rendimentan kodon. Daŭrigu!
 
-When you understand ownership, you’ll have a solid foundation for understanding
-the features that make Rust unique. In this chapter, you’ll learn ownership by
-working through some examples that focus on a very common data structure:
-strings.
+Kiam vi komprenos proprecon, vi havos firman fundamenton por kompreni la ivoj
+kiuj faras Rust unikan. Ĉi ĉapitro, vi lernos proprecon per tralabori ekzemplojn
+fokusantaj al ofta datena strukturo: ĉenoj.
 
-> ### The Stack and the Heap
+> ### La stako kaj la staplo
 >
 > In many programming languages, you don’t have to think about the stack and
 > the heap very often. But in a systems programming language like Rust, whether
