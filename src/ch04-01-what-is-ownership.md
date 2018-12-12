@@ -1,21 +1,21 @@
-## Kio estas propreco?
+## Kio estas proprigo?
 
-La ĉefa ivo de Rust estas *propreco*. Kvankam la klarigo de la  ivo estas
+La ĉefa ivo de Rust estas *proprigo*. Kvankam la klarigo de la  ivo estas
 simpla, ĝi havas profundajn implicojn por la resto de la lingvo.
 
 Ĉiuj elordonoj endas estri kia uzi memoro de komputilo rultempe.
 Iuj lingvoj havas senrubigo kiu senĉese zorgas pri ne plu uzanta memoro
 rultempe; en aliaj lingvoj, elordonisto endas eksplicite okupi kaj malokupi
-memoron. Rust uzas tria vojo: memoro estas estrita per sistemo de propreco kun
-regularo, kiujn la kodgenilo gentempe kontrolas. Neniu el la ivo de propreco
+memoron. Rust uzas tria vojo: memoro estas estrita per sistemo de proprigo kun
+regularo, kiujn la kodgenilo gentempe kontrolas. Neniu el la ivo de proprigo
 malrapidigas vian elordonon rultempe.
 
-Ĉar propreco estas nova koncepto por multe da elordonistoj, kutimiĝo daŭras.
-La bona novaĵo estas ke ju pli vi spertiĝu Rust kaj la propreco-sistemo-rularo,
+Ĉar proprigo estas nova koncepto por multe da elordonistoj, kutimiĝo daŭras.
+La bona novaĵo estas ke ju pli vi spertiĝu Rust kaj la proprigo-sistemo-rularo,
 des pli vi eblos spontane disvolvi sekuran kaj rendimentan kodon. Daŭrigu!
 
-Kiam vi komprenos proprecon, vi havos firman fundamenton por kompreni la ivoj
-kiuj faras Rust unikan. Ĉi ĉapitro, vi lernos proprecon per tralabori ekzemplojn
+Kiam vi komprenos proprigon, vi havos firman fundamenton por kompreni la ivoj
+kiuj faras Rust unikan. Ĉi ĉapitro, vi lernos proprigon per tralabori ekzemplojn
 fokusantaj al ofta datena strukturo: ĉenoj.
 
 > ### La stako kaj la staplo
@@ -23,7 +23,7 @@ fokusantaj al ofta datena strukturo: ĉenoj.
 > Multe da elordonalingvoj ne devigas ke disvolvistoj ofte zorgas pri stako kaj
 > staplo. Sed en sistema lordonalingvo kiel Rust, la taksada konduto kaj
 > kial vi farendas iajn decidojn ege dependas de ĉu la stako ĉu la staplo uzado.
-> Partoj de propreco estos priskribitaj rilate al la stako kaj la staplo en tiu
+> Partoj de proprigo estos priskribitaj rilate al la stako kaj la staplo en tiu
 > ĉapitro, do tie estas eta antaŭa klarigo.
 >
 > Stako kaj staplo estas partoj de memoro kiuj estas havebla koduzante rultempe,
@@ -37,57 +37,52 @@ fokusantaj al ofta datena strukturo: ĉenoj.
 > La stako estas rapida pro la maniero ĝi aliras datenojn: ĝi neniam bezonas
 > serĉi ejon kie almeti novan datenon aŭ ejo de kie akiri datenon ĉar le ejo
 > ĉiam estas la supron. Alia eco kiu faras ke la stako estas rapida estas ke
-> ĉiuj datenoj supre la stako devas havi konitan, fiksitan amplekson.
+> ĉiuj datenoj supre la stako devas havi konitan, fiksitan areon.
 >
-> Datenoj kun gentempe nekonitaj ampleksoj aŭ variaj ampleksoj storiĝeblas al
-> staplo anstataŭ.
+> Datenoj kun gentempe nekonitaj areoj aŭ variaj areoj storiĝeblas al
+> staplo anstataŭ. La staplo estas malpli rigida: kiam vi enigas datenojn supren
+> la staplo, vi petas iom da spaco. La estrilo trovas sufiĉe ampleksan vakuan
+> lokon ie en la staplo, markas ĝin kiel uzata, kaj liveras *deilo*, tio estas
+> la adreso de la loko.
+> Tiu procezo estas nomita *asignado supren staplo*, iam mallongigita kiel nur
+> *asigno*. Puŝi kiomon supren la stakon ne estas konsiderata kiel asigno. Ĉar
+> la deilo estas konita fisksa areo, ĝi storiĝas al la stako, kvakam sekvi la
+> deilon estas necesa por akiri la efektivajn datenojn.
 >
-> Data with a size unknown at compile time or a size that might change can be
-> stored on the heap instead. The heap is less organized: when you put data on
-> the heap, you ask for some amount of space. The operating system finds an
-> empty spot somewhere in the heap that is big enough, marks it as being in
-> use, and returns a *pointer*, which is the address of that location. This
-> process is called *allocating on the heap*, sometimes abbreviated as just
-> “allocating.” Pushing values onto the stack is not considered allocating.
-> Because the pointer is a known, fixed size, you can store the pointer on the
-> stack, but when you want the actual data, you have to follow the pointer.
+> Pensu sidiĝi ristorante. Kiam vi eniras, vi diru la nombron da ulo en via
+> grupo, kaj la dungitaro trovas malplenan tabelon, kiu adaptas ĉiujn kaj
+> alkondukas vin tien. Se iu en via grupo venas posttempa, ili povas demandi kie
+> vi estis sidigita por trovi vin.
 >
-> Think of being seated at a restaurant. When you enter, you state the number of
-> people in your group, and the staff finds an empty table that fits everyone
-> and leads you there. If someone in your group comes late, they can ask where
-> you’ve been seated to find you.
+> Aliri datenojn en la staplo estas malpli rapida ol aliri datenojn sur la stako
+> ĉar vi endas sekvi montrilon por iri tien. Nunaj traktiloj estas pli rapidaj
+> se ili saltas malpli de unu memorero al alia. Daŭrigi la analogion, konsideru
+> servulon ĉe ristoranto prenanta mendo de multe tabeloj. Ĝi estas multe pli
+> efika preni ĉiujn la medojn de unu tabelo antaŭ movi al sekvantan tabelon.
+> Preni mendon de unua tabelo, antaŭ mendon de dua tabelo, antaŭ denove de la
+> unua kaj finfine de la dua denove estas multe pli lanta procezo. Simile,
+> traktilo povas plibone fari ĝian taskon se ĝi traktas preterajn datenojn (kiel
+> surstake) anstataŭ forajn datenojn (kiel surstaple). Asigni larĝan kvanto de
+> spaco de la staplo ankaŭ povas preni tempon.
 >
-> Accessing data in the heap is slower than accessing data on the stack because
-> you have to follow a pointer to get there. Contemporary processors are faster
-> if they jump around less in memory. Continuing the analogy, consider a server
-> at a restaurant taking orders from many tables. It’s most efficient to get
-> all the orders at one table before moving on to the next table. Taking an
-> order from table A, then an order from table B, then one from A again, and
-> then one from B again would be a much slower process. By the same token, a
-> processor can do its job better if it works on data that’s close to other
-> data (as it is on the stack) rather than farther away (as it can be on the
-> heap). Allocating a large amount of space on the heap can also take time.
+> Kiam via kodo vokas funkcion, la kiomoj pasitaj al la funkcio (inklude eble
+> montriloj al datenoj de la staplo) kaj la lokaj kiomingoj puŝiĝas staken. Kiam
+> la funkcio finiĝas, tiuj kiomoj foreliĝas stake.
 >
-> When your code calls a function, the values passed into the function
-> (including, potentially, pointers to data on the heap) and the function’s
-> local variables get pushed onto the stack. When the function is over, those
-> values get popped off the stack.
->
-> Keeping track of what parts of code are using what data on the heap,
-> minimizing the amount of duplicate data on the heap, and cleaning up unused
-> data on the heap so you don’t run out of space are all problems that ownership
-> addresses. Once you understand ownership, you won’t need to think about the
-> stack and the heap very often, but knowing that managing heap data is why
-> ownership exists can help explain why it works the way it does.
+> Gardi spuron de kio parto de kodo uzas kion datenon de la staplo, plejetigi
+> la kvanton de duoblaj datenoj en la staplo, purigi nepluuzatajn datenojn de la
+> staplo do ni ne mankas spcon, estas ĉiaj problemoj ke proprigo solvas. Unufoje
+> vi komprenos proprigon, vi ne plu bezonos pensi pri la stako kaj la staplo
+> ofte, sed scii ke zorgi stapladatenon estas kial proprigo ekzisats povas helpi
+> klarigi kial ĝi funkcias tielan.
 
-### Ownership Rules
+### Reguloj de proprigo
 
-First, let’s take a look at the ownership rules. Keep these rules in mind as we
-work through the examples that illustrate them:
-
-* Each value in Rust has a variable that’s called its *owner*.
-* There can only be one owner at a time.
-* When the owner goes out of scope, the value will be dropped.
+Unue, ni rigardu la regularon de proprigo. Memoru tiujn regularojn dum ni iru
+tra ekzemploj kiuj ilustras ilin:
+* ĉiu kiomo de Rust havas kiomingon kiu nomiĝas ĝia proprulo.
+* eblas esti proprulo nur po unu
+* kiam la proprulo ekstrafas, la kiomo foreksiĝas.
 
 ### Variable Scope
 
