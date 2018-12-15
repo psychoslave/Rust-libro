@@ -84,95 +84,100 @@ tra ekzemploj kiuj ilustras ilin:
 * eblas esti proprulo nur po unu
 * kiam la proprulo ekstrafas, la kiomo foreksiĝas.
 
-### Variable Scope
+### Trafejo de kiomingo
 
-We’ve walked through an example of a Rust program already in Chapter 2. Now
-that we’re past basic syntax, we won’t include all the `fn main() {` code in
-examples, so if you’re following along, you’ll have to put the following
-examples inside a `main` function manually. As a result, our examples will be a
-bit more concise, letting us focus on the actual details rather than
-boilerplate code.
+Ni jam trazorgis ekemplon de Rust-a elordono dum ĉapitro 2. Nun ke ni estas post
+simpla disponigo, ni ne plu inkludos ĉiujn la `fn main() {` kodon en ekzemploj,
+do se vi trasekvas, vi endos meti la postajn ekzemplojn ene `main` funkcio ule.
+Rezulte, niaj ekzemploj estos ete pli konciza, permetante al ni fokusi al
+detaloj anstataŭ plenreuzema kodo.
 
-As a first example of ownership, we’ll look at the *scope* of some variables. A
-scope is the range within a program for which an item is valid. Let’s say we
-have a variable that looks like this:
-
-```rust
-let s = "hello";
-```
-
-The variable `s` refers to a string literal, where the value of the string is
-hardcoded into the text of our program. The variable is valid from the point at
-which it’s declared until the end of the current *scope*. Listing 4-1 has
-comments annotating where the variable `s` is valid.
+Kiel unua ekzemplo de proprigo, ni rigardu trafejon de iuj kiomingoj. Trafejo
+estas la amplekso ene de elordono laŭ kiu iro validas. Diru ni havas kiomingon,
+kiu ŝajnas jene:
 
 ```rust
-{                      // s is not valid here, it’s not yet declared
-    let s = "hello";   // s is valid from this point forward
-
-    // do stuff with s
-}                      // this scope is now over, and s is no longer valid
+// tie salutado iĝu cite Halo ĉiuj! bare tuj
+let salutado = "Halo ĉiuj!";
 ```
 
-<span class="caption">Listing 4-1: A variable and the scope in which it is
-valid</span>
+La kiomingo `salutado` ekrilatas al ĉena rektkiomo, kie la kiomo de la ĉeno
+estas rektkodita en la teskto de via elordono. La kiomingo validas ekde tiu
+punkto de kiu ĝi estas deklarita ĝis la fino de la nuna trafejo. Listado 4-1
+havas komentoj anotaciantj kie la kiomingo `salutado` validas.
 
-In other words, there are two important points in time here:
-
-* When `s` comes *into scope*, it is valid.
-* It remains valid until it goes *out of scope*.
-
-At this point, the relationship between scopes and when variables are valid is
-similar to that in other programming languages. Now we’ll build on top of this
-understanding by introducing the `String` type.
-
-### The `String` Type
-
-To illustrate the rules of ownership, we need a data type that is more complex
-than the ones we covered in the “Data Types” section of Chapter 3. The types
-covered previously are all stored on the stack and popped off the stack when
-their scope is over, but we want to look at data that is stored on the heap and
-explore how Rust knows when to clean up that data.
-
-We’ll use `String` as the example here and concentrate on the parts of `String`
-that relate to ownership. These aspects also apply to other complex data types
-provided by the standard library and that you create. We’ll discuss `String` in
-more depth in Chapter 8.
-
-We’ve already seen string literals, where a string value is hardcoded into our
-program. String literals are convenient, but they aren’t suitable for every
-situation in which we may want to use text. One reason is that they’re
-immutable. Another is that not every string value can be known when we write
-our code: for example, what if we want to take user input and store it? For
-these situations, Rust has a second string type, `String`. This type is
-allocated on the heap and as such is able to store an amount of text that is
-unknown to us at compile time. You can create a `String` from a string literal
-using the `from` function, like so:
 
 ```rust
-let s = String::from("hello");
+{                            // salutado ne validas ĉi tie, ĝi ne jam estas deklarita
+    let salutado = "Halo ĉiuj!";   // salutado validas ekde tie ĉi posten
+
+    // faru agojn kun salutado
+}   // tiu ĉi trafejo nun estas eksa, kaj salutado ne plu validas
 ```
 
-The double colon (`::`) is an operator that allows us to namespace this
-particular `from` function under the `String` type rather than using some sort
-of name like `string_from`. We’ll discuss this syntax more in the “Method
-Syntax” section of Chapter 5 and when we talk about namespacing with modules in
-“Paths for Referring to an Item in the Module Tree” in Chapter 7.
+<span class="caption">Listado 4-1: Kiomingo kaj la trafejo kie ĝi validas</span>
 
-This kind of string *can* be mutated:
+Alivorte, estas du grava momento tie:
+* kiam `salutado` envenas trafejo, ĝi validas ;
+* ĝi ade validas ĝis ĝi fortrafiĝas.
+
+Tiam, la rilato inter trafejoj kaj kiam kiomingoj validas, similas al tia en
+aliaj elordonalingvoj. Nun ni konstruos supren tion komprenon per enkonduko de
+la `Ĉeno` (*`String`*) tipo.
+
+### La `Ĉeno` tipo
+
+Por ilustri la reguloj de proprigo, ni necesas datentipo, kiu estas pli komplika
+ol tiuj ni traktis en la "Datenaj tipoj" sekcio de la ĉapitro 3. Tipoj trakitaj
+antaŭe ĉiuj memoriĝas stake kaj elmemoriĝas kiam ilia trafejo malvalidas, sed ni
+volas zorgi pri datenoj, kiuj memoriĝas staple kaj esplore kiel Rust scias kiam
+viŝi datenojn.
+
+Ni uzos `Ĉeno` (*`String`*) kiel ekezemplo ĉi tie kaj koncentros al partoj de
+`Ĉeno`, kiuj rilatas al proprigo. Tiuj aspektoj ankaŭ aplikas al aliaj
+kompleksaj datenaj tipoj, provizita de norma elordonteko kaj ke vi povas kei.
+Ni diskutos `Ĉeno` pli plene dum ĉapitro 8.
+
+Ni jam vidis ĉenaj rektkiomoj, kie ĉena kiomo estas rektkodita en nia elordono.
+Ĉenaj rektkiomo estas oportuna, sed ne taŭgas ĉiujn situojn kie ni eble volus
+uzi tekston. Unu kialo estas ke ili estas fiksaj. Alia kialo estas ke ne ĉiuj
+ĉenaj kiomoj povas esti konita kiam ni skribas nian kodon.: ekzemple, kio okazus
+se ni deziras peti enigon de uzanto kaj memori ĝin? Por tiuj situoj, Rust havas
+duan ĉenan tipon, `Ĉeno` (*`String`*). Tiu tipo estas asignita supren la staplo
+gentempe kaj do povas memori kvanon da teskto ke ni ne konas gentempe. Vi povas
+krei `Ĉeno` el ĉena rektkiomo uzante la funkcio `de (*`from`*), tiel:
+
 
 ```rust
-let mut s = String::from("hello");
-
-s.push_str(", world!"); // push_str() appends a literal to a String
-
-println!("{}", s); // This will print `hello, world!`
+// tie salutado iĝu ĉeno fare eliĝi cite saluton! bare ope
+let salutado = String::from("saluton!")
 ```
 
-So, what’s the difference here? Why can `String` be mutated but literals
-cannot? The difference is how these two types deal with memory.
+La duobla duponkto (`::`), ke ni vortigis per "fare" en la plena esperanta
+komento, estas elkiomilo kiu eblas nin nomujigi tiun specifikan funkcion `eliĝi`
+(*`from`*) de la tipo `Ĉeno` (*`String`*), anstataŭ uzi ian nomon kiel
+`ĉeno_de`. Ni diskutos pri tiu disponigo plie en la "Kiomiga disponigo"
+sekcio de ĉapitro 5 kaj kiam ni parolos pri nomujado kun moduloj en
+"Vojoj por referi al ero ene de la modulo Ĉienaro" en ĉapitro 7.
 
-### Memory and Allocation
+Tiu speco de ĉeno *povas* esti variita:
+
+
+```rust
+// tie varia salutado iĝu ĉeno fare eliĝi cite halo bare ope tuj
+let mut salutado = String::from("halo");
+
+// salutade alĉeni "mondo!" opu (flanke ĉitado pri alĉeni)
+salutado.push_str(" mondo!"); // `push_str` aldonas rektkiomon al ĉeno
+
+// linio ece el "{}", salutado opu
+println!("{}", s); // Tio linios "saluton mondo!"
+```
+
+Do kio estas la malsamo tie? Kial `Ĉeno` povas esti variita sed rektkiomoj ne
+povas? La malsamo estas kiel tiuj ĉi du tipoj traktas memoron.
+
+### Memoro kaj asignado
 
 In the case of a string literal, we know the contents at compile time, so the
 text is hardcoded directly into the final executable. This is why string
