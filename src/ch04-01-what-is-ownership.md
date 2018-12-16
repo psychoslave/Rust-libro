@@ -139,13 +139,13 @@ kompleksaj datenaj tipoj, provizita de norma elordonteko kaj ke vi povas kei.
 Ni diskutos `Ĉeno` pli plene dum ĉapitro 8.
 
 Ni jam vidis ĉenaj rektkiomoj, kie ĉena kiomo estas rektkodita en nia elordono.
-Ĉenaj rektkiomo estas oportuna, sed ne taŭgas ĉiujn situojn kie ni eble volus
+Ĉenaj rektkiomo estas oportuna, sed ne taŭgas ĉiujn situaciojn kie ni eble volus
 uzi tekston. Unu kialo estas ke ili estas fiksaj. Alia kialo estas ke ne ĉiuj
 ĉenaj kiomoj povas esti konita kiam ni skribas nian kodon.: ekzemple, kio okazus
-se ni deziras peti enigon de uzanto kaj memori ĝin? Por tiuj situoj, Rust havas
-duan ĉenan tipon, `Ĉeno` (*`String`*). Tiu tipo estas asignita supren la staplo
-gentempe kaj do povas memori kvanon da teskto ke ni ne konas gentempe. Vi povas
-krei `Ĉeno` el ĉena rektkiomo uzante la funkcio `de (*`from`*), tiel:
+se ni deziras peti enigon de uzanto kaj memori ĝin? Por tiuj situacioj, Rust
+havas duan ĉenan tipon, `Ĉeno` (*`String`*). Tiu tipo estas asignita supren la
+staplo gentempe kaj do povas memori kvanton da teskto ke ni ne konas gentempe.
+Vi povas krei `Ĉeno` el ĉena rektkiomo uzante la funkcio `de (*`from`*), tiel:
 
 
 ```rust
@@ -179,62 +179,68 @@ povas? La malsamo estas kiel tiuj ĉi du tipoj traktas memoron.
 
 ### Memoro kaj asignado
 
-In the case of a string literal, we know the contents at compile time, so the
-text is hardcoded directly into the final executable. This is why string
-literals are fast and efficient. But these properties only come from the string
-literal’s immutability. Unfortunately, we can’t put a blob of memory into the
-binary for each piece of text whose size is unknown at compile time and whose
-size might change while running the program.
+Kaze de ĉena rektkiomo, ni scias la enhavojn gentempe, do la teksto estas
+rektkodita tuje en la fina ruleblaĵo. Tio estas kial ĉenaj rektkiomoj estas
+rapida kaj rendimenta. Sed tiuj ecoj nur okazas danke al la fikseco de ĉenaj
+rektkiomoj. Malfortune, ni ne povas meti memoran datumon en la ruleblaĵo por ĉiu
+peco de teksto, kies areo estas malkonita gentempe kaj kies areo povus ŝanĝi
+rultempe.
 
-With the `String` type, in order to support a mutable, growable piece of text,
-we need to allocate an amount of memory on the heap, unknown at compile time,
-to hold the contents. This means:
+Kun la tipo `Ĉeno` (*`String`*), por ivi varian, kreskeblan pecon de teksto, ni
+bezonas asigni kvanto da memoro de la staplo, nekonata gentempe, por memorigi la
+enhavojn. Tiu signifas:
 
-* The memory must be requested from the operating system at runtime.
-* We need a way of returning this memory to the operating system when we’re
-  done with our `String`.
+* La memore devas esti petita al la estrilo rultempe.
+* Ni bezonas vojon redoni tiun memoron al la estrilo kiam ni finis uzi nian
+  ĉenon.
 
-That first part is done by us: when we call `String::from`, its implementation
-requests the memory it needs. This is pretty much universal in programming
-languages.
+Tiu ĉi unua parto estas farita de ni: kiam ni vokas `ĉeno fare de`
+(*`String::from`*), ĝia realigo petas memoron ke ĝi necesas. Tiu estas proksime
+universa elordonalingvoj.
 
-However, the second part is different. In languages with a *garbage collector
-(GC)*, the GC keeps track and cleans up memory that isn’t being used anymore,
-and we don’t need to think about it. Without a GC, it’s our responsibility to
-identify when memory is no longer being used and call code to explicitly return
-it, just as we did to request it. Doing this correctly has historically been a
-difficult programming problem. If we forget, we’ll waste memory. If we do it
-too early, we’ll have an invalid variable. If we do it twice, that’s a bug too.
-We need to pair exactly one `allocate` with exactly one `free`.
+Kvankam, la dua parto estas malsama. Kun lingvoj kun senrubigilo, tiu ĉi spuras
+kaj purigas ne plu uzitan memoron, kaj ni ne bezonas pensi pri tio. Sen
+senrubigilo, estas nia respondeco identigi kiam memore ne plu uzota kaj voki
+kodon por esplicite redoni ĝin, ekzate kiel ni petis ĝin. Fari tion taŭge estis
+historie malfacila elordona problemo. Se ni fogesas tion, ni disipas memoron.
+Se ni faras ĝin tro frue, ni havos malvalida kiomingo. Se ni faras tion dufoje,
+tio estas ankaŭ difekto. Ne devas pari ekazkte unu `asigni` kun ekzakte unu
+`malasigni`.
 
-Rust takes a different path: the memory is automatically returned once the
-variable that owns it goes out of scope. Here’s a version of our scope example
-from Listing 4-1 using a `String` instead of a string literal:
+Rust sekvas malsaman vojon: la memoro estas aŭtomate redonita kiam la kiomingo
+kiu ricevis ĝin kiel proprigo, ne plu estas trafebla. Jen estas versio de nia
+ekzemplo de trafejo el Listado 4-1 uzante `Ĉeno` (*`String`*) anstataŭ ĉena
+rektkiomo.
+
 
 ```rust
+// jene
 {
-    let s = String::from("hello"); // s is valid from this point forward
+    // tie salutado iĝu ĉeno fare de "saluton" ope tuj
+    let salutado = "saluton";   // salutado validas ekde tie ĉi posten
 
-    // do stuff with s
-}                                  // this scope is now over, and s is no
-                                   // longer valid
+    // faru agojn kun salutado
+// are
+}   // tiu ĉi trafejo nun estas eksa, kaj salutado ne plu validas
 ```
+Estas evidenta ejo kie post kiu redoni memoron ke nia ĉeno necesas al la
+estrilo: kiam `salutado` neplutrafebliĝas. Kiam kiomingo devenas neplustrafebla,
+Rust vokas specian funkcion por ni. Tiu funkcio estas nomita `fini` (*`drop`*)
+kaj estas kie la verkisto de `Ĉeno` (*`String`*) povas placi kodon por redoni
+memoron. Rust vokas `fini` (*`drop`*) aŭtomate al kodblokfino, tio estas al
+arigejo signita de fermanta kuniga krampo.
 
-There is a natural point at which we can return the memory our `String` needs
-to the operating system: when `s` goes out of scope. When a variable goes out
-of scope, Rust calls a special function for us. This function is called `drop`,
-and it’s where the author of `String` can put the code to return the memory.
-Rust calls `drop` automatically at the closing curly bracket.
+> Notu: En C++, tiu skemo de rimeda malasignado ĉe fino de vivtempo de ero estas
+> iam nomita *rimeda akiro ekuzu* (*Resource Acquisition Is Initialization*,
+> mallongige *RAII*).
+> La funkcio `fini` (*`drop`*) de Rust estos familiara por vi se vi jam uzis
+> tiun skemon.
 
-> Note: In C++, this pattern of deallocating resources at the end of an item’s
-> lifetime is sometimes called *Resource Acquisition Is Initialization (RAII)*.
-> The `drop` function in Rust will be familiar to you if you’ve used RAII
-> patterns.
+Tiu skemo havas profundan efikon pri kiel Rusta kodo estas verkita. Tio eble
+ŝajnas simpla nun, sed la konduto de la kodo povas deveni malatendota en pli
+komplikaj situacioj, kiam ni volas havi plurajn kiomingojn kiuz uzas la datenon
+ke ni asignis al la staplo. Ni esploru kelkajn tiajn situaciojn nun.
 
-This pattern has a profound impact on the way Rust code is written. It may seem
-simple right now, but the behavior of code can be unexpected in more
-complicated situations when we want to have multiple variables use the data
-we’ve allocated on the heap. Let’s explore some of those situations now.
 
 #### Ways Variables and Data Interact: Move
 
