@@ -73,41 +73,53 @@ Por ruli testojn:
 $ mdbook test
 ```
 
-## Contributing
+## Kontribuo
 
-We'd love your help! Please see [CONTRIBUTING.md][contrib] to learn about the
-kinds of contributions we're looking for.
+Ni ŝategus havi vian helpon! Bonvolu vidi  [KONTRIBUADO.md][kontribuo] por scii
+pri kiaj kontribuoj ni bezonas.
 
-### 2018 Edition
+### Eldono de 2018
 
-The "2018" Edition is in the process of being updated with the language changes 
-that will be available with the 2018 Edition of the Rust language. All new 
-contributions should be to this edition.
+La Eldono de 2018 estas en ĝisdatiga procedo kun la ŝanĝoj de la lingvo kiuj estos
+havebla kun la 2018a eldono de Rust lingvo. Ĉiuj novaj kontribuoj aldonendiĝas en
+tiu eldono.
 
-### Second Edition
+### Dua elodono
 
-No Starch Press has brought the second edition to print. Pull requests fixing
-factual errors will be accepted and documented as errata; pull requests changing
-wording or other small corrections should be made against the 2018 edition instead.
+Nune, ĉiuj efortoj prefere iros al la traduko de la 2018a eldono. Sed se vi preferas
+labori pri pli stabila versio, vi ankaŭ povus traduki prefere la 2018an eldonon.
 
-### First Edition
+Por la Angla origina versio, *No Starch Press* provizis la dua eldono prese.
+Kunŝatapetoj kiuj korektas faktaj ereroj estos akceptitaj kaj dokumentitaj
+kiel preseraro; kunŝatapetoj ŝanĝantaj vortigoj kaj aliaj korektetoj farindiĝus
+al la eldono de 2018 anstataŭ.
 
-The first edition is frozen, and is not accepting any changes at this time.
+### Unua eldono
+
+La unua eldono estas tute halta. Ĝi estas gardata pro historia kialo. Traduko de tiu verko estas malprioritata.
+Konsideru zorgi unue pri la traduko de la dua eldono se vi deziras nemovan celon.
+
+Krom, la origina deponejo ne akceptos ŝanĝoj al la origina versio de la Angla unua eldono.
 
 
-[contrib]: https://github.com/rust-lang/book/blob/master/CONTRIBUTING.md
+[kontribuo]: https://github.com/psychoslave/Rust-libro/blob/master/KONTRIBUADO.md
 
-### Translations
+### Tradukoj
 
-We'd especially love help translating the second edition or 2018 edition of the book! See the
-[Translations] label to join in efforts that are currently in progress. Open
-a new issue to start working on a new language! We're waiting on [mdbook
-support] for multiple languages before we merge any in, but feel free to
-start! The second edition is frozen and won't see major
-changes, so if you start with that, you won't have to redo work :)
+La teamo de tiu ĉi deponejo taŭgas traduki ĉiujn ne-pure-teknikajn datenujojn, do inklude skriptojn ktp,
+kiam ili havas ne tute aŭtomate faritan enhavon. Tio dirita, la prioritato estas traduki la 2018an eldonon
+unue. Do kvankam traduki permisilojn ktp estas ankaŭ celata, bonvolu konsideri unue traduki enhavon de la
+2018a eldono de la libro.
 
-[Translations]: https://github.com/rust-lang/book/issues?q=is%3Aopen+is%3Aissue+label%3ATranslations
-[mdbook support]: https://github.com/azerupi/mdBook/issues/5
+La teamo de la origina deponejo speciale ŝatus havi helpon pri traduko de la dua kaj 2018a elodono
+de la libro. Vidu la etikedon "[tradukoj]" por aliĝi tian eforton progresantan. Malfermu novan
+atendindaĵon por eklabori pri nova lingvo! Ili atendas en [mdbooka apogo] antaŭ fari ajnan kunmeton,
+sed libere startu! La dua eldono estas tute halta, kaj ne plu havos ajnan gravan ŝanĝon, do ili
+proponas ektraduki tian version por tiuj kiuj ne deziras refari laboron.
+
+
+[tradukoj]: https://github.com/rust-lang/book/issues?q=is%3Aopen+is%3Aissue+label%3ATranslations
+[mdbooka apogo]: https://github.com/azerupi/mdBook/issues/5
 
 ## No Starch
 
