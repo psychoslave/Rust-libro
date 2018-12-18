@@ -27,30 +27,29 @@ informoj de la elliga dato kaj kiel mendi.
 
 [nostarch]: https://nostarch.com/rust
 
-## Requirements
+## Postuloj
 
-Building the book requires [mdBook], ideally the same version that
-[rust-lang/rust uses in this file][rust-mdbook]. To get it:
+Konstrui la libron necesas [mdBook], prefere la saman version ol
+[rust-lang/rust uses in this file][rust-mdbook]. Por akiri ĝin:
 
 [mdBook]: https://github.com/azerupi/mdBook
 [rust-mdbook]: https://github.com/rust-lang/rust/blob/master/src/tools/rustbook/Cargo.toml
 
 ```bash
-$ cargo install mdbook --vers [version-num]
+$ cargo install mdbook --vers [versio-numero]
 ```
 
-## Building
+## Konstruado
 
-To build the book, first `cd` into the directory of the edition of the
-book you'd like to build. For example, the `first-edition` or
-`second-edition` directory. Then type:
+Por konstrui la libro, unue iru la datenujaro de la libra eldono ke vi
+deziras konstrui. Ekzemple la datenujaro `first-edtion` aŭ
+`second-edition`. Tiam tajpu:
 
 ```bash
 $ mdbook build
 ```
 
-The output will be in the `book` subdirectory. To check it out, open it in
-your web browser.
+La eligo estos en la `book` subdatenujaro. Por kontroli ĝin, spekti ĝin retumile.
 
 _Firefox:_
 ```bash
@@ -68,7 +67,7 @@ $ Start-Process "chrome.exe" .\book\index.html  # Windows (PowerShell)
 $ start chrome.exe .\book\index.html            # Windows (Cmd)
 ```
 
-To run the tests:
+Por ruli testojn:
 
 ```bash
 $ mdbook test
