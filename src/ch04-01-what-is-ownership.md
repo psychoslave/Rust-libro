@@ -32,7 +32,7 @@ fokusantaj al ofta datena strukturo: ĉenoj.
 > *lasta eniro, unua eliro*. Pensu pri stako de telero: kiam vi aldonas pli da
 > telero, vi prenas unu el la supro. Aldoni kaj forigi telerojn el la mezo aŭ
 > el la fundo ne funkcius tiel bone! Aldoni datenojn estas nomita
-> *almeti supren la stako* kaj forigi dateno estas nomita *elmeti el la stako*.
+> *surstakigi* kaj forigi datenon estas nomita *elstakigi*.
 >
 > La stako estas rapida pro la maniero ĝi aliras datenojn: ĝi neniam bezonas
 > serĉi ejon kie almeti novan datenon aŭ ejo de kie akiri datenon ĉar le ejo
@@ -40,12 +40,12 @@ fokusantaj al ofta datena strukturo: ĉenoj.
 > ĉiuj datenoj supre la stako devas havi konitan, fiksitan areon.
 >
 > Datenoj kun gentempe nekonitaj areoj aŭ variaj areoj storiĝeblas al
-> staplo anstataŭ. La staplo estas malpli rigida: kiam vi enigas datenojn supren
+> staplo anstataŭ. La staplo estas malpli rigida: kiam vi enigas datenojn sur
 > la staplo, vi petas iom da spaco. La estrilo trovas sufiĉe ampleksan vakuan
 > lokon ie en la staplo, markas ĝin kiel uzata, kaj liveras *deilo*, tio estas
 > la adreso de la loko.
-> Tiu procezo estas nomita *asignado supren staplo*, iam mallongigita kiel nur
-> *asigno*. Puŝi kiomon supren la stakon ne estas konsiderata kiel asigno. Ĉar
+> Tiu procezo estas nomita *asignado sur staplo*, iam mallongigita kiel nur
+> *asigno*. Puŝi kiomon sur la stakon ne estas konsiderata kiel asigno. Ĉar
 > la deilo estas konita fisksa areo, ĝi storiĝas al la stako, kvakam sekvi la
 > deilon estas necesa por akiri la efektivajn datenojn.
 >
@@ -122,7 +122,7 @@ Alivorte, estas du grava momento tie:
 * ĝi ade validas ĝis ĝi fortrafiĝas.
 
 Tiam, la rilato inter trafejoj kaj kiam kiomingoj validas, similas al tia en
-aliaj elordonalingvoj. Nun ni konstruos supren tion komprenon per enkonduko de
+aliaj elordonalingvoj. Nun ni konstruos sur tion komprenon per enkonduko de
 la `Ĉeno` (*`String`*) tipo.
 
 ### La `Ĉeno` tipo
@@ -143,7 +143,7 @@ Ni jam vidis ĉenaj rektkiomoj, kie ĉena kiomo estas rektkodita en nia elordono
 uzi tekston. Unu kialo estas ke ili estas fiksaj. Alia kialo estas ke ne ĉiuj
 ĉenaj kiomoj povas esti konita kiam ni skribas nian kodon.: ekzemple, kio okazus
 se ni deziras peti enigon de uzanto kaj memori ĝin? Por tiuj situacioj, Rust
-havas duan ĉenan tipon, `Ĉeno` (*`String`*). Tiu tipo estas asignita supren la
+havas duan ĉenan tipon, `Ĉeno` (*`String`*). Tiu tipo estas asignita sur la
 staplo gentempe kaj do povas memori kvanton da teskto ke ni ne konas gentempe.
 Vi povas krei `Ĉeno` el ĉena rektkiomo uzante la funkcio `de (*`from`*), tiel:
 
@@ -242,129 +242,150 @@ komplikaj situacioj, kiam ni volas havi plurajn kiomingojn kiuz uzas la datenon
 ke ni asignis al la staplo. Ni esploru kelkajn tiajn situaciojn nun.
 
 
-#### Ways Variables and Data Interact: Move
+#### Interagaj manieroj de kiomingoj kaj datenoj: movo
 
-Multiple variables can interact with the same data in different ways in Rust.
-Let’s look at an example using an integer in Listing 4-2.
-
-```rust
-let x = 5;
-let y = x;
-```
-
-<span class="caption">Listing 4-2: Assigning the integer value of variable `x`
-to `y`</span>
-
-We can probably guess what this is doing: “bind the value `5` to `x`; then make
-a copy of the value in `x` and bind it to `y`.” We now have two variables, `x`
-and `y`, and both equal `5`. This is indeed what is happening, because integers
-are simple values with a known, fixed size, and these two `5` values are pushed
-onto the stack.
-
-Now let’s look at the `String` version:
+Pluraj kiomingoj povas inteagi kun la samaj datenojn laŭ malsamaj manieroj per
+Rust. Ni rigardu ekzemplon uzanta entjero en Listado 4-2.
 
 ```rust
-let s1 = String::from("hello");
-let s2 = s1;
+// tie ero iĝu 5 tuj
+let ero = 5;
+// tie amo iĝu ero tuj
+let amo = ero;
 ```
 
-This looks very similar to the previous code, so we might assume that the way
-it works would be the same: that is, the second line would make a copy of the
-value in `s1` and bind it to `s2`. But this isn’t quite what happens.
+<span class="caption">Listing 4-2: Alsignad de entjera kiomo el kiomingo `ero`
+al kiomingo `amo`</span>
 
-Take a look at Figure 4-1 to see what is happening to `String` under the
-covers. A `String` is made up of three parts, shown on the left: a pointer to
-the memory that holds the contents of the string, a length, and a capacity.
-This group of data is stored on the stack. On the right is the memory on the
-heap that holds the contents.
+Ni ja povas divini kion faras tio: "ligu la kiomo `5` al `ero`; tiam kopiu la
+kiomon ene de `ero` kaj ligu ĝin al `amo`". Ni nun havas du kiomojn, `ero` kaj
+`aro`, kaj ambaŭ kiomas `5`. Tiu estas ja kio okazas, ĉar entjeroj estas simplaj
+kiomoj kun konita fiksa areo kaj tiuj ĉi du `5` kiomoj estas almetita sur la
+stakon.
+
+Nun, ni rigardu al la ĉena version
+
+```rust
+// tie sento iĝu ĉeno fare de "amo" opu
+let sento = String::from("amo");
+// tie pasio iĝu sento tuj
+let pasio iĝu sento
+```
+
+Tiu ŝajnas tre simila kun la antaŭa kodo, do ni povus supozi ke la maniero tiu
+funkcias estus la sama: tio estas, la dua linio kopius la kiomo de `sento` kaj
+ligus ĝin al `pasio`. Sed tiu ne estas ekzate kio okazas.
+
+Rigardu la figuro 4-1 por vidi kio okazas al `Ĉeno` (*`String`*) sub la kovro.
+`Ĉeno` (*`String`*) estas farita de tri partoj, montritaj live: deilo al memoro
+kiu entenas enhavojn de la ĉeno, areon kaj enhaveco. Tiu grupo de datenoj estas
+memoritaj super la stako. Dekstre estas memoro sur la staplo kiu entenas la
+enhavon.
 
 <img alt="String in memory" src="img/trpl04-01.svg" class="center" style="width: 50%;" />
 
-<span class="caption">Figure 4-1: Representation in memory of a `String`
-holding the value `"hello"` bound to `s1`</span>
+<span class="caption">Figure 4-1: Prezento en memoro de `Ĉeno` (*`String`*)
+tenanta la kiomo `"halo"``ligita al `sento`</span>
 
-The length is how much memory, in bytes, the contents of the `String` is
-currently using. The capacity is the total amount of memory, in bytes, that the
-`String` has received from the operating system. The difference between length
-and capacity matters, but not in this context, so for now, it’s fine to ignore
-the capacity.
+La areo estas kiom da iomopa memoro la enhavoj de `Ĉeno` (*`String`*) estas nune
+uzanta. La enhaveco estas la tuto da iomopa memoro ke la estrilo provizis al la
+ĉeno. La malsamo inter areo kaj enhaveco gravas, sed ne en ĉi tiu konteksto, do
+tie ĉi, tio estas negrava ignori la enhavecon.
 
-When we assign `s1` to `s2`, the `String` data is copied, meaning we copy the
-pointer, the length, and the capacity that are on the stack. We do not copy the
-data on the heap that the pointer refers to. In other words, the data
-representation in memory looks like Figure 4-2.
+Kiam ni alsignas `sento` al `pasio`, la dateno de la `Ĉeno` estas kopiita, tio
+estas, ni kopias la deilo, la areo kaj la enhaveco kiuj ne estas sur la stako.
+Ni ne kopias datenojn de la staplo al kiu la deilo referas. Alivorte, la datena
+prezento enmemore sâjnas kiel Figuro 4.2.
+
 
 <img alt="s1 and s2 pointing to the same value" src="img/trpl04-02.svg" class="center" style="width: 50%;" />
 
-<span class="caption">Figure 4-2: Representation in memory of the variable `s2`
-that has a copy of the pointer, length, and capacity of `s1`</span>
+<span class="caption">Figure 4-2: Prezento en memoro de kiomingo `pasio` kiu
+havas kopion de la deilo, de la areo kaj de la enhaveco de `sento`</span>
 
-The representation does *not* look like Figure 4-3, which is what memory would
-look like if Rust instead copied the heap data as well. If Rust did this, the
-operation `s2 = s1` could be very expensive in terms of runtime performance if
-the data on the heap were large.
+La prezento *ne* ŝajnas kiel la Figuro 4-3, kiu estas memoro ŝajnus se Rust
+anstataŭ kopius ankaŭ staplajn datenojn. Se Rust faris tion, la operacio
+`pasio = sento` povus esti kostega laŭ rultempa rendimento se datenoj sur staplo
+estas pezegaj.
 
 <img alt="s1 and s2 to two places" src="img/trpl04-03.svg" class="center" style="width: 50%;" />
 
-<span class="caption">Figure 4-3: Another possibility for what `s2 = s1` might
-do if Rust copied the heap data as well</span>
+<span class="caption">Figure 4-3: Alia ebla interpreto de `pasio = sento` se
+Rust ankaŭ kopius datenojn el staplo.</span>
 
-Earlier, we said that when a variable goes out of scope, Rust automatically
-calls the `drop` function and cleans up the heap memory for that variable. But
-Figure 4-2 shows both data pointers pointing to the same location. This is a
-problem: when `s2` and `s1` go out of scope, they will both try to free the
-same memory. This is known as a *double free* error and is one of the memory
-safety bugs we mentioned previously. Freeing memory twice can lead to memory
-corruption, which can potentially lead to security vulnerabilities.
+Pli frue, ni diris ke kiam kiomingo eliras trafejon, Rust aŭtomate vokas la
+`fini` (*`drop`*) funkcio kaj senrubigas la staplan memoron de tiu kiomingo. Sed
+Figuro 4-2 montras ambaŭ datena deiloj almontrantaj la sama loko. Tiu estas
+problemo: kiam `pasio` kaj `sento` ekstrafebliĝas, ili ambaŭ pravos liberigi la
+saman memoron. Tiu estas konita kiel la eraro de *duobla liberigo* kaj estas unu
+el difektoj de memora sekurigo. Liberigi memoron dufoje povas konduki al korupto
+de memoro, kiu potence povas konduki al sekura vundeblo.
 
-To ensure memory safety, there’s one more detail to what happens in this
-situation in Rust. Instead of trying to copy the allocated memory, Rust
-considers `s1` to no longer be valid and, therefore, Rust doesn’t need to free
-anything when `s1` goes out of scope. Check out what happens when you try to
-use `s1` after `s2` is created; it won’t work:
+Por certigi memoran sekurecon, estas unu plia detajlo pri kio okazas en tiu
+situacio kun Rust. Anstataŭ pravi kopii la asignatan memoron, Rust konsideras
+`sento` kiel ne plu valida kaj do Rust ne bezonas liberigi ion ajn kiam
+`sento` ekstrafebliĝas. Kontrolu kio okazas kiam vi pravas uzi `sento` post
+`pasio` estas kreita; tio ne funkcios.
 
 ```rust,ignore,does_not_compile
-let s1 = String::from("hello");
-let s2 = s1;
+// tie sento iĝu ĉeno fare de "hello" opu
+let sento = String::from("amo");
+// tie pasio iĝu sento
+let pasio = sento;
 
-println!("{}, world!", s1);
+// linio ece el "{}" je sento opu
+println!("{} disvolvado!", sento);
 ```
 
-You’ll get an error like this because Rust prevents you from using the
-invalidated reference:
+Vi ricevos eraron kiel poste ĉar Rust neebligas vin uzi malvalidata referenco:
 
 ```text
+------------------------------Tradukita mesaĝo----------------------------------
+eraro[E0382]: uzo de movita kiomo: `sento`
+ --> fontaro/ĉefo.rs:5:28
+  |
+3 |     let pasio = sento;
+  |         -- value moved here
+4 |
+5 |     println!("{}, disvolvado!", sento);
+  |                                 ^^ kiomo uzita tie post movo
+  |
+  = notu: movo okazas ĉar `sento` havas tipon `std::string::String`, kiu ne
+  realigas la `Kopii` trajto
+
+------------------------------Origina mesaĝo------------------------------------
+
 error[E0382]: use of moved value: `s1`
  --> src/main.rs:5:28
   |
-3 |     let s2 = s1;
+3 |     let pasio = sento;
   |         -- value moved here
 4 |
-5 |     println!("{}, world!", s1);
-  |                            ^^ value used here after move
+5 |     println!("{}, disvolvado!", sento);
+  |                                 ^^ value used here after move
   |
   = note: move occurs because `s1` has type `std::string::String`, which does
   not implement the `Copy` trait
 ```
 
-If you’ve heard the terms *shallow copy* and *deep copy* while working with
-other languages, the concept of copying the pointer, length, and capacity
-without copying the data probably sounds like making a shallow copy. But
-because Rust also invalidates the first variable, instead of being called a
-shallow copy, it’s known as a *move*. In this example, we would say that
-`s1` was *moved* into `s2`. So what actually happens is shown in Figure 4-4.
+Se vi aŭdis la termo *skema kopio* kaj *plena kopio* uzante aliaj lingvoj, la
+koncepto de kopii la deilon, la areon kaj la enhaveco sen kopii la datenojn
+verŝajne aspektos simile al skema kopio. Sed pro Rust ankaŭ malvalidas la unua
+kiomingo, anstataŭ nomi tion "skema kopio", tio estas konita kiel "movo". En tiu
+ekzemplo, ni dirus ke `sento` estis *movita* al `pasio`. Do kio fakte okazas
+estas montrita en Figuro 4-4.
 
 <img alt="s1 moved to s2" src="img/trpl04-04.svg" class="center" style="width: 50%;" />
 
-<span class="caption">Figure 4-4: Representation in memory after `s1` has been
-invalidated</span>
+<span class="caption">Figure 4-4: Prezento de memoro post `sento` estis
+malvalidita</span>
 
-That solves our problem! With only `s2` valid, when it goes out of scope, it
-alone will free the memory, and we’re done.
+Tio solvas nian problemon! Kun nur `pasio` ankoraŭ valida, kiam ĝi ekstrafiĝos,
+ĝi sole liberigos memoro, kaj ni plenigu!
 
-In addition, there’s a design choice that’s implied by this: Rust will never
-automatically create “deep” copies of your data. Therefore, any *automatic*
-copying can be assumed to be inexpensive in terms of runtime performance.
+Aldone, estas kadra elekto implicita per tio: Rust neniam aŭtomate krei plenan
+kopion de viaj datenoj. Tial, ajna *aŭtomata* kopio povas esti supozita malkosta
+rultempa-redimente.
 
 #### Ways Variables and Data Interact: Clone
 
