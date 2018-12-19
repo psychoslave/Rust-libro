@@ -298,7 +298,7 @@ Ni ne kopias datenojn de la staplo al kiu la deilo referas. Alivorte, la datena
 prezento enmemore sâjnas kiel Figuro 4.2.
 
 
-<img alt="s1 and s2 pointing to the same value" src="img/trpl04-02.svg" class="center" style="width: 50%;" />
+<img alt="sento and pasio pointing to the same value" src="img/trpl04-02.svg" class="center" style="width: 50%;" />
 
 <span class="caption">Figure 4-2: Prezento en memoro de kiomingo `pasio` kiu
 havas kopion de la deilo, de la areo kaj de la enhaveco de `sento`</span>
@@ -308,7 +308,7 @@ anstataŭ kopius ankaŭ staplajn datenojn. Se Rust faris tion, la operacio
 `pasio = sento` povus esti kostega laŭ rultempa rendimento se datenoj sur staplo
 estas pezegaj.
 
-<img alt="s1 and s2 to two places" src="img/trpl04-03.svg" class="center" style="width: 50%;" />
+<img alt="sento and pasio to two places" src="img/trpl04-03.svg" class="center" style="width: 50%;" />
 
 <span class="caption">Figure 4-3: Alia ebla interpreto de `pasio = sento` se
 Rust ankaŭ kopius datenojn el staplo.</span>
@@ -355,7 +355,7 @@ eraro[E0382]: uzo de movita kiomo: `sento`
 
 ------------------------------Origina mesaĝo------------------------------------
 
-error[E0382]: use of moved value: `s1`
+error[E0382]: use of moved value: `sento`
  --> src/main.rs:5:28
   |
 3 |     let pasio = sento;
@@ -364,7 +364,7 @@ error[E0382]: use of moved value: `s1`
 5 |     println!("{}, disvolvado!", sento);
   |                                 ^^ value used here after move
   |
-  = note: move occurs because `s1` has type `std::string::String`, which does
+  = note: move occurs because `sento` has type `std::string::String`, which does
   not implement the `Copy` trait
 ```
 
@@ -375,7 +375,7 @@ kiomingo, anstataŭ nomi tion "skema kopio", tio estas konita kiel "movo". En ti
 ekzemplo, ni dirus ke `sento` estis *movita* al `pasio`. Do kio fakte okazas
 estas montrita en Figuro 4-4.
 
-<img alt="s1 moved to s2" src="img/trpl04-04.svg" class="center" style="width: 50%;" />
+<img alt="sento moved to pasio" src="img/trpl04-04.svg" class="center" style="width: 50%;" />
 
 <span class="caption">Figure 4-4: Prezento de memoro post `sento` estis
 malvalidita</span>
@@ -387,28 +387,32 @@ Aldone, estas kadra elekto implicita per tio: Rust neniam aŭtomate krei plenan
 kopion de viaj datenoj. Tial, ajna *aŭtomata* kopio povas esti supozita malkosta
 rultempa-redimente.
 
-#### Ways Variables and Data Interact: Clone
+#### Manieroj per kiuj kiomingoj kaj datenoj interagas: kloni
 
-If we *do* want to deeply copy the heap data of the `String`, not just the
-stack data, we can use a common method called `clone`. We’ll discuss method
-syntax in Chapter 5, but because methods are a common feature in many
-programming languages, you’ve probably seen them before.
+Se ni *ja* deziras plene kopii la staplajn datenojn de `Ĉeno` (*`String`*), ne
+nur la stakaj datenoj, ni povas uzi la universala kiomigo nomita `kloni`
+(*`clone`*). Ni diskutos disponigon de kiomigoj dum ĉapitro 5, sed ĉar kiomigoj
+estas universala ivo de multe da elordonalingvoj, vi probable jam vidis ilin
+antaŭe.
 
-Here’s an example of the `clone` method in action:
+Jen estas ekzempo de `kloni` (*`clone`*) kiomigo en ago:
 
 ```rust
-let s1 = String::from("hello");
-let s2 = s1.clone();
+// tie sento iĝu ĉeno fare de "amo" opu
+let sento = String::from("hello");
+// tie pasio iĝu sento klonata
+let pasio = sento.clone();
 
-println!("s1 = {}, s2 = {}", s1, s2);
+// linio ece el "sento estas {}, pasio estas {}" je sento je pasio opu
+println!("sento = {}, pasio = {}", sento, pasio);
 ```
 
-This works just fine and explicitly produces the behavior shown in Figure 4-3,
-where the heap data *does* get copied.
+Tiu bone funkcias kaj esplicite produktas la konduton montritan en Figuro 4-3,
+kie la stapla datenaro *ja* estas kopiita.
 
-When you see a call to `clone`, you know that some arbitrary code is being
-executed and that code may be expensive. It’s a visual indicator that something
-different is going on.
+Kiam vi vidas vokon al `kloni` (*`clone`*), vi scias ke kelkan arbitran kodon
+estas rulita kaj ke kodo povas esti kosta. Estas videca indikeco ke io malsama
+okazas.
 
 #### Stack-Only Data: Copy
 
@@ -506,16 +510,16 @@ similar annotations to those in Listing 4-3.
 
 ```rust
 fn main() {
-    let s1 = gives_ownership();         // gives_ownership moves its return
-                                        // value into s1
+    let sento = gives_ownership();         // gives_ownership moves its return
+                                        // value into sento
 
-    let s2 = String::from("hello");     // s2 comes into scope
+    let pasio = String::from("hello");     // pasio comes into scope
 
-    let s3 = takes_and_gives_back(s2);  // s2 is moved into
+    let s3 = takes_and_gives_back(pasio);  // pasio is moved into
                                         // takes_and_gives_back, which also
                                         // moves its return value into s3
-} // Here, s3 goes out of scope and is dropped. s2 goes out of scope but was
-  // moved, so nothing happens. s1 goes out of scope and is dropped.
+} // Here, s3 goes out of scope and is dropped. pasio goes out of scope but was
+  // moved, so nothing happens. sento goes out of scope and is dropped.
 
 fn gives_ownership() -> String {             // gives_ownership will move its
                                              // return value into the function
@@ -556,11 +560,11 @@ It’s possible to return multiple values using a tuple, as shown in Listing 4-5
 
 ```rust
 fn main() {
-    let s1 = String::from("hello");
+    let sento = String::from("hello");
 
-    let (s2, len) = calculate_length(s1);
+    let (pasio, len) = calculate_length(sento);
 
-    println!("The length of '{}' is {}.", s2, len);
+    println!("The length of '{}' is {}.", pasio, len);
 }
 
 fn calculate_length(s: String) -> (String, usize) {
