@@ -242,7 +242,7 @@ komplikaj situacioj, kiam ni volas havi plurajn kiomingojn kiuz uzas la datenon
 ke ni asignis al la staplo. Ni esploru kelkajn tiajn situaciojn nun.
 
 
-#### Interagaj manieroj de kiomingoj kaj datenoj: movo
+#### Interagaj manieroj de kiomingoj kaj datenoj: movi
 
 Pluraj kiomingoj povas inteagi kun la samaj datenojn laŭ malsamaj manieroj per
 Rust. Ni rigardu ekzemplon uzanta entjero en Listado 4-2.
@@ -414,49 +414,52 @@ Kiam vi vidas vokon al `kloni` (*`clone`*), vi scias ke kelkan arbitran kodon
 estas rulita kaj ke kodo povas esti kosta. Estas videca indikeco ke io malsama
 okazas.
 
-#### Stack-Only Data: Copy
+#### Nurstaka dateno: kopii
 
-There’s another wrinkle we haven’t talked about yet. This code using integers,
-part of which was shown in Listing 4-2, works and is valid:
+Estas unu plia afero pri kiu ni ne ankorŭ diskutis. Tiu posta kodo uzanta
+entjeroj, parto de tio kio estis montrita en Listado 4-2, funkcias kaj estas
+valida:
 
 ```rust
-let x = 5;
-let y = x;
+// tie ero iĝu 5 tuj
+let ero = 5;
+// tie amo iĝu ero tuj
+let amo = ero;
 
-println!("x = {}, y = {}", x, y);
+println!("ero = {}, amo = {}", ero, amo);
 ```
 
-But this code seems to contradict what we just learned: we don’t have a call to
-`clone`, but `x` is still valid and wasn’t moved into `y`.
+Sed tiu kodo ŝajnas malkongrua kun tio ke ni ĵus lernis: ni ne faris vokon al
+`kloni` (*`clone`*), sed `ero` ankoraŭ estas valida kaj ne estis movita al
+`amo`.
 
-The reason is that types such as integers that have a known size at compile
-time are stored entirely on the stack, so copies of the actual values are quick
-to make. That means there’s no reason we would want to prevent `x` from being
-valid after we create the variable `y`. In other words, there’s no difference
-between deep and shallow copying here, so calling `clone` wouldn’t do anything
-different from the usual shallow copying and we can leave it out.
+La kialo estas ke tipoj kiel entjeroj, kiuj havas konitan areon gentempe estas
+memorita tute surstake, do kopioj de faktaj kiomoj estas rapide faritaj. Tio
+signifas ke estas neniu kialo ni dezirus malebligi `ero` pri esti valida post ni
+kreas kiomingo `amo`. Alivorte, estas nenia malsamo inter plena kaj sekma kopio
+tio, do voki `kloni` ne farus ian ajn malasaman ol kutima skema kopio kaj ni
+povas forlasi tion.
 
-Rust has a special annotation called the `Copy` trait that we can place on
-types like integers that are stored on the stack (we’ll talk more about traits
-in Chapter 10). If a type has the `Copy` trait, an older variable is still
-usable after assignment. Rust won’t let us annotate a type with the `Copy`
-trait if the type, or any of its parts, has implemented the `Drop` trait. If
-the type needs something special to happen when the value goes out of scope and
-we add the `Copy` annotation to that type, we’ll get a compile-time error. To
-learn about how to add the `Copy` annotation to your type, see “Derivable
-Traits” in Appendix C.
+Rust havas specialan noton nomitan `Kopio` (*`Copy`*) trajto ke ni povas loki al
+tipoj kiel entjeroj kiuj estas memoritaj stake (ni parolos plie pri trajtoj dum
+ĉapitro 10). Se tipo havas la trajton `Kopio`, pli olda kiomingo estas ankoraŭ
+uzebla post alsignado. Rust ne lasos nin noti tipon kun la `Kopio` trajto se la
+tipo, aŭ ajna de ĝia partoj, ivigis la `Fino` (*`Drop`*) trajto. Se la tipo
+bezonas ke iun specialan okazas kiam la kiomo ekstrafiĝas kaj ni aldonas la
+`Kopio` noto al tiu tipo, ni havos gentempan eraron. Por lerni pri kiel aldoni
+la `Kopio` noto al via tipo, vidu "Deriveblaj trajtoj" ĉe apendico C.
 
-So what types are `Copy`? You can check the documentation for the given type to
-be sure, but as a general rule, any group of simple scalar values can be
-`Copy`, and nothing that requires allocation or is some form of resource is
-`Copy`. Here are some of the types that are `Copy`:
+Do, kiuj tipoj estas `Kopio`? Vi povas kontroli la dokumentaro por la zorgota
+tipo por certigi, sed kiel ĝenerala regulo, ajna grupo de simpla skalara kiomo
+povas estas `Kopio`, kaj neniu kiu necesas asignon aŭ estas ia speco de rimedo
+estas `Kopio`. Tie estas kelkaj tipoj kiuj estas `Kopio`:
 
-* All the integer types, such as `u32`.
-* The Boolean type, `bool`, with values `true` and `false`.
-* All the floating point types, such as `f64`.
-* The character type, `char`.
-* Tuples, if they only contain types that are also `Copy`. For example,
-  `(i32, i32)` is `Copy`, but `(i32, String)` is not.
+* ĉiuj entjeraj tipoj, kiel `u32`;
+* la duiomiva tipo, `bool`, kun kiomo `vera` (*`true`*) kaj `falsa` (*`false`*);
+* ĉiuj ŝovonaj tipoj, kiel `f64`;
+* la signa tipo, `signo` (*`char`*);
+* opo, se ili nur enhvas tipojn kiuj ankaŭ estas `Copy`. Ekzemple `(i32, i32)`
+  estas `Kopio`, sed `(i32, String)` ne estas tia.
 
 ### Ownership and Functions
 
