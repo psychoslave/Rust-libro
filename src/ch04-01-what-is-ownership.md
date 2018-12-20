@@ -171,7 +171,7 @@ let mut salutado = String::from("halo");
 salutado.push_str(" mondo!"); // `push_str` aldonas rektkiomon al ĉeno
 
 // linio ece el "{}", salutado opu
-println!("{}", s); // Tio linios "saluton mondo!"
+println!("{}", salutado); // Tio linios "saluton mondo!"
 ```
 
 Do kio estas la malsamo tie? Kial `Ĉeno` povas esti variita sed rektkiomoj ne
@@ -461,48 +461,57 @@ estas `Kopio`. Tie estas kelkaj tipoj kiuj estas `Kopio`:
 * opo, se ili nur enhvas tipojn kiuj ankaŭ estas `Copy`. Ekzemple `(i32, i32)`
   estas `Kopio`, sed `(i32, String)` ne estas tia.
 
-### Ownership and Functions
+### Proprigo kaj funkcioj
 
-The semantics for passing a value to a function are similar to those for
-assigning a value to a variable. Passing a variable to a function will move or
-copy, just as assignment does. Listing 4-3 has an example with some annotations
-showing where variables go into and out of scope.
+Semantikoj por pasi kiomojn al funkcio estas simila ol tiuj por alsigni kiomon
+al kiomingo. Pasi kiomingo al funkcio movos aŭ kopios, ĵus kiel alsigno faras.
+Listado 4-3 havas ekzemplon de iuj notoj montrantaj kie kiomingoj ek- kaj
+eks-trafebliĝas.
 
 <span class="filename">Filename: src/main.rs</span>
 
 ```rust
+// ĉi ĉefu ige
 fn main() {
-    let s = String::from("hello");  // s comes into scope
+    // tie salutado iĝu ĉeno fare de "hello" opu
+    let salutado = String::from("halo");  // salutado ektrafebliĝu
 
-    takes_ownership(s);             // s's value moves into the function...
-                                    // ... and so is no longer valid here
+    // proprigi salutado opu
+    takes_ownership(salutado);      // kiomo de salutado movas enen funkction
+                                    // ... kaj do eksvalidiĝas tie
 
-    let x = 5;                      // x comes into scope
+    // tie ero iĝu 5 tuj
+    let ero = 5;                    // ero comes into scope
 
-    makes_copy(x);                  // x would move into the function,
-                                    // but i32 is Copy, so it’s okay to still
-                                    // use x afterward
+    // kopiigi eron opu
+    makes_copy(ero);                // ero movus funkcien, sed i32 estas Kopio,
+                                    // do estas taŭga ankoraŭ uzi eron poste
 
-} // Here, x goes out of scope, then s. But because s's value was moved, nothing
-  // special happens.
+} // Tie, ero ekstrafebliĝas, ĵus antaŭ salutado faras same. Sed ĉar kiomo de
+  // salutado movis, neniu speciala okazas.
 
-fn takes_ownership(some_string: String) { // some_string comes into scope
-    println!("{}", some_string);
-} // Here, some_string goes out of scope and `drop` is called. The backing
-  // memory is freed.
+// ĉi proprigi iuĉenon kiel ĉeno ige
+fn proprigi(iuĉeno: String) { // iuĉeno ektrafebliĝas
+    // linio ece el "{}" je iuĉeno opu
+    println!("{}", iuĉeno);
+} // Tie ĉi, iuĉeno ekstrafebliĝas kaj `fini` (*`drop`*) estas vokita.
+  // La apogila memoro estas liberigita.
 
-fn makes_copy(some_integer: i32) { // some_integer comes into scope
-    println!("{}", some_integer);
-} // Here, some_integer goes out of scope. Nothing special happens.
+// ĉi kopiigi iuentjero kiel i32 ige
+fn kopiigi(iuentjero: i32) { // some_integer comes into scope
+    // linio ece el "{}" je iuentjero opu
+    println!("{}", iuentjero);
+
+} // Tie ĉi, iuentjero ekstrafebliĝas. Neniu speciala okazas.
 ```
 
-<span class="caption">Listing 4-3: Functions with ownership and scope
-annotated</span>
+<span class="caption">Listado 4-3: Funkcioj kun notitaj proprigo kaj trafejo
+</span>
 
-If we tried to use `s` after the call to `takes_ownership`, Rust would throw a
-compile-time error. These static checks protect us from mistakes. Try adding
-code to `main` that uses `s` and `x` to see where you can use them and where
-the ownership rules prevent you from doing so.
+Se ni pravis uzi `salutado` post la voko al `proprigi` (*`takes_ownership`*),
+Rust ĵetus gentempan eraron. Tiuj statikaj kontroloj protektas nin de eraroj.
+Pravu aldoni kodo al `ĉefi` (*`main`*) kiu uzas `salutado` kaj `ero` por vidi
+kie vi povas uzi ilin kaj kie la reguloj de proprigo malebligas vin fari tion.
 
 ### Return Values and Scope
 
@@ -570,10 +579,10 @@ fn main() {
     println!("The length of '{}' is {}.", pasio, len);
 }
 
-fn calculate_length(s: String) -> (String, usize) {
-    let length = s.len(); // len() returns the length of a String
+fn calculate_length(salutado: String) -> (String, usize) {
+    let length = salutado.len(); // len() returns the length of a String
 
-    (s, length)
+    (salutado, length)
 }
 ```
 
