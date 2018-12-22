@@ -27,7 +27,7 @@ fokusantaj al ofta datena strukturo: ĉenoj.
 > ĉapitro, do tie estas eta antaŭa klarigo.
 >
 > Stako kaj staplo estas partoj de memoro kiuj estas havebla koduzante rultempe,
-> sed ili estas malsame strukturitaj pri pluraj iaj. La stako stokas kiomojn
+> sed ili estas malsame strukturitaj pri pluraj iaj. La stako stokas aĵojn
 > akirorde, kaj forigas ilin inversorde. Tio estas nomita
 > *lasta eniro, unua eliro*. Pensu pri stako de telero: kiam vi aldonas pli da
 > telero, vi prenas unu el la supro. Aldoni kaj forigi telerojn el la mezo aŭ
@@ -45,7 +45,7 @@ fokusantaj al ofta datena strukturo: ĉenoj.
 > lokon ie en la staplo, markas ĝin kiel uzata, kaj liveras *deilo*, tio estas
 > la adreso de la loko.
 > Tiu procezo estas nomita *asignado sur staplo*, iam mallongigita kiel nur
-> *asigno*. Puŝi kiomon sur la stakon ne estas konsiderata kiel asigno. Ĉar
+> *asigno*. Puŝi aĵon sur la stakon ne estas konsiderata kiel asigno. Ĉar
 > la deilo estas konita fisksa areo, ĝi storiĝas al la stako, kvakam sekvi la
 > deilon estas necesa por akiri la efektivajn datenojn.
 >
@@ -65,12 +65,12 @@ fokusantaj al ofta datena strukturo: ĉenoj.
 > surstake) anstataŭ forajn datenojn (kiel surstaple). Asigni larĝan kvanto de
 > spaco de la staplo ankaŭ povas preni tempon.
 >
-> Kiam via kodo vokas funkcion, la kiomoj pasitaj al la funkcio (inklude eble
-> montriloj al datenoj de la staplo) kaj la lokaj kiomingoj puŝiĝas staken. Kiam
-> la funkcio finiĝas, tiuj kiomoj foreliĝas stake.
+> Kiam via kodo vokas aĵigilon, la aĵoj pasitaj al la aĵigilo (inklude eble
+> montriloj al datenoj de la staplo) kaj la lokaj aĵingoj puŝiĝas staken. Kiam
+> la aĵigilo finas, tiuj aĵoj foreliĝas stake.
 >
 > Gardi spuron de kio parto de kodo uzas kion datenon de la staplo, plejetigi
-> la kvanton de duoblaj datenoj en la staplo, purigi nepluuzatajn datenojn de la
+> la kvanton de duoblaj datenoj en la staplo, senrubigi foruzatajn datenojn de la
 > staplo do ni ne mankas spcon, estas ĉiaj problemoj ke proprigo solvas. Unufoje
 > vi komprenos proprigon, vi ne plu bezonos pensi pri la stako kaj la staplo
 > ofte, sed scii ke zorgi stapladatenon estas kial proprigo ekzisats povas helpi
@@ -80,20 +80,20 @@ fokusantaj al ofta datena strukturo: ĉenoj.
 
 Unue, ni rigardu la regularon de proprigo. Memoru tiujn regularojn dum ni iru
 tra ekzemploj kiuj ilustras ilin:
-* ĉiu kiomo de Rust havas kiomingon kiu nomiĝas ĝia proprulo.
+* ĉiu donaĵo de Rust havas aĵingon kiu nomiĝas ĝia proprulo.
 * eblas esti proprulo nur po unu
-* kiam la proprulo ekstrafas, la kiomo foreksiĝas.
+* kiam la proprulo fortrafebliĝas, la aĵo foreksiĝas.
 
-### Trafejo de kiomingo
+### Trafejo de aĵingo
 
 Ni jam trazorgis ekemplon de Rust-a elordono dum ĉapitro 2. Nun ke ni estas post
 simpla disponigo, ni ne plu inkludos ĉiujn la `fn main() {` kodon en ekzemploj,
-do se vi trasekvas, vi endos meti la postajn ekzemplojn ene `main` funkcio ule.
+do se vi trasekvas, vi endos meti la postajn ekzemplojn ene `main` aĵigilo ule.
 Rezulte, niaj ekzemploj estos ete pli konciza, permetante al ni fokusi al
 detaloj anstataŭ plenreuzema kodo.
 
-Kiel unua ekzemplo de proprigo, ni rigardu trafejon de iuj kiomingoj. Trafejo
-estas la amplekso ene de elordono laŭ kiu iro validas. Diru ni havas kiomingon,
+Kiel unua ekzemplo de proprigo, ni rigardu trafejon de iuj aĵingoj. Trafejo
+estas la amplekso ene de elordono laŭ kiu iro validas. Diru ni havas aĵingon,
 kiu ŝajnas jene:
 
 ```rust
@@ -101,10 +101,10 @@ kiu ŝajnas jene:
 let salutado = "Halo ĉiuj!";
 ```
 
-La kiomingo `salutado` ekrilatas al ĉena rektkiomo, kie la kiomo de la ĉeno
-estas rektkodita en la teskto de via elordono. La kiomingo validas ekde tiu
-punkto de kiu ĝi estas deklarita ĝis la fino de la nuna trafejo. Listado 4-1
-havas komentoj anotaciantj kie la kiomingo `salutado` validas.
+La aĵingo `salutado` ekrilatas al ĉena memaĵo, kie la aĵo de la ĉeno
+estas rektkodita en la teskto de via elordono. La aĵingo validas ekde tiu
+punkto de kiu ĝi estas deklarita ĝis la fino de la nuna trafejo. Listigo 4-1
+havas komentoj anotaciantj kie la aĵingo `salutado` validas.
 
 
 ```rust
@@ -115,13 +115,13 @@ havas komentoj anotaciantj kie la kiomingo `salutado` validas.
 }   // tiu ĉi trafejo nun estas eksa, kaj salutado ne plu validas
 ```
 
-<span class="caption">Listado 4-1: Kiomingo kaj la trafejo kie ĝi validas</span>
+<span class="caption">Listigo 4-1: Kiomingo kaj la trafejo kie ĝi validas</span>
 
 Alivorte, estas du grava momento tie:
 * kiam `salutado` envenas trafejo, ĝi validas ;
-* ĝi ade validas ĝis ĝi fortrafiĝas.
+* ĝi ade validas ĝis ĝi fortrafebliĝas.
 
-Tiam, la rilato inter trafejoj kaj kiam kiomingoj validas, similas al tia en
+Tiam, la rilato inter trafejoj kaj kiam aĵingoj validas, similas al tia en
 aliaj elordonalingvoj. Nun ni konstruos sur tion komprenon per enkonduko de
 la `Ĉeno` (*`String`*) tipo.
 
@@ -138,14 +138,14 @@ Ni uzos `Ĉeno` (*`String`*) kiel ekezemplo ĉi tie kaj koncentros al partoj de
 kompleksaj datenaj tipoj, provizita de norma elordonteko kaj ke vi povas kei.
 Ni diskutos `Ĉeno` pli plene dum ĉapitro 8.
 
-Ni jam vidis ĉenaj rektkiomoj, kie ĉena kiomo estas rektkodita en nia elordono.
-Ĉenaj rektkiomo estas oportuna, sed ne taŭgas ĉiujn situaciojn kie ni eble volus
+Ni jam vidis ĉenaj memaĵoj, kie ĉena aĵo estas rektkodita en nia elordono.
+Ĉenaj memaĵo estas oportuna, sed ne taŭgas ĉiujn situaciojn kie ni eble volus
 uzi tekston. Unu kialo estas ke ili estas fiksaj. Alia kialo estas ke ne ĉiuj
-ĉenaj kiomoj povas esti konita kiam ni skribas nian kodon.: ekzemple, kio okazus
+ĉenaj aĵoj povas esti konita kiam ni skribas nian kodon.: ekzemple, kio okazus
 se ni deziras peti enigon de uzanto kaj memori ĝin? Por tiuj situacioj, Rust
 havas duan ĉenan tipon, `Ĉeno` (*`String`*). Tiu tipo estas asignita sur la
 staplo gentempe kaj do povas memori kvanton da teskto ke ni ne konas gentempe.
-Vi povas krei `Ĉeno` el ĉena rektkiomo uzante la funkcio `de (*`from`*), tiel:
+Vi povas krei `Ĉeno` el ĉena memaĵo uzante la aĵigilo `de (*`from`*), tiel:
 
 
 ```rust
@@ -154,7 +154,7 @@ let salutado = String::from("saluton!")
 ```
 
 La duobla duponkto (`::`), ke ni vortigis per "fare" en la plena esperanta
-komento, estas elkiomilo kiu eblas nin nomujigi tiun specifikan funkcion `eliĝi`
+komento, estas elaĵilo kiu eblas nin nomujigi tiun specifikan aĵigilon `eliĝi`
 (*`from`*) de la tipo `Ĉeno` (*`String`*), anstataŭ uzi ian nomon kiel
 `ĉeno_de`. Ni diskutos pri tiu disponigo plie en la "Kiomiga disponigo"
 sekcio de ĉapitro 5 kaj kiam ni parolos pri nomujado kun moduloj en
@@ -168,21 +168,21 @@ Tiu speco de ĉeno *povas* esti variita:
 let mut salutado = String::from("halo");
 
 // salutade alĉeni "mondo!" opu (flanke ĉitado pri alĉeni)
-salutado.push_str(" mondo!"); // `push_str` aldonas rektkiomon al ĉeno
+salutado.push_str(" mondo!"); // `push_str` aldonas memaĵon al ĉeno
 
 // linio ece el "{}", salutado opu
 println!("{}", salutado); // Tio linios "saluton mondo!"
 ```
 
-Do kio estas la malsamo tie? Kial `Ĉeno` povas esti variita sed rektkiomoj ne
+Do kio estas la malsamo tie? Kial `Ĉeno` povas esti variita sed memaĵoj ne
 povas? La malsamo estas kiel tiuj ĉi du tipoj traktas memoron.
 
 ### Memoro kaj asignado
 
-Kaze de ĉena rektkiomo, ni scias la enhavojn gentempe, do la teksto estas
-rektkodita tuje en la fina ruleblaĵo. Tio estas kial ĉenaj rektkiomoj estas
+Kaze de ĉena memaĵo, ni scias la enhavojn gentempe, do la teksto estas
+rektkodita tuje en la fina ruleblaĵo. Tio estas kial ĉenaj memaĵoj estas
 rapida kaj rendimenta. Sed tiuj ecoj nur okazas danke al la fikseco de ĉenaj
-rektkiomoj. Malfortune, ni ne povas meti memoran datumon en la ruleblaĵo por ĉiu
+memaĵoj. Malfortune, ni ne povas meti memoran datumon en la ruleblaĵo por ĉiu
 peco de teksto, kies areo estas malkonita gentempe kaj kies areo povus ŝanĝi
 rultempe.
 
@@ -199,18 +199,18 @@ Tiu ĉi unua parto estas farita de ni: kiam ni vokas `ĉeno fare de`
 universa elordonalingvoj.
 
 Kvankam, la dua parto estas malsama. Kun lingvoj kun senrubigilo, tiu ĉi spuras
-kaj purigas ne plu uzitan memoron, kaj ni ne bezonas pensi pri tio. Sen
+kaj senrubigas ne plu uzitan memoron, kaj ni ne bezonas pensi pri tio. Sen
 senrubigilo, estas nia respondeco identigi kiam memore ne plu uzota kaj voki
 kodon por esplicite redoni ĝin, ekzate kiel ni petis ĝin. Fari tion taŭge estis
 historie malfacila elordona problemo. Se ni fogesas tion, ni disipas memoron.
-Se ni faras ĝin tro frue, ni havos malvalida kiomingo. Se ni faras tion dufoje,
+Se ni faras ĝin tro frue, ni havos malvalida aĵingo. Se ni faras tion dufoje,
 tio estas ankaŭ difekto. Ne devas pari ekazkte unu `asigni` kun ekzakte unu
 `malasigni`.
 
-Rust sekvas malsaman vojon: la memoro estas aŭtomate redonita kiam la kiomingo
-kiu ricevis ĝin kiel proprigo, ne plu estas trafebla. Jen estas versio de nia
-ekzemplo de trafejo el Listado 4-1 uzante `Ĉeno` (*`String`*) anstataŭ ĉena
-rektkiomo.
+Rust sekvas malsaman vojon: la memoro estas aŭtomate redonita kiam la aĵingo
+kiu ricevis ĝin kiel proprigo, fortrafebliĝas. Jen estas versio de nia
+ekzemplo de trafejo el Listigo 4-1 uzante `Ĉeno` (*`String`*) anstataŭ ĉena
+memaĵo.
 
 
 ```rust
@@ -224,28 +224,28 @@ rektkiomo.
 }   // tiu ĉi trafejo nun estas eksa, kaj salutado ne plu validas
 ```
 Estas evidenta ejo kie post kiu redoni memoron ke nia ĉeno necesas al la
-estrilo: kiam `salutado` neplutrafebliĝas. Kiam kiomingo devenas neplustrafebla,
-Rust vokas specian funkcion por ni. Tiu funkcio estas nomita `fini` (*`drop`*)
+estrilo: kiam `salutado` fortrafebliĝas. Kiam aĵingo fortrafebliĝas,
+Rust vokas specian aĵigilon por ni. Tiu aĵigilo estas nomita `forigi` (*`drop`*)
 kaj estas kie la verkisto de `Ĉeno` (*`String`*) povas placi kodon por redoni
-memoron. Rust vokas `fini` (*`drop`*) aŭtomate al kodblokfino, tio estas al
+memoron. Rust vokas `forigi` (*`drop`*) aŭtomate al kodblokfino, tio estas al
 arigejo signita de fermanta kuniga krampo.
 
-> Notu: En C++, tiu skemo de rimeda malasignado ĉe fino de vivtempo de ero estas
-> iam nomita *rimeda akiro ekuzu* (*Resource Acquisition Is Initialization*,
-> mallongige *RAII*).
-> La funkcio `fini` (*`drop`*) de Rust estos familiara por vi se vi jam uzis
+> Notu: En C++, tiu skemo de rimeda malasignado ĉe fino de trafebleco de ero
+> estas iam nomita *rimeda akiro ekuzu*
+> (*Resource Acquisition Is Initialization*, mallongige *RAII*).
+> La aĵigilo `forigi` (*`drop`*) de Rust estos familiara por vi se vi jam uzis
 > tiun skemon.
 
 Tiu skemo havas profundan efikon pri kiel Rusta kodo estas verkita. Tio eble
 ŝajnas simpla nun, sed la konduto de la kodo povas deveni malatendota en pli
-komplikaj situacioj, kiam ni volas havi plurajn kiomingojn kiuz uzas la datenon
+komplikaj situacioj, kiam ni volas havi plurajn aĵingojn kiuz uzas la datenon
 ke ni asignis al la staplo. Ni esploru kelkajn tiajn situaciojn nun.
 
 
-#### Interagaj manieroj de kiomingoj kaj datenoj: movi
+#### Interagaj manieroj de aĵingoj kaj datenoj: movi
 
-Pluraj kiomingoj povas inteagi kun la samaj datenojn laŭ malsamaj manieroj per
-Rust. Ni rigardu ekzemplon uzanta entjero en Listado 4-2.
+Pluraj aĵingoj povas inteagi kun la samaj datenojn laŭ malsamaj manieroj per
+Rust. Ni rigardu ekzemplon uzanta entjero en Listigo 4-2.
 
 ```rust
 // tie ero iĝu 5 tuj
@@ -254,13 +254,13 @@ let ero = 5;
 let amo = ero;
 ```
 
-<span class="caption">Listing 4-2: Alsignad de entjera kiomo el kiomingo `ero`
-al kiomingo `amo`</span>
+<span class="caption">Listing 4-2: Alsignad de entjera aĵo el aĵingo `ero`
+al aĵingo `amo`</span>
 
-Ni ja povas divini kion faras tio: "ligu la kiomo `5` al `ero`; tiam kopiu la
-kiomon ene de `ero` kaj ligu ĝin al `amo`". Ni nun havas du kiomojn, `ero` kaj
+Ni ja povas divini kion faras tio: "ligu la aĵo `5` al `ero`; tiam kopiu la
+aĵon ene de `ero` kaj ligu ĝin al `amo`". Ni nun havas du aĵojn, `ero` kaj
 `aro`, kaj ambaŭ kiomas `5`. Tiu estas ja kio okazas, ĉar entjeroj estas simplaj
-kiomoj kun konita fiksa areo kaj tiuj ĉi du `5` kiomoj estas almetita sur la
+aĵoj kun konita fiksa areo kaj tiuj ĉi du `5` aĵoj estas almetita sur la
 stakon.
 
 Nun, ni rigardu al la ĉena version
@@ -273,7 +273,7 @@ let pasio iĝu sento
 ```
 
 Tiu ŝajnas tre simila kun la antaŭa kodo, do ni povus supozi ke la maniero tiu
-funkcias estus la sama: tio estas, la dua linio kopius la kiomo de `sento` kaj
+funkcias estus la sama: tio estas, la dua linio kopius la aĵo de `sento` kaj
 ligus ĝin al `pasio`. Sed tiu ne estas ekzate kio okazas.
 
 Rigardu la figuro 4-1 por vidi kio okazas al `Ĉeno` (*`String`*) sub la kovro.
@@ -285,7 +285,7 @@ enhavon.
 <img alt="String in memory" src="img/trpl04-01.svg" class="center" style="width: 50%;" />
 
 <span class="caption">Figure 4-1: Prezento en memoro de `Ĉeno` (*`String`*)
-tenanta la kiomo `"halo"``ligita al `sento`</span>
+tenanta la aĵo `"halo"``ligita al `sento`</span>
 
 La areo estas kiom da iomopa memoro la enhavoj de `Ĉeno` (*`String`*) estas nune
 uzanta. La enhaveco estas la tuto da iomopa memoro ke la estrilo provizis al la
@@ -300,7 +300,7 @@ prezento enmemore sâjnas kiel Figuro 4.2.
 
 <img alt="sento and pasio pointing to the same value" src="img/trpl04-02.svg" class="center" style="width: 50%;" />
 
-<span class="caption">Figure 4-2: Prezento en memoro de kiomingo `pasio` kiu
+<span class="caption">Figure 4-2: Prezento en memoro de aĵingo `pasio` kiu
 havas kopion de la deilo, de la areo kaj de la enhaveco de `sento`</span>
 
 La prezento *ne* ŝajnas kiel la Figuro 4-3, kiu estas memoro ŝajnus se Rust
@@ -313,10 +313,10 @@ estas pezegaj.
 <span class="caption">Figure 4-3: Alia ebla interpreto de `pasio = sento` se
 Rust ankaŭ kopius datenojn el staplo.</span>
 
-Pli frue, ni diris ke kiam kiomingo eliras trafejon, Rust aŭtomate vokas la
-`fini` (*`drop`*) funkcio kaj senrubigas la staplan memoron de tiu kiomingo. Sed
+Pli frue, ni diris ke kiam aĵingo eliras trafejon, Rust aŭtomate vokas la
+`forigi` (*`drop`*) aĵigilo kaj senrubigas la staplan memoron de tiu aĵingo. Sed
 Figuro 4-2 montras ambaŭ datena deiloj almontrantaj la sama loko. Tiu estas
-problemo: kiam `pasio` kaj `sento` ekstrafebliĝas, ili ambaŭ pravos liberigi la
+problemo: kiam `pasio` kaj `sento` fortrafebliĝas, ili ambaŭ pravos liberigi la
 saman memoron. Tiu estas konita kiel la eraro de *duobla liberigo* kaj estas unu
 el difektoj de memora sekurigo. Liberigi memoron dufoje povas konduki al korupto
 de memoro, kiu potence povas konduki al sekura vundeblo.
@@ -324,11 +324,11 @@ de memoro, kiu potence povas konduki al sekura vundeblo.
 Por certigi memoran sekurecon, estas unu plia detajlo pri kio okazas en tiu
 situacio kun Rust. Anstataŭ pravi kopii la asignatan memoron, Rust konsideras
 `sento` kiel ne plu valida kaj do Rust ne bezonas liberigi ion ajn kiam
-`sento` ekstrafebliĝas. Kontrolu kio okazas kiam vi pravas uzi `sento` post
-`pasio` estas kreita; tio ne funkcios.
+`sento` fortrafebliĝas. Kontrolu kio okazas kiam vi pravas uzi `sento` post
+`pasio` estas kreita; tio ne aĵigilos.
 
 ```rust,ignore,does_not_compile
-// tie sento iĝu ĉeno fare de "hello" opu
+// tie sento iĝu ĉeno fare de "halo" opu
 let sento = String::from("amo");
 // tie pasio iĝu sento
 let pasio = sento;
@@ -341,14 +341,14 @@ Vi ricevos eraron kiel poste ĉar Rust neebligas vin uzi malvalidata referenco:
 
 ```text
 ------------------------------Tradukita mesaĝo----------------------------------
-eraro[E0382]: uzo de movita kiomo: `sento`
+eraro[E0382]: uzo de movita aĵo: `sento`
  --> fontaro/ĉefo.rs:5:28
   |
 3 |     let pasio = sento;
   |         -- value moved here
 4 |
 5 |     println!("{}, disvolvado!", sento);
-  |                                 ^^ kiomo uzita tie post movo
+  |                                 ^^ aĵo uzita tie post movo
   |
   = notu: movo okazas ĉar `sento` havas tipon `std::string::String`, kiu ne
   realigas la `Kopii` trajto
@@ -371,7 +371,7 @@ error[E0382]: use of moved value: `sento`
 Se vi aŭdis la termo *skema kopio* kaj *plena kopio* uzante aliaj lingvoj, la
 koncepto de kopii la deilon, la areon kaj la enhaveco sen kopii la datenojn
 verŝajne aspektos simile al skema kopio. Sed pro Rust ankaŭ malvalidas la unua
-kiomingo, anstataŭ nomi tion "skema kopio", tio estas konita kiel "movo". En tiu
+aĵingo, anstataŭ nomi tion "skema kopio", tio estas konita kiel "movo". En tiu
 ekzemplo, ni dirus ke `sento` estis *movita* al `pasio`. Do kio fakte okazas
 estas montrita en Figuro 4-4.
 
@@ -380,26 +380,26 @@ estas montrita en Figuro 4-4.
 <span class="caption">Figure 4-4: Prezento de memoro post `sento` estis
 malvalidita</span>
 
-Tio solvas nian problemon! Kun nur `pasio` ankoraŭ valida, kiam ĝi ekstrafiĝos,
-ĝi sole liberigos memoro, kaj ni plenigu!
+Tio solvas nian problemon! Kun nur `pasio` ankoraŭ valida, kiam ĝi
+fortrafebliĝos, ĝi sole liberigos memoro, kaj ni plenigu!
 
 Aldone, estas kadra elekto implicita per tio: Rust neniam aŭtomate krei plenan
 kopion de viaj datenoj. Tial, ajna *aŭtomata* kopio povas esti supozita malkosta
 rultempa-redimente.
 
-#### Manieroj per kiuj kiomingoj kaj datenoj interagas: kloni
+#### Manieroj per kiuj aĵingoj kaj datenoj interagas: kloni
 
 Se ni *ja* deziras plene kopii la staplajn datenojn de `Ĉeno` (*`String`*), ne
-nur la stakaj datenoj, ni povas uzi la universala kiomigo nomita `kloni`
-(*`clone`*). Ni diskutos disponigon de kiomigoj dum ĉapitro 5, sed ĉar kiomigoj
+nur la stakaj datenoj, ni povas uzi la universala aĵigilo nomita `kloni`
+(*`clone`*). Ni diskutos disponigon de aĵigiloj dum ĉapitro 5, sed ĉar aĵigiloj
 estas universala ivo de multe da elordonalingvoj, vi probable jam vidis ilin
 antaŭe.
 
-Jen estas ekzempo de `kloni` (*`clone`*) kiomigo en ago:
+Jen estas ekzempo de `kloni` (*`clone`*) aĵigilo en ago:
 
 ```rust
 // tie sento iĝu ĉeno fare de "amo" opu
-let sento = String::from("hello");
+let sento = String::from("halo");
 // tie pasio iĝu sento klonata
 let pasio = sento.clone();
 
@@ -417,7 +417,7 @@ okazas.
 #### Nurstaka dateno: kopii
 
 Estas unu plia afero pri kiu ni ne ankorŭ diskutis. Tiu posta kodo uzanta
-entjeroj, parto de tio kio estis montrita en Listado 4-2, funkcias kaj estas
+entjeroj, parto de tio kio estis montrita en Listigo 4-2, funkcias kaj estas
 valida:
 
 ```rust
@@ -434,50 +434,50 @@ Sed tiu kodo ŝajnas malkongrua kun tio ke ni ĵus lernis: ni ne faris vokon al
 `amo`.
 
 La kialo estas ke tipoj kiel entjeroj, kiuj havas konitan areon gentempe estas
-memorita tute surstake, do kopioj de faktaj kiomoj estas rapide faritaj. Tio
+memorita tute surstake, do kopioj de faktaj aĵoj estas rapide faritaj. Tio
 signifas ke estas neniu kialo ni dezirus malebligi `ero` pri esti valida post ni
-kreas kiomingo `amo`. Alivorte, estas nenia malsamo inter plena kaj sekma kopio
+kreas aĵingo `amo`. Alivorte, estas nenia malsamo inter plena kaj sekma kopio
 tio, do voki `kloni` ne farus ian ajn malasaman ol kutima skema kopio kaj ni
 povas forlasi tion.
 
 Rust havas specialan noton nomitan `Kopio` (*`Copy`*) trajto ke ni povas loki al
 tipoj kiel entjeroj kiuj estas memoritaj stake (ni parolos plie pri trajtoj dum
-ĉapitro 10). Se tipo havas la trajton `Kopio`, pli olda kiomingo estas ankoraŭ
+ĉapitro 10). Se tipo havas la trajton `Kopio`, pli olda aĵingo estas ankoraŭ
 uzebla post alsignado. Rust ne lasos nin noti tipon kun la `Kopio` trajto se la
 tipo, aŭ ajna de ĝia partoj, ivigis la `Fino` (*`Drop`*) trajto. Se la tipo
-bezonas ke iun specialan okazas kiam la kiomo ekstrafiĝas kaj ni aldonas la
+bezonas ke iun specialan okazas kiam la aĵo fortrafiĝas kaj ni aldonas la
 `Kopio` noto al tiu tipo, ni havos gentempan eraron. Por lerni pri kiel aldoni
 la `Kopio` noto al via tipo, vidu "Deriveblaj trajtoj" ĉe apendico C.
 
 Do, kiuj tipoj estas `Kopio`? Vi povas kontroli la dokumentaro por la zorgota
-tipo por certigi, sed kiel ĝenerala regulo, ajna grupo de simpla skalara kiomo
+tipo por certigi, sed kiel ĝenerala regulo, ajna grupo de simpla skalara aĵo
 povas estas `Kopio`, kaj neniu kiu necesas asignon aŭ estas ia speco de rimedo
 estas `Kopio`. Tie estas kelkaj tipoj kiuj estas `Kopio`:
 
 * ĉiuj entjeraj tipoj, kiel `u32`;
-* la duiomiva tipo, `bool`, kun kiomo `vera` (*`true`*) kaj `falsa` (*`false`*);
+* la duiomiva tipo, `bool`, kun aĵo `vera` (*`true`*) kaj `falsa` (*`false`*);
 * ĉiuj ŝovonaj tipoj, kiel `f64`;
 * la signa tipo, `signo` (*`char`*);
 * opo, se ili nur enhvas tipojn kiuj ankaŭ estas `Copy`. Ekzemple `(i32, i32)`
   estas `Kopio`, sed `(i32, String)` ne estas tia.
 
-### Proprigo kaj funkcioj
+### Proprigo kaj aĵigiloj
 
-Semantikoj por pasi kiomojn al funkcio estas simila ol tiuj por alsigni kiomon
-al kiomingo. Pasi kiomingo al funkcio movos aŭ kopios, ĵus kiel alsigno faras.
-Listado 4-3 havas ekzemplon de iuj notoj montrantaj kie kiomingoj ek- kaj
-eks-trafebliĝas.
+Semantikoj por pasi aĵojn al aĵigilo estas simila ol tiuj por alsigni aĵon
+al aĵingo. Pasi aĵingo al aĵigilo movos aŭ kopios, ĵus kiel alsigno faras.
+Listigo 4-3 havas ekzemplon de iuj notoj montrantaj kie aĵingoj ek- kaj
+for-trafebliĝas.
 
-<span class="filename">Filename: src/main.rs</span>
+<span class="filename">Datenujnomo: src/main.rs</span>
 
 ```rust
 // ĉi ĉefu ige
 fn main() {
-    // tie salutado iĝu ĉeno fare de "hello" opu
+    // tie salutado iĝu ĉeno fare de "halo" opu
     let salutado = String::from("halo");  // salutado ektrafebliĝu
 
     // proprigi salutado opu
-    takes_ownership(salutado);      // kiomo de salutado movas enen funkction
+    takes_ownership(salutado);      // aĵo de salutado movas enen funkction
                                     // ... kaj do eksvalidiĝas tie
 
     // tie ero iĝu 5 tuj
@@ -487,14 +487,14 @@ fn main() {
     makes_copy(ero);                // ero movus funkcien, sed i32 estas Kopio,
                                     // do estas taŭga ankoraŭ uzi eron poste
 
-} // Tie, ero ekstrafebliĝas, ĵus antaŭ salutado faras same. Sed ĉar kiomo de
+} // Tie, ero fortrafebliĝas, ĵus antaŭ salutado faras same. Sed ĉar aĵo de
   // salutado movis, neniu speciala okazas.
 
 // ĉi proprigi iuĉenon kiel ĉeno ige
 fn proprigi(iuĉeno: String) { // iuĉeno ektrafebliĝas
     // linio ece el "{}" je iuĉeno opu
     println!("{}", iuĉeno);
-} // Tie ĉi, iuĉeno ekstrafebliĝas kaj `fini` (*`drop`*) estas vokita.
+} // Tie ĉi, iuĉeno fortrafebliĝas kaj `forigi` (*`drop`*) estas vokita.
   // La apogila memoro estas liberigita.
 
 // ĉi kopiigi iuentjero kiel i32 ige
@@ -502,10 +502,10 @@ fn kopiigi(iuentjero: i32) { // some_integer comes into scope
     // linio ece el "{}" je iuentjero opu
     println!("{}", iuentjero);
 
-} // Tie ĉi, iuentjero ekstrafebliĝas. Neniu speciala okazas.
+} // Tie ĉi, iuentjero fortrafebliĝas. Neniu speciala okazas.
 ```
 
-<span class="caption">Listado 4-3: Funkcioj kun notitaj proprigo kaj trafejo
+<span class="caption">Listigo 4-3: Funkcioj kun notitaj proprigo kaj trafejo
 </span>
 
 Se ni pravis uzi `salutado` post la voko al `proprigi` (*`takes_ownership`*),
@@ -513,81 +513,93 @@ Rust ĵetus gentempan eraron. Tiuj statikaj kontroloj protektas nin de eraroj.
 Pravu aldoni kodo al `ĉefi` (*`main`*) kiu uzas `salutado` kaj `ero` por vidi
 kie vi povas uzi ilin kaj kie la reguloj de proprigo malebligas vin fari tion.
 
-### Return Values and Scope
+### Adresaj aĵoj kaj trafejo
 
-Returning values can also transfer ownership. Listing 4-4 is an example with
-similar annotations to those in Listing 4-3.
+Adresaj aĵoj povas ankău transdoni proprigon. Listigo 4-4 estas ekzempol kun
+similaj notoj ol tiuj de Listigo 4-3.
 
-<span class="filename">Filename: src/main.rs</span>
+<span class="filename">Datenujnomo: src/main.rs</span>
 
 ```rust
+// ĉi ĉefi ige
 fn main() {
-    let sento = gives_ownership();         // gives_ownership moves its return
-                                        // value into sento
+    // tie sento iĝe proprigodonas
+    let sento = proprigodoni();         // proprigodoni movas ĝia adresa aĵo
+                                        // al sento
 
-    let pasio = String::from("hello");     // pasio comes into scope
+    // tie pasio iĝu ĉeno fare de "amo" opu
+    let pasio = String::from("amo");    // pasio ektrafebliĝas
 
-    let s3 = takes_and_gives_back(pasio);  // pasio is moved into
-                                        // takes_and_gives_back, which also
-                                        // moves its return value into s3
-} // Here, s3 goes out of scope and is dropped. pasio goes out of scope but was
-  // moved, so nothing happens. sento goes out of scope and is dropped.
+    // tie senso iĝu prenikajredoni pasion opu
+    let senso = prenikajredoni(pasio);  // pasio estas movita al prenikajredoni,
+                                        // kiu ankaŭ movas ĝian adresan aĵon
+                                        // al senso
+                                        // moves its return value into senso
+} // Tie ĉi, `senso` fortrafebliĝas kaj estas forigita.
+  // Ankaŭ `pasio` fortrafebliĝas, sed estis movita, do neniu okazas.
+  // Finfine `sento` fortrafebliĝas kaj estas forigita.
 
-fn gives_ownership() -> String {             // gives_ownership will move its
-                                             // return value into the function
-                                             // that calls it
+// ĉi proprigodonu kiele ĉeno ige
+fn proprigodoni() -> String {                // proprigodoni movos ĝian adresan
+                                             // aĵon en ĝia vokanta aĵigilo
 
-    let some_string = String::from("hello"); // some_string comes into scope
+    // tie iuĉeno iĝu ĉeno fare de "halo" opu
+    let iucxeno = String::from("halo");      // iuĉeno ektrafebliĝas
 
-    some_string                              // some_string is returned and
-                                             // moves out to the calling
-                                             // function
+    iucxeno                                  // iucxeno estas adresata kaj
+                                             // elmovas al la vokanta aĵigilo
 }
 
-// takes_and_gives_back will take a String and return one
-fn takes_and_gives_back(a_string: String) -> String { // a_string comes into
-                                                      // scope
+// `prenikajredoni` postulos kaj adresos ĉenon
+// ĉi prenikajredoni iaĉenon kiel ĉeno ope kiele ĉeno jene
+fn prenikajredoni(iacxeno: String) -> String { // iacxeno ektrafebliĝu
 
-    a_string  // a_string is returned and moves out to the calling function
+    iacxeno  // iacxeno estas adresata kaj elmovas al la vokanta aĵigilo
 }
 ```
 
-<span class="caption">Listing 4-4: Transferring ownership of return
-values</span>
+<span class="caption">Listigo 4-4: Trandoni proprigon de adresa âjo</span>
 
-The ownership of a variable follows the same pattern every time: assigning a
-value to another variable moves it. When a variable that includes data on the
-heap goes out of scope, the value will be cleaned up by `drop` unless the data
-has been moved to be owned by another variable.
+La proprigo de aĵingo ĉiam sekvas la saman skemon: alsigni aĵon al alia aĵingo
+movas ĝin. Kiam âjingo kiu stake inkludas datenon fortrafebliĝas, la aĵo estas
+senrubigita per `forigi` (*`drop`*), krom se datenojn estis movitaj por esti
+proprigo de alia aĵingo.
 
-Taking ownership and then returning ownership with every function is a bit
-tedious. What if we want to let a function use a value but not take ownership?
-It’s quite annoying that anything we pass in also needs to be passed back if we
-want to use it again, in addition to any data resulting from the body of the
-function that we might want to return as well.
+Preni proprigon kaj poste adresi ĝin kun ĉiu aĵigilo estas iomete teda. Kio
+okazus se ni dezirus ke iu aĵigilo uzas aĵon sed ne prenas proprigilon? Tio
+agecetas ke ion ajn ni pasigas ankaŭ necesas esti retropasigita se ni volas uzi
+ĝin denove, aldone al adresotaj datenoj el la trakto de la aĵigilo ke ni ankaŭ
+volus adresi.
 
-It’s possible to return multiple values using a tuple, as shown in Listing 4-5.
+Estas ebla adresi plurajn aĵon uzante opo, kiel montrata en listigo 4-5.
 
-<span class="filename">Filename: src/main.rs</span>
+<span class="filename">Datenujnomo: src/main.rs</span>
 
 ```rust
+// ĉi ĉefi ige
 fn main() {
-    let sento = String::from("hello");
+    // tie sento iĝu ĉeno fare de "amo" opu
+    let sento = String::from("amo");
 
-    let (pasio, len) = calculate_length(sento);
+    // tiu pasio, longo ope iĝu longokalkuli senton opu
+    let (pasio, longo) = longokalkuli(sento);
 
-    println!("The length of '{}' is {}.", pasio, len);
+    // linio ece el "{}" je iuentjero opu
+    println!("La longo de '{}' estas {}.", pasio, longo);
 }
 
-fn calculate_length(salutado: String) -> (String, usize) {
-    let length = salutado.len(); // len() returns the length of a String
+// ĉi longokalkuli salutado kiel ĉeno ope
+// kiele el ĉeno, sensignuma-entjero-areo ige
+fn longokalkuli(sperto: String) -> (String, usize) {
+    // tie longo iĝu
+    let longo = sperto.len(); // `len()` adresas longon de ĉeno
 
-    (salutado, length)
+    (sperto, longo)
 }
 ```
 
-<span class="caption">Listing 4-5: Returning ownership of parameters</span>
+<span class="caption">Listigo 4-5: Adresanta proprigo de kunaĵingoj</span>
 
-But this is too much ceremony and a lot of work for a concept that should be
-common. Luckily for us, Rust has a feature for this concept, called
-*references*.
+Sed tiu estas tro da solenaĵo kaj multe da laboro por unu koncepto kiu devus
+esti simpla. Ŝance por ni, Rust havas ivojn por tiu koncepto, nomita
+*referencoj*.
