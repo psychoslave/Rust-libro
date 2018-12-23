@@ -266,15 +266,15 @@ stakon.
 Nun, ni rigardu al la ĉena version
 
 ```rust
-// tie sento iĝu ĉeno fare de "amo" opu
-let sento = String::from("amo");
-// tie pasio iĝu sento tuj
-let pasio iĝu sento
+// tie senso iĝu ĉeno fare de "amo" opu
+let senso = String::from("amo");
+// tie sento iĝu senso tuj
+let sento iĝu senso;
 ```
 
 Tiu ŝajnas tre simila kun la antaŭa kodo, do ni povus supozi ke la maniero tiu
-funkcias estus la sama: tio estas, la dua linio kopius la aĵo de `sento` kaj
-ligus ĝin al `pasio`. Sed tiu ne estas ekzate kio okazas.
+funkcias estus la sama: tio estas, la dua linio kopius la aĵo de `senso` kaj
+ligus ĝin al `sento`. Sed tiu ne estas ekzate kio okazas.
 
 Rigardu la figuro 4-1 por vidi kio okazas al `Ĉeno` (*`String`*) sub la kovro.
 `Ĉeno` (*`String`*) estas farita de tri partoj, montritaj live: deilo al memoro
@@ -285,86 +285,86 @@ enhavon.
 <img alt="String in memory" src="img/trpl04-01.svg" class="center" style="width: 50%;" />
 
 <span class="caption">Figure 4-1: Prezento en memoro de `Ĉeno` (*`String`*)
-tenanta la aĵo `"halo"``ligita al `sento`</span>
+tenanta la aĵo `"halo"``ligita al `senso`</span>
 
 La areo estas kiom da iomopa memoro la enhavoj de `Ĉeno` (*`String`*) estas nune
 uzanta. La enhaveco estas la tuto da iomopa memoro ke la estrilo provizis al la
 ĉeno. La malsamo inter areo kaj enhaveco gravas, sed ne en ĉi tiu konteksto, do
 tie ĉi, tio estas negrava ignori la enhavecon.
 
-Kiam ni alsignas `sento` al `pasio`, la dateno de la `Ĉeno` estas kopiita, tio
+Kiam ni alsignas `senso` al `sento`, la dateno de la `Ĉeno` estas kopiita, tio
 estas, ni kopias la deilo, la areo kaj la enhaveco kiuj ne estas sur la stako.
 Ni ne kopias datenojn de la staplo al kiu la deilo referas. Alivorte, la datena
 prezento enmemore sâjnas kiel Figuro 4.2.
 
 
-<img alt="sento and pasio pointing to the same value" src="img/trpl04-02.svg" class="center" style="width: 50%;" />
+<img alt="senso and sento pointing to the same value" src="img/trpl04-02.svg" class="center" style="width: 50%;" />
 
-<span class="caption">Figure 4-2: Prezento en memoro de aĵingo `pasio` kiu
-havas kopion de la deilo, de la areo kaj de la enhaveco de `sento`</span>
+<span class="caption">Figure 4-2: Prezento en memoro de aĵingo `sento` kiu
+havas kopion de la deilo, de la areo kaj de la enhaveco de `senso`</span>
 
 La prezento *ne* ŝajnas kiel la Figuro 4-3, kiu estas memoro ŝajnus se Rust
 anstataŭ kopius ankaŭ staplajn datenojn. Se Rust faris tion, la operacio
-`pasio = sento` povus esti kostega laŭ rultempa rendimento se datenoj sur staplo
+`sento = senso` povus esti kostega laŭ rultempa rendimento se datenoj sur staplo
 estas pezegaj.
 
-<img alt="sento and pasio to two places" src="img/trpl04-03.svg" class="center" style="width: 50%;" />
+<img alt="senso and sento to two places" src="img/trpl04-03.svg" class="center" style="width: 50%;" />
 
-<span class="caption">Figure 4-3: Alia ebla interpreto de `pasio = sento` se
+<span class="caption">Figure 4-3: Alia ebla interpreto de `sento = senso` se
 Rust ankaŭ kopius datenojn el staplo.</span>
 
 Pli frue, ni diris ke kiam aĵingo eliras trafejon, Rust aŭtomate vokas la
 `forigi` (*`drop`*) aĵigilo kaj senrubigas la staplan memoron de tiu aĵingo. Sed
 Figuro 4-2 montras ambaŭ datena deiloj almontrantaj la sama loko. Tiu estas
-problemo: kiam `pasio` kaj `sento` fortrafebliĝas, ili ambaŭ pravos liberigi la
+problemo: kiam `sento` kaj `senso` fortrafebliĝas, ili ambaŭ pravos liberigi la
 saman memoron. Tiu estas konita kiel la eraro de *duobla liberigo* kaj estas unu
 el difektoj de memora sekurigo. Liberigi memoron dufoje povas konduki al korupto
 de memoro, kiu potence povas konduki al sekura vundeblo.
 
 Por certigi memoran sekurecon, estas unu plia detajlo pri kio okazas en tiu
 situacio kun Rust. Anstataŭ pravi kopii la asignatan memoron, Rust konsideras
-`sento` kiel ne plu valida kaj do Rust ne bezonas liberigi ion ajn kiam
-`sento` fortrafebliĝas. Kontrolu kio okazas kiam vi pravas uzi `sento` post
-`pasio` estas kreita; tio ne aĵigilos.
+`senso` kiel ne plu valida kaj do Rust ne bezonas liberigi ion ajn kiam
+`senso` fortrafebliĝas. Kontrolu kio okazas kiam vi pravas uzi `senso` post
+`sento` estas kreita; tio ne aĵigilos.
 
 ```rust,ignore,does_not_compile
-// tie sento iĝu ĉeno fare de "halo" opu
-let sento = String::from("amo");
-// tie pasio iĝu sento
-let pasio = sento;
+// tie senso iĝu ĉeno fare de "halo" opu
+let senso = String::from("amo");
+// tie sento iĝu senso
+let sento = senso;
 
-// linio ece el "{}" je sento opu
-println!("{} disvolvado!", sento);
+// linio ece el "{}" je senso opu
+println!("{} disvolvado!", senso);
 ```
 
 Vi ricevos eraron kiel poste ĉar Rust neebligas vin uzi malvalidata referenco:
 
 ```text
 ------------------------------Tradukita mesaĝo----------------------------------
-eraro[E0382]: uzo de movita aĵo: `sento`
+eraro[E0382]: uzo de movita aĵo: `senso`
  --> fontaro/ĉefo.rs:5:28
   |
-3 |     let pasio = sento;
+3 |     let sento = senso;
   |         -- value moved here
 4 |
-5 |     println!("{}, disvolvado!", sento);
+5 |     println!("{}, disvolvado!", senso);
   |                                 ^^ aĵo uzita tie post movo
   |
-  = notu: movo okazas ĉar `sento` havas tipon `std::string::String`, kiu ne
+  = notu: movo okazas ĉar `senso` havas tipon `std::string::String`, kiu ne
   realigas la `Kopii` trajto
 
 ------------------------------Origina mesaĝo------------------------------------
 
-error[E0382]: use of moved value: `sento`
+error[E0382]: use of moved value: `senso`
  --> src/main.rs:5:28
   |
-3 |     let pasio = sento;
+3 |     let sento = senso;
   |         -- value moved here
 4 |
-5 |     println!("{}, disvolvado!", sento);
+5 |     println!("{}, disvolvado!", senso);
   |                                 ^^ value used here after move
   |
-  = note: move occurs because `sento` has type `std::string::String`, which does
+  = note: move occurs because `senso` has type `std::string::String`, which does
   not implement the `Copy` trait
 ```
 
@@ -372,15 +372,15 @@ Se vi aŭdis la termo *skema kopio* kaj *plena kopio* uzante aliaj lingvoj, la
 koncepto de kopii la deilon, la areon kaj la enhaveco sen kopii la datenojn
 verŝajne aspektos simile al skema kopio. Sed pro Rust ankaŭ malvalidas la unua
 aĵingo, anstataŭ nomi tion "skema kopio", tio estas konita kiel "movo". En tiu
-ekzemplo, ni dirus ke `sento` estis *movita* al `pasio`. Do kio fakte okazas
+ekzemplo, ni dirus ke `senso` estis *movita* al `sento`. Do kio fakte okazas
 estas montrita en Figuro 4-4.
 
-<img alt="sento moved to pasio" src="img/trpl04-04.svg" class="center" style="width: 50%;" />
+<img alt="senso moved to sento" src="img/trpl04-04.svg" class="center" style="width: 50%;" />
 
-<span class="caption">Figure 4-4: Prezento de memoro post `sento` estis
+<span class="caption">Figure 4-4: Prezento de memoro post `senso` estis
 malvalidita</span>
 
-Tio solvas nian problemon! Kun nur `pasio` ankoraŭ valida, kiam ĝi
+Tio solvas nian problemon! Kun nur `sento` ankoraŭ valida, kiam ĝi
 fortrafebliĝos, ĝi sole liberigos memoro, kaj ni plenigu!
 
 Aldone, estas kadra elekto implicita per tio: Rust neniam aŭtomate krei plenan
@@ -398,13 +398,13 @@ antaŭe.
 Jen estas ekzempo de `kloni` (*`clone`*) aĵigilo en ago:
 
 ```rust
-// tie sento iĝu ĉeno fare de "amo" opu
-let sento = String::from("halo");
-// tie pasio iĝu sento klonata
-let pasio = sento.clone();
+// tie senso iĝu ĉeno fare de "amo" opu
+let senso = String::from("halo");
+// tie sento iĝu senso klonata
+let sento = senso.clone();
 
-// linio ece el "sento estas {}, pasio estas {}" je sento je pasio opu
-println!("sento = {}, pasio = {}", sento, pasio);
+// linio ece el "senso estas {}, sento estas {}" je senso je sento opu
+println!("senso = {}, sento = {}", senso, sento);
 ```
 
 Tiu bone funkcias kaj esplicite produktas la konduton montritan en Figuro 4-3,
@@ -523,21 +523,21 @@ similaj notoj ol tiuj de Listigo 4-3.
 ```rust
 // ĉi ĉefi ige
 fn main() {
-    // tie sento iĝe proprigodonas
-    let sento = proprigodoni();         // proprigodoni movas ĝia adresa aĵo
-                                        // al sento
-
-    // tie pasio iĝu ĉeno fare de "amo" opu
-    let pasio = String::from("amo");    // pasio ektrafebliĝas
-
-    // tie senso iĝu prenikajredoni pasion opu
-    let senso = prenikajredoni(pasio);  // pasio estas movita al prenikajredoni,
-                                        // kiu ankaŭ movas ĝian adresan aĵon
+    // tie senso iĝe proprigodonas
+    let senso = proprigodoni();         // proprigodoni movas ĝia adresa aĵo
                                         // al senso
-                                        // moves its return value into senso
-} // Tie ĉi, `senso` fortrafebliĝas kaj estas forigita.
-  // Ankaŭ `pasio` fortrafebliĝas, sed estis movita, do neniu okazas.
-  // Finfine `sento` fortrafebliĝas kaj estas forigita.
+
+    // tie sento iĝu ĉeno fare de "amo" opu
+    let sento = String::from("amo");    // sento ektrafebliĝas
+
+    // tie senco iĝu prenikajredoni senton opu
+    let senco = prenikajredoni(sento);  // sento estas movita al prenikajredoni,
+                                        // kiu ankaŭ movas ĝian adresan aĵon
+                                        // al senco
+                                        // moves its return value into senco
+} // Tie ĉi, `senco` fortrafebliĝas kaj estas forigita.
+  // Ankaŭ `sento` fortrafebliĝas, sed estis movita, do neniu okazas.
+  // Finfine `senso` fortrafebliĝas kaj estas forigita.
 
 // ĉi proprigodonu kiele ĉeno ige
 fn proprigodoni() -> String {                // proprigodoni movos ĝian adresan
@@ -578,14 +578,14 @@ Estas ebla adresi plurajn aĵon uzante opo, kiel montrata en listigo 4-5.
 ```rust
 // ĉi ĉefi ige
 fn main() {
-    // tie sento iĝu ĉeno fare de "amo" opu
-    let sento = String::from("amo");
+    // tie senso iĝu ĉeno fare de "amo" opu
+    let senso = String::from("amo");
 
-    // tiu pasio, longo ope iĝu longokalkuli senton opu
-    let (pasio, longo) = longokalkuli(sento);
+    // tiu sento, longo ope iĝu longokalkuli senson opu
+    let (sento, longo) = longokalkuli(senso);
 
     // linio ece el "{}" je iuentjero opu
-    println!("La longo de '{}' estas {}.", pasio, longo);
+    println!("La longo de '{}' estas {}.", sento, longo);
 }
 
 // ĉi longokalkuli salutado kiel ĉeno ope
