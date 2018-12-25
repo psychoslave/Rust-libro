@@ -1,41 +1,41 @@
-# Foreword
+# Antaŭparolo
 
-It wasn’t always so clear, but the Rust programming language is fundamentally
-about *empowerment*: no matter what kind of code you are writing now, Rust
-empowers you to reach farther, to program with confidence in a wider variety of
-domains than you did before.
+Ne ĉiam estus tiel klara, sed Rust elordonlingvo estas fundamente pri *povigo*:
+ia kodo vi verkas nun, Rust povigas vin trafi pli fore, elordoni memfide en pli
+vasta diverseco de fakoj ol tio ke vi faris antaŭe.
 
-Take, for example, “systems-level” work that deals with low-level details of
-memory management, data representation, and concurrency. Traditionally, this
-realm of programming is seen as arcane, accessible only to a select few who
-have devoted the necessary years learning to avoid its infamous pitfalls. And
-even those who practice it do so with caution, lest their code be open to
-exploits, crashes, or corruption.
+Ekzemple, "sistema-nivelo" laboro kiu traktas pri apudicara detaloj de
+memorestrado, datena prezento, kaj kunrulo. Tradicie, tiu fako de elordonado
+estas konsiderita kiel arkana, alirebla nur de malmulta inicitoj kiuj dediĉis
+necesajn jarojn da lernado por eviti ĝiajn fifamajn falilojn. Kaj eĉ tiuj kiuj
+praktikas ĝin faru tion kun singardemo, por eviti ke ilia kodo estas vundebla,
+kraŝema aŭ difektata.
 
-Rust breaks down these barriers by eliminating the old pitfalls and providing a
-friendly, polished set of tools to help you along the way. Programmers who need
-to “dip down” into lower-level control can do so with Rust, without taking on
-the customary risk of crashes or security holes, and without having to learn
-the fine points of a fickle toolchain. Better yet, the language is designed to
-guide you naturally towards reliable code that is efficient in terms of speed
-and memory usage.
+Rust kolapsigas tiuj bariloj per forigado de oldaj faliloj kaj providado de
+amika, polurita aro de iloj por helpi vin laŭverke. Elordonistoj kiuj bezonas
+"enfali" al basa-nivela kontrolo ordonaĵo povas fari tion per Rust, sen bezoni
+preni la kutimajn riskojn de kraŝoj aŭ sekurigaj truoj, kaj sen devi lerni la
+subtilajn punktoj de kaprica ilĉeno. Ankaŭ pli bone, la lingvo estas planizita
+por gvidi vin spontanee al fidinda kodo kiu estas rendimenta laŭ rapido kaj
+memoruzado.
 
-Programmers who are already working with low-level code can use Rust to raise
-their ambitions. For example, introducing parallelism in Rust is a relatively
-low-risk operation: the compiler will catch the classical mistakes for you. And
-you can tackle more aggressive optimizations in your code with the confidence
-that you won’t accidentally introduce crashes or vulnerabilities.
+Elordonistoj kiuj jam verkas basnivelan kodon povas uzi Rust por altigi ilian
+ambiciojn. Ekzemple enkonduki samtempecon (paraleladon) kun Rust estas relative
+febleriska operacio: la rulebla-genilo kaptos la klasikajn erarojn por vi. Kaj
+vi povas pritrakti pli aŭdacajn optimumigojn en via kodo, memfidante ke vi ne
+akcidente enkondukos kraŝojn aŭ vundeblojn.
 
-But Rust isn’t limited to low-level systems programming. It’s expressive and
-ergonomic enough to make CLI apps, web servers, and many other kinds of code
-quite pleasant to write — you’ll find simple examples of both later in the
-book. Working with Rust allows you to build skills that transfer from one
-domain to another; you can learn Rust by writing a web app, then apply those
-same skills to target your Raspberry Pi.
+Sed Rust ne limigas al basnivelan sisteman elordonado. Ĝi estas sufiĉe
+esprimplena kaj ergonomia por krei ordonĉerpa-fasad-apojn, retservilojn, kaj
+multe aliaj specoj da kodo verkebla viglaplezure – vi trovos simplajn ekzemplojn
+de ambaŭ tiuj poste en la libro. Labori kun Rust eblas vin akiri lertecojn kiuj
+transigas de unu fako al alia; vi povas lerni Rust per verkado de retapo, kaj
+poste apliki tiujn samajn kompetentecojn por celi vian Raspberry Pi.
 
-This book fully embraces the potential of Rust to empower its users. It’s a
-friendly and approachable text intended to help you level up not just your
-knowledge of Rust, but also your reach and confidence as a programmer in
-general. So dive in, get ready to learn—and welcome to the Rust community!
+Tiu ĉi libro plene ampleksas la eventualecon de Rust por povigi ilian uzulojn.
+Ĝi estas amika kaj facillegebla teksto, kiu intencas helpi vin pri
+plialtniveligi ne nur vian konon de Rust, sed ankaŭ vian atingon kaj memfido
+kiel elordonisto ĝenerale. Do plonĝu, pretiĝu lerni - kaj bonvenon en la Rust
+komunumo!
 
-— Nicholas Matsakis and Aaron Turon
+— Nicholas Matsakis kaj Aaron Turon
