@@ -7,7 +7,7 @@ simpla, ĝi havas profundajn implicojn por la resto de la lingvo.
 Iuj lingvoj havas senrubigo kiu senĉese zorgas pri ne plu uzanta memoro
 rultempe; en aliaj lingvoj, elordonisto endas eksplicite okupi kaj malokupi
 memoron. Rust uzas tria vojo: memoro estas estrita per sistemo de proprigo kun
-regularo, kiujn la kodgenilo gentempe kontrolas. Neniu el la ivo de proprigo
+regularo, kiujn la tranigilo transtempe kontrolas. Neniu el la ivo de proprigo
 malrapidigas vian elordonon rultempe.
 
 Ĉar proprigo estas nova koncepto por multe da elordonistoj, kutimiĝo daŭras.
@@ -39,7 +39,7 @@ fokusantaj al ofta datena strukturo: ĉenoj.
 > ĉiam estas la supron. Alia eco kiu faras ke la stako estas rapida estas ke
 > ĉiuj datenoj supre la stako devas havi konitan, fiksitan areon.
 >
-> Datenoj kun gentempe nekonitaj areoj aŭ variaj areoj storiĝeblas al
+> Datenoj kun transtempe nekonitaj areoj aŭ variaj areoj storiĝeblas al
 > staplo anstataŭ. La staplo estas malpli rigida: kiam vi enigas datenojn sur
 > la staplo, vi petas iom da spaco. La estrilo trovas sufiĉe ampleksan vakuan
 > lokon ie en la staplo, markas ĝin kiel uzata, kaj liveras *deilo*, tio estas
@@ -144,7 +144,7 @@ uzi tekston. Unu kialo estas ke ili estas fiksaj. Alia kialo estas ke ne ĉiuj
 ĉenaj aĵoj povas esti konita kiam ni skribas nian kodon.: ekzemple, kio okazus
 se ni deziras peti enigon de uzanto kaj memori ĝin? Por tiuj situacioj, Rust
 havas duan ĉenan tipon, `Ĉeno` (*`String`*). Tiu tipo estas asignita sur la
-staplo gentempe kaj do povas memori kvanton da teskto ke ni ne konas gentempe.
+staplo transtempe kaj do povas memori kvanton da teskto ke ni ne konas transtempe.
 Vi povas krei `Ĉeno` el ĉena memaĵo uzante la aĵigilo `de (*`from`*), tiel:
 
 
@@ -179,15 +179,15 @@ povas? La malsamo estas kiel tiuj ĉi du tipoj traktas memoron.
 
 ### Memoro kaj asignado
 
-Kaze de ĉena memaĵo, ni scias la enhavojn gentempe, do la teksto estas
+Kaze de ĉena memaĵo, ni scias la enhavojn transtempe, do la teksto estas
 rektkodita tuje en la fina ruleblaĵo. Tio estas kial ĉenaj memaĵoj estas
 rapida kaj rendimenta. Sed tiuj ecoj nur okazas danke al la fikseco de ĉenaj
 memaĵoj. Malfortune, ni ne povas meti memoran datumon en la ruleblaĵo por ĉiu
-peco de teksto, kies areo estas malkonita gentempe kaj kies areo povus ŝanĝi
+peco de teksto, kies areo estas malkonita transtempe kaj kies areo povus ŝanĝi
 rultempe.
 
 Kun la tipo `Ĉeno` (*`String`*), por ivi varian, kreskeblan pecon de teksto, ni
-bezonas asigni kvanto da memoro de la staplo, nekonata gentempe, por memorigi la
+bezonas asigni kvanto da memoro de la staplo, nekonata transtempe, por memorigi la
 enhavojn. Tiu signifas:
 
 * La memore devas esti petita al la estrilo rultempe.
@@ -433,7 +433,7 @@ Sed tiu kodo ŝajnas malkongrua kun tio ke ni ĵus lernis: ni ne faris vokon al
 `kloni` (*`clone`*), sed `ero` ankoraŭ estas valida kaj ne estis movita al
 `amo`.
 
-La kialo estas ke tipoj kiel entjeroj, kiuj havas konitan areon gentempe estas
+La kialo estas ke tipoj kiel entjeroj, kiuj havas konitan areon transtempe estas
 memorita tute surstake, do kopioj de faktaj aĵoj estas rapide faritaj. Tio
 signifas ke estas neniu kialo ni dezirus malebligi `ero` pri esti valida post ni
 kreas aĵingo `amo`. Alivorte, estas nenia malsamo inter plena kaj sekma kopio
@@ -446,7 +446,7 @@ tipoj kiel entjeroj kiuj estas memoritaj stake (ni parolos plie pri trajtoj dum
 uzebla post alsignado. Rust ne lasos nin noti tipon kun la `Kopio` trajto se la
 tipo, aŭ ajna de ĝia partoj, ivigis la `Fino` (*`Drop`*) trajto. Se la tipo
 bezonas ke iun specialan okazas kiam la aĵo fortrafiĝas kaj ni aldonas la
-`Kopio` noto al tiu tipo, ni havos gentempan eraron. Por lerni pri kiel aldoni
+`Kopio` noto al tiu tipo, ni havostranstempan eraron. Por lerni pri kiel aldoni
 la `Kopio` noto al via tipo, vidu "Deriveblaj trajtoj" ĉe apendico C.
 
 Do, kiuj tipoj estas `Kopio`? Vi povas kontroli la dokumentaro por la zorgota
@@ -509,7 +509,7 @@ fn kopiigi(iuentjero: i32) { // some_integer comes into scope
 </span>
 
 Se ni pravis uzi `salutado` post la voko al `proprigi` (*`takes_ownership`*),
-Rust ĵetus gentempan eraron. Tiuj statikaj kontroloj protektas nin de eraroj.
+Rust ĵetustranstempan eraron. Tiuj statikaj kontroloj protektas nin de eraroj.
 Pravu aldoni kodo al `ĉefi` (*`main`*) kiu uzas `salutado` kaj `ero` por vidi
 kie vi povas uzi ilin kaj kie la reguloj de proprigo malebligas vin fari tion.
 
