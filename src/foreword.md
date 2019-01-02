@@ -13,7 +13,7 @@ kraŝema aŭ difektata.
 
 Rust kolapsigas tiuj bariloj per forigado de oldaj faliloj kaj providado de
 amika, polurita aro de iloj por helpi vin laŭverke. Elordonistoj kiuj bezonas
-"enfali" al basa-nivela kontrolo ordonaĵo povas fari tion per Rust, sen bezoni
+"enfali" al basa-nivela stirado povas fari tion per Rust, sen bezoni
 preni la kutimajn riskojn de kraŝoj aŭ sekurigaj truoj, kaj sen devi lerni la
 subtilajn punktoj de kaprica ilĉeno. Ankaŭ pli bone, la lingvo estas planizita
 por gvidi vin spontanee al fidinda kodo kiu estas rendimenta laŭ rapido kaj
