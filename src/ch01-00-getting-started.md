@@ -1,8 +1,8 @@
-# Getting Started
+# EK!
 
-Let’s start your Rust journey! There’s a lot to learn, but every journey starts
-somewhere. In this chapter, we’ll discuss:
+Ni debutu vian vojaĝo kun Rust! Estas multe lerninda, sed ĉiuj vojaĝo startas
+ie. En tiu ĉapitro, ni diskutos pri:
 
-* Installing Rust on Linux, macOS, and Windows
-* Writing a program that prints `Hello, world!`
-* Using `cargo`, Rust’s package manager and build system
+* instali Rust je Linux, macOS kaj Windows;
+* skribi programo kiu linias `Saluton ĉiuj!`
+* uzi `cargo`, la pakestrilo kaj konstruila sistemo de Rust.
