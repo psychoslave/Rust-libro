@@ -1,172 +1,173 @@
-## Hello, World!
+## Saluton ĉiuj!
 
-Now that you’ve installed Rust, let’s write your first Rust program. It’s
-traditional when learning a new language to write a little program that prints
-the text `Hello, world!` to the screen, so we’ll do the same here!
+Nun ke vi instalis Rust, ni skribu vian unuan Rust elordonon. Estas tradicio
+kiam lerni novan lingvon ke oni skribas etan elordonon kiu linias la teksto
+`Saluton ĉiuj!` al ekrano, do ni faru same tie!
 
-> Note: This book assumes basic familiarity with the command line. Rust makes
-> no specific demands about your editing or tooling or where your code lives, so
-> if you prefer to use an integrated development environment (IDE) instead of
-> the command line, feel free to use your favorite IDE. Many IDEs now have some
-> degree of Rust support; check the IDE’s documentation for details. Recently,
-> the Rust team has been focusing on enabling great IDE support, and progress
-> has been made rapidly on that front!
+> Notu: tiu libro supozas bazan familiareco kun ordonĉerpilo. Rust faras neniun
+> specifan demandon pri via verkilo aŭ ilaro aŭ kie via kodo vivas, do se vi
+> preferas uzi elordonamedio prefere ol ordonĉerpilo, faru tiel. Multe da
+> elordonamedioj nun havas iom grado da apogo je Rust; kontrolu la dokumentaro
+> de la elordonamedio por detaloj. Freŝdate, la teamo de Rust strebis pri ebligi
+> bonegan apogon per elordonamedioj, kaj progresoj okazis rapide pri tio.
 
-### Creating a Project Directory
+### Krei projektan datenujaron
 
-You’ll start by making a directory to store your Rust code. It doesn’t matter
-to Rust where your code lives, but for the exercises and projects in this book,
-we suggest making a *projects* directory in your home directory and keeping all
-your projects there.
+Ek! Kreu datenujaron por enhavigi vian Rust kodon. Ne gravas kie vivas vian
+kodon por Rust, sed por la ekzercoj kaj projektoj de tiu libro, ni sugĝestas
+fari datenujaron nomita *projektaro* en via ĉefdatenujaron kaj ke vi gardas
+ĉiujn viajn projektojn tie.
 
-Open a terminal and enter the following commands to make a *projects* directory
-and a directory for the Hello, world! project within the *projects* directory.
+Rulu terminalon kaj enigu la sekvajn ordonojn por krei la datenujaron
+*projektaro* kaj datenujaron por la "Saluton ĉiuj!" projekto en la *projektaro*
+datenujaro.
 
-For Linux and macOS, enter this:
+Por Linux kaj macOS, enigu tiun:
 
 ```text
-$ mkdir ~/projects
-$ cd ~/projects
-$ mkdir hello_world
-$ cd hello_world
+$ mkdir -p ~/projektaro/salutilo && cd $_
 ```
 
-For Windows CMD, enter this:
+Por Windows CMD, enigu tiun:
 
 ```cmd
-> mkdir "%USERPROFILE%\projects"
-> cd /d "%USERPROFILE%\projects"
-> mkdir hello_world
-> cd hello_world
+> mkdir "%USERPROFILE%\projektaro"
+> cd /d "%USERPROFILE%\projektaro"
+> mkdir salutilo
+> cd salutilo
 ```
 
-For Windows PowerShell, enter this:
+Por Windows PowerShell, enigu tiun:
 
 ```powershell
-> mkdir $env:USERPROFILE\projects
-> cd $env:USERPROFILE\projects
-> mkdir hello_world
-> cd hello_world
+> mkdir $env:USERPROFILE\projektaro
+> cd $env:USERPROFILE\projektaro
+> mkdir salutilo
+> cd salutilo
 ```
 
-### Writing and Running a Rust Program
+### Skribi kaj ruli Rust elordonon
 
-Next, make a new source file and call it *main.rs*. Rust files always end with
-the *.rs* extension. If you’re using more than one word in your filename, use
-an underscore to separate them. For example, use *hello_world.rs* rather than
-*helloworld.rs*.
+Sekve, faru novan fonta datenujo kaj nomu ĝin *ĉefo.rs*. Rust datenujoj ĉiam
+finiĝas per la *.rs* finaĵo. Se vi uzas pli ol unu vorto en via datenujonomo,
+estas kutima uzi substrekon por disigi ilin. Ekzemple uzu *iu_ezemplo.rs*
+prefere ol *iuekzemplo.rs*.
 
-Now open the *main.rs* file you just created and enter the code in Listing 1-1.
+Nun, ovru la datenujon *ĉefo.rs* vi ĵus kreis kaj enigu la kodo de listigo 1-1.
 
-<span class="filename">Filename: main.rs</span>
+Now open the *ĉefo.rs* file you just created and enter the code in Listigo 1-1.
+
+<span class="filename">Datenujonomo: ĉefo.rs</span>
 
 ```rust
+// ĉi ĉefu ige
 fn main() {
-    println!("Hello, world!");
+    //  makrolinii "Saluton ĉiuj!" opu
+    println!("Saluton ĉiuj!");
 }
 ```
 
-<span class="caption">Listing 1-1: A program that prints `Hello, world!`</span>
+<span class="caption">Listigo 1-1: Elordono kiu linias `Saluton ĉiuj`</span>
 
-Save the file and go back to your terminal window. On Linux or macOS, enter
-the following commands to compile and run the file:
+Konservu la datenujon kaj reiru al la terminala fenetro. Je Linux aŭ macOS,
+enigu la sekvantajn ordonojn por transigi kaj ruli la datenujo:
 
 ```text
-$ rustc main.rs
-$ ./main
-Hello, world!
+$ rustc ĉefo.rs
+$ ./ĉefo
+Saluton ĉiuj!
 ```
 
-On Windows, enter the command `.\main.exe` instead of `./main`:
+Je Windows, enigu la ordono `.\ĉefo.exe` anstataŭ de `./ĉefo`:
 
 ```powershell
-> rustc main.rs
-> .\main.exe
-Hello, world!
+> rustc ĉefo.rs
+> .\ĉefo.exe
+Saluton ĉiuj!
 ```
 
-Regardless of your operating system, the string `Hello, world!` should print to
-the terminal. If you don’t see this output, refer back to the “Troubleshooting”
-part of the Installation section for ways to get help.
+Sendepende de via estrilo, la ĉeno `Saltuon ĉiuj!` devus esti liniita al via
+terminalo. Se vi ne vidas eligon, direktu al la "Problemsolvado" parto de la
+Instalado sekcio por maniero akiri helpon.
 
-If `Hello, world!` did print, congratulations! You’ve officially written a Rust
-program. That makes you a Rust programmer—welcome!
+Se `Saluton ĉiuj!` bone liniis, gratulon! Vi oficiale skribis Rust elordono.
+Tiu faras de vi Rust elordoniston – bonvenon!
 
-### Anatomy of a Rust Program
+### Anatomio de unu Rust elordono
 
-Let’s review in detail what just happened in your Hello, world! program.
-Here’s the first piece of the puzzle:
+Ni revuu detale kio ĵus okazis en via Saluton ĉiuj! elordono. Tie estas la unua
+peco de la puzlo:
+
 
 ```rust
+// ĉi ĉefi ige
 fn main() {
 
+// are
 }
 ```
 
-These lines define a function in Rust. The `main` function is special: it is
-always the first code that runs in every executable Rust program. The first
-line declares a function named `main` that has no parameters and returns
-nothing. If there were parameters, they would go inside the parentheses, `()`.
+Tiuj linioj difinas aĵigilon en Rust. La ĉefa (*`main`*) aĵigilo estas speciala:
+ĝi estas ĉiam la unua kodo kiu rulas en ĉiuj rubleblaĵo de Rust elordono. La
+unua linio deklaras elordonon nomitan `main` kiu havas neniun kunaĵingon kaj
+adresas nenion. Se estus kunaĵingojn, ili irus inter krampoj, `()`.
 
-Also, note that the function body is wrapped in curly brackets, `{}`. Rust
-requires these around all function bodies. It’s good style to place the opening
-curly bracket on the same line as the function declaration, adding one space in
-between.
+Ankaŭ, notu ke la kodingo de la aĵigilo estas ĉirkaŭvolvita inter kunigaj
+krampoj, `{}`. Rust necesas tiujn ĉirkaŭ aĵigila kodingo. Estas kutima stilo
+placi la ovra kuniga krampo samlinie ol la aĵigilo deklarado, aldonante unu
+spaceto intere.
 
-At the time of this writing, an automatic formatter tool called `rustfmt` is
-under development. If you want to stick to a standard style across Rust
-projects, `rustfmt` will format your code in a particular style. The Rust team
-plans to eventually include this tool with the standard Rust distribution, like
-`rustc`. So depending on when you read this book, it might already be installed
-on your computer! Check the online documentation for more details.
+Tiuskribtempe, la aŭtoaranĝilo nomita `rustfmt` estas disvolvata. Se vi deziras
+konformi al normo inter Rust projektoj, `rustfmt` aranĝos vian kodon en aparata
+stilo. La teamo de Rust planas fakte inkludi tiun ilon kun la norma disdono,
+kiel `rustc`. Do depende de kiam vi legas tiun libron, ĝi eble jam estas
+instalita al via komputilo! Kontrolu la dokumentaro por pli da detaloj.
 
-Inside the `main` function is the following code:
+Ene de la ĉefa aĵigilo estas la sekva kodo:
 
 ```rust
-    println!("Hello, world!");
+    // makrolinii "Saluton ĉiuj!" opu
+    println!("Saluton ĉiuj!");
 ```
 
-This line does all the work in this little program: it prints text to the
-screen. There are four important details to notice here. First, Rust style is
-to indent with four spaces, not a tab.
+Tiu linio faras ĉiu la laboro en tiu eta elordono: ĝi linias tekston al la
+ekrano. Estas kvar gravaj detaloj rimarkinda tie. Unue, la stilo de Rust estas
+krommarĝeno kun kvar spacetoj, ne kun tabo.
 
-Second, `println!` calls a Rust macro. If it called a function instead, it
-would be entered as `println` (without the `!`). We’ll discuss Rust macros in
-more detail in Chapter 19. For now, you just need to know that using a `!`
-means that you’re calling a macro instead of a normal function.
+Due, `println!` vokas Rust makroo. Se ĝi vokus elordono anstataŭ, ĝi estus
+vokita per `println` (sen la krisigno `!`). Ni diskusos pri Rust makrooj pli
+detale en ĉapitro 19. Ĝis tie, vi nur bezonas scii ke uzi `!` signifas ke vi
+vokas makro anstataŭ de normala aĵigilo.
 
-Third, you see the `"Hello, world!"` string. We pass this string as an argument
-to `println!`, and the string is printed to the screen.
+Trie, vi vidas la `"Salution ĉiuj!"` ĉeno. Ni pasas tiun ĉenon kiel kunaĵo al
+`println!`, kaj la ĉeno estas liniita al la ekrano.
 
-Fourth, we end the line with a semicolon (`;`), which indicates that this
-expression is over and the next one is ready to begin. Most lines of Rust code
-end with a semicolon.
+Kvare, ni finas la linio kun punktokomo (`;`), kiu indikas ke tiu esprimo estas
+elfarita kaj la sekvanta ekkomencebla. Plejparte da linioj el Rust kodo finas
+kun punktokomo.
 
-### Compiling and Running Are Separate Steps
+### Transigi kaj ruli estas du apartaj ŝtupoj
 
-You’ve just run a newly created program, so let’s examine each step in the
-process.
-
-Before running a Rust program, you must compile it using the Rust compiler by
-entering the `rustc` command and passing it the name of your source file, like
-this:
+Vi ĵus rulis novan kreita elordono, do ni ekzaminas ĉiun ŝtupon en tiu procedo.
+Antaŭ ruli Rust elordono, vi devas transigi ĝin per Rust transigilo kun `rustc`
+ordono kaj pasi al ĝi la nomon de via fonta datenujo, kiel tiu:
 
 ```text
-$ rustc main.rs
+$ rustc ĉefo.rs
 ```
 
-If you have a C or C++ background, you’ll notice that this is similar to `gcc`
-or `clang`. After compiling successfully, Rust outputs a binary executable.
+Se vi havas C aŭ C++ deveno, vi rimarkos ke tio estas simila kun `gcc` aŭ
+`clang`. Post transigado suksecis, Rust eligas duuma ruleblaĵo.
 
-On Linux and macOS you can see the executable by entering the `ls` command in
-your shell as follows:
+Ĉe Linu kaj macOS vi povas vidi la ruleblaĵo per rulado de `ls` en via ŝelo
+tiele:
 
 ```text
 $ ls
-main  main.rs
+main  ĉefo.rs
 ```
 
-With PowerShell on Windows, you can use `ls` as well, but you’ll see three files:
+Kun PowerShell ĉe Windows, vi povas uzi `ls` ankaŭ, sed vi vidos tri datenujojn:
 
 ```text
 > ls
@@ -177,42 +178,42 @@ With PowerShell on Windows, you can use `ls` as well, but you’ll see three fil
 
 Mode                LastWriteTime         Length Name
 ----                -------------         ------ ----
--a----         6/1/2018   7:31 AM         137728 main.exe
--a----         6/1/2018   7:31 AM        1454080 main.pdb
--a----         6/1/2018   7:31 AM             14 main.rs
+-a----         6/1/2018   7:31 AM         137728 ĉefo.exe
+-a----         6/1/2018   7:31 AM        1454080 ĉefo.pdb
+-a----         6/1/2018   7:31 AM             14 ĉefo.rs
 ```
 
-With CMD on Windows, you would enter the following:
+Kun CMD ĉe Windows, vi enigos la sekvantan:
 
 ```cmd
-> dir /B %= the /B option says to only show the file names =%
-main.exe
-main.pdb
-main.rs
+> dir /B %= /B opcio indikas de nur montri la datenujnomoj =%
+ĉefo.exe
+ĉefo.pdb
+ĉefo.rs
 ```
 
-This shows the source code file with the *.rs* extension, the executable file
-(*main.exe* on Windows, but *main* on all other platforms), and, when using
-CMD, a file containing debugging information with the *.pdb* extension. From
-here, you run the *main* or *main.exe* file, like this:
+Tiu montras la fontkoda datenujo kun la *.rs* finaĵo, la ruleblaĵa datenujo
+(*ĉefo.exe* ĉe Windows, sed *ĉefo* ĉe aliaj platformoj), kaj, kiam uzante CMD,
+datenujo enhaventa korektaj informacioj kun la *.pdb* finaĵo. El tie, vi rulas
+la *ĉefo* aŭ *ĉefo.exe* datenujo, tiele:
 
 ```text
-$ ./main # or .\main.exe on Windows
+$ ./ĉefo # aŭ .\ĉefo.exe ĉe Windows
 ```
 
-If *main.rs* was your Hello, world! program, this line would print `Hello,
-world!` to your terminal.
+Se *ĉefo.rs* estas via Saluton ĉiuj! elordono, tiu linio linius `Saluton ĉiuj`
+al via terminalo.
 
-If you’re more familiar with a dynamic language, such as Ruby, Python, or
-JavaScript, you might not be used to compiling and running a program as
-separate steps. Rust is an *ahead-of-time compiled* language, meaning you can
-compile a program and give the executable to someone else, and they can run it
-even without having Rust installed. If you give someone a *.rb*, *.py*, or
-*.js* file, they need to have a Ruby, Python, or JavaScript implementation
-installed (respectively). But in those languages, you only need one command to
-compile and run your program. Everything is a trade-off in language design.
+Se vi estas pli familiara kun laŭfluaj lingvoj kiel Ruby, Python, aŭ Javascript,
+vi eble ne estas kutima kun transigado kaj ruligado de elordono kiel apartaj
+ŝtupoj. Rust estas *frutransigita* lingvo, kio signifas ke vi povas transigi
+elordonon kaj doni ĝi al aliulo, kaj ili povas ruli ĝin êc sen havi Rust
+instalita. Se vi provizas al iu kelka *.rb* aŭ *.py* aŭ *.js* datenujo, ili
+bezonas havi Ruby, Python, aŭ Javascrip realigo instalita (respektive). Sed en
+tiuj lingvoj, vi nur bezonas unu ordono por transigi kaj ruli vian elordonon.
+Ĉiu temas pri akordo en lingva projektado.
 
-Just compiling with `rustc` is fine for simple programs, but as your project
-grows, you’ll want to manage all the options and make it easy to share your
-code. Next, we’ll introduce you to the Cargo tool, which will help you write
-real-world Rust programs.
+Ĵus transigi kun `rustc` sufiĉas por simplaj programoj, sed kiam via projekto
+kreskas, vi volos mastrumi ĉiujn opciojn kaj faciligi la kumunigon de via kodo.
+Sekvante, ni enkondukos vin al la ilo Cargo, kiu helpos skribi realmondan
+elordonon per Rust.
