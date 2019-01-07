@@ -1,137 +1,135 @@
-## Installation
+## Instalado
 
-The first step is to install Rust. We’ll download Rust through `rustup`, a
-command line tool for managing Rust versions and associated tools. You’ll need
-an internet connection for the download.
+La unua ŝtupo estas instali Rust. Ni elŝutos Rust per `rustup`, ordonĉerpilo por
+estri versiojn de Rust kaj ĝiajn asociataj iloj. Vi bezonos rekkontekto por
+elŝuti.
 
-> Note: If you prefer not to use `rustup` for some reason, please see [the Rust
-> installation page](https://www.rust-lang.org/install.html) for other options.
+> Noto: se vi preferas ne uzi `rustup` pro ial, bonvolu vidi la [paĝo de
+> instalado de Rust](https://www.rust-lang.org/install.html) por aliaj opcioj.
 
-The following steps install the latest stable version of the Rust compiler.
-Rust’s stability guarantees ensure that all the examples in the book that
-compile will continue to compile with newer Rust versions. The output might
-differ slightly between versions, because Rust often improves error messages
-and warnings. In other words, any newer, stable version of Rust you install
-using these steps should work as expected with the content of this book.
+La sekvaj ŝtupoj instalos la plej freŝan stabilan version de Rust transigilo.
+La stabileco de Rust certigas ke ĉiuj ekzemploj en la libro kiuj transigas nun,
+kontinuos transigi kun novaj versioj. La eligo povus iomete ŝanĝi inter versioj,
+ĉar Rust ofte plibonigas mesaĝoj de eraro kaj avertoj. Alivorte, ajna pli nova,
+stabila versio de Rust vi instalas uzante tiuj ŝtupoj devus funkcii kiel
+atendita laŭ la enhavo de tiu libro.
 
-> ### Command Line Notation
+> ### Ordonĉerpa notacio
 >
-> In this chapter and throughout the book, we’ll show some commands used in the
-> terminal. Lines that you should enter in a terminal all start with `$`. You
-> don’t need to type in the `$` character; it indicates the start of each
-> command. Lines that don’t start with `$` typically show the output of the
-> previous command. Additionally, PowerShell-specific examples will use `>`
-> rather than `$`.
+> En tiu ĉapitro kaj tra la libro, ni montros kelkaj ordonoj uzitaj en
+> la terminalo.  Linioj ke vi devus enigi en la terminalo komencas kun `$`. Vi
+> ne bezonas tajpi la `$` signo; ĝi indikas la komenco de ĉiu ordono. Linioj
+> kiuj ne komencas kun `$` tipe montras la eligo de la antaŭa ordono. Aldone,
+> PowerShell-specifaj ekzemploj uzos `>` anstataŭ `$`.
 
-### Installing `rustup` on Linux or macOS
+### Instali `rustup` ĉe Linux aŭ macOS
 
-If you’re using Linux or macOS, open a terminal and enter the following command:
+Se vi uzas Linux aŭ macOS, ovru terminalon kaj enigu la sekvan ordonon:
+
 
 ```text
 $ curl https://sh.rustup.rs -sSf | sh
 ```
 
-The command downloads a script and starts the installation of the `rustup`
-tool, which installs the latest stable version of Rust. You might be prompted
-for your password. If the install is successful, the following line will appear:
+La ordono elŝutas la scripto kaj ekinstalas `rustup` ilon, kiu instalas la
+lastan version de Rust. Vi eble estas petita pri via pasvorto. Se la instalado
+sukcesas, la sekvantaj linioj aperos:
 
 ```text
+# Rust estas instalita nun. Bonege!
 Rust is installed now. Great!
 ```
 
-If you prefer, feel free to download the script and inspect it before running
-it.
+Se vi preferas, libere elŝuti la skripto kaj inspektu ĝin antaŭ ruli ĝin.
 
-The installation script automatically adds Rust to your system PATH after your
-next login. If you want to start using Rust right away instead of restarting
-your terminal, run the following command in your shell to add Rust to your
-system PATH manually:
+La instaladoskripto aŭtomate aldonos Rust al via mediaĵingo PATH post
+via sekvanta ensalutado. Se vi volas ekuzi Rust anstataŭ restarti vian
+terminalo, rulu la sekvanta ordono en via ŝelo por aldoni ule Rust al
+via mediaĵingo PATH.
 
 ```text
 $ source $HOME/.cargo/env
 ```
 
-Alternatively, you can add the following line to your *~/.bash_profile*:
+Alternative, vi povas aldoni la sekvantan linion al via *~/.bash_profile*:
 
 ```text
 $ export PATH="$HOME/.cargo/bin:$PATH"
 ```
 
-Additionally, you’ll need a linker of some kind. It’s likely one is already
-installed, but when you try to compile a Rust program and get errors indicating
-that a linker could not execute, that means a linker isn’t installed on your
-system and you’ll need to install one manually. C compilers usually come with
-the correct linker. Check your platform’s documentation for how to install a C
-compiler. Also, some common Rust packages depend on C code and will need a C
-compiler. Therefore, it might be worth installing one now.
+Aldone, vi bezonos iun ligilon. Verŝajne unu estas jam instalita, sed kiam vi
+transigas Rust elordonon kaj ricevas erarojn indikantajn ke neniu ligilo estis
+rulebla, tio signifas ke ligilo ne estas instalita ĉe via sistemo kaj vi
+bezonos unu ule. C transigiloj kutime estas liveritaj kun taŭga ligilo. Kontrolu
+la dokumetaron de via platoformo por trovi kiel instali C transigilo. Plie, iuj
+Rust pakoj dependas de C kodo kaj necesos C transigilon. Tial, eble estus inda
+je instali unu nun.
 
-### Installing `rustup` on Windows
+### Instali `rustup` ĉe Windows
 
-On Windows, go to [https://www.rust-lang.org/install.html][install] and follow
-the instructions for installing Rust. At some point in the installation, you’ll
-receive a message explaining that you’ll also need the C++ build tools for
-Visual Studio 2013 or later. The easiest way to acquire the build tools is to
-install [Build Tools for Visual Studio 2017][visualstudio]. The tools are in
-the Other Tools and Frameworks section.
+Ĉe Windows, iru al [https://www.rust-lang.org/install.html][instali] kaj sekvu
+la instruojn. Iam en la instalado, vi ricevos mesaĝon eksplikanta ke vi ankaŭ
+bezonos C++ konstruilojn por Visual Studio 2013 aŭ pliposte. La pli facila
+maniero akiri la konstruilojn estas instali [Konstruiloj por Visual Studio 2017]
+[visualstudio]. La iloj estas en sekcio Aliaj iloj kaj framoj (*Other Tools and
+Frameworks*)
 
 [install]: https://www.rust-lang.org/install.html
 [visualstudio]: https://www.visualstudio.com/downloads/
 
-The rest of this book uses commands that work in both *cmd.exe* and PowerShell.
-If there are specific differences, we’ll explain which to use.
+La resto de la libro uzas ordonoj kiuj funkcias kaj kun *cmd.exe* kaj
+PowerShell. Se estas specifaj malsamoj, ni eksplikos kiun uzi.
 
-### Updating and Uninstalling
+### Ĝisdatigi kaj malinstali
 
-After you’ve installed Rust via `rustup`, updating to the latest version is
-easy. From your shell, run the following update script:
+Post vi instalos Rust per `rustup`, ĝisdatigo al la lasta versio estas facila.
+Per via ŝelo, rulu la sekvantan ĝistagigan skripton:
 
 ```text
 $ rustup update
 ```
 
-To uninstall Rust and `rustup`, run the following uninstall script from your
-shell:
+Por malinstali Rust per `rustup`, rulu la rulu la sekvantan malinstaladan
+skripton per via ŝelo:
 
 ```text
 $ rustup self uninstall
 ```
 
-### Troubleshooting
+### Problemsolvado
 
-To check whether you have Rust installed correctly, open a shell and enter this
-line:
+Por kontroli ĉu vi havis Rust taŭge instalita, ovru ŝelon kaj enigu tiun linion:
 
 ```text
 $ rustc --version
 ```
 
-You should see the version number, commit hash, and commit date for the latest
-stable version that has been released in the following format:
+Vi devus vidi numeron de versio, enmetohakon, kaj enmetodaton por la lasta
+stabila versio kiu estis eldonita laŭ la sekvanta aranĝo:
 
 ```text
 rustc x.y.z (abcabcabc yyyy-mm-dd)
 ```
 
-If you see this information, you have installed Rust successfully! If you don’t
-see this information and you’re on Windows, check that Rust is in your `%PATH%`
-system variable. If that’s all correct and Rust still isn’t working, there are
-a number of places you can get help. The easiest is [the #rust IRC channel on
-irc.mozilla.org][irc]<!-- ignore -->, which you can access through
-[Mibbit][mibbit]. At that address you can chat with other Rustaceans (a silly
-nickname we call ourselves) who can help you out. Other great resources include
-[the Users forum][users] and [Stack Overflow][stackoverflow].
+Se vi vidas tiuj informoj, vi sukcese instalis Rust! Se vi ne vidas tiujn
+informojn kaj ke vi estas ĉe Windows, kontrolu ke Rust estas en via `%PATH%`
+mediaĵingo. Se ĝi estas tute korekta kaj Rust ankoraŭ ne funkcias, estas multe
+da placoj kie vi povas akiri helpon. La pli facila estas la [#rust IRB kanalo][
+irc]<!-- ignoru -->, kiu vi povas aliri per [Mibbit][mibbit]. Tie vi povas
+diskuti kun aliaj Rustacauloj (ridinda kromnomo ni nomas nin) kiuj povas helpi
+vin. Aliaj bonegaj rimedoj inkludas la [forumo de uzuloj][uzuloj] kaj
+[Stack Overflow][stackoverflow].
 
 [irc]: irc://irc.mozilla.org/#rust
 [mibbit]: http://chat.mibbit.com/?server=irc.mozilla.org&channel=%23rust
-[users]: https://users.rust-lang.org/
+[uzuloj]: https://users.rust-lang.org/
 [stackoverflow]: http://stackoverflow.com/questions/tagged/rust
 
-### Local Documentation
+### Loka dokumentaro
 
-The installer also includes a copy of the documentation locally, so you can
-read it offline. Run `rustup doc` to open the local documentation in your
-browser.
+La instalilo ankaŭ inkludas kopion de dokumentaro loke, do vi povas legi ĝin
+forrete. Rulu `rustup doc` por ovri la lokan dokumentaron en via retumilo.
 
-Any time a type or function is provided by the standard library and you’re not
-sure what it does or how to use it, use the application programming interface
-(API) documentation to find out!
+Iam tipo aŭ aĵigilo estas provizata de norma elordonteko kaj ke vi ne estas
+certa kion ĝi faras aŭ kiel uzi ĝin, uzu la dokumenatron de uzivaro por trovi
+tion.
