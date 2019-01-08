@@ -4,10 +4,10 @@ Nun ke vi instalis Rust, ni skribu vian unuan Rust elordonon. Estas tradicio
 kiam lerni novan lingvon ke oni skribas etan elordonon kiu linias la teksto
 `Saluton ĉiuj!` al ekrano, do ni faru same tie!
 
-> Notu: tiu libro supozas bazan familiareco kun ordonĉerpilo. Rust faras neniun
+> Notu: tiu libro supozas bazan familiarecon kun ordonĉerpilo. Rust faras neniun
 > specifan demandon pri via verkilo aŭ ilaro aŭ kie via kodo vivas, do se vi
-> preferas uzi elordonamedio prefere ol ordonĉerpilo, faru tiel. Multe da
-> elordonamedioj nun havas iom grado da apogo je Rust; kontrolu la dokumentaro
+> preferas uzi elordonamedion prefere ol ordonĉerpilo, faru tiel. Multe da
+> elordonamedioj nun havas iom grado da apogo je Rust; kontrolu la dokumentaron
 > de la elordonamedio por detaloj. Freŝdate, la teamo de Rust strebis pri ebligi
 > bonegan apogon per elordonamedioj, kaj progresoj okazis rapide pri tio.
 
@@ -48,7 +48,7 @@ Por Windows PowerShell, enigu tiun:
 
 ### Skribi kaj ruli Rust elordonon
 
-Sekve, faru novan fonta datenujo kaj nomu ĝin *ĉefo.rs*. Rust datenujoj ĉiam
+Sekve, faru novan fontan datenujon kaj nomu ĝin *ĉefo.rs*. Rust datenujoj ĉiam
 finiĝas per la *.rs* finaĵo. Se vi uzas pli ol unu vorto en via datenujonomo,
 estas kutima uzi substrekon por disigi ilin. Ekzemple uzu *iu_ezemplo.rs*
 prefere ol *iuekzemplo.rs*.

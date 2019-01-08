@@ -116,7 +116,7 @@ informojn kaj ke vi estas ĉe Windows, kontrolu ke Rust estas en via `%PATH%`
 mediaĵingo. Se ĝi estas tute korekta kaj Rust ankoraŭ ne funkcias, estas multe
 da placoj kie vi povas akiri helpon. La pli facila estas la [#rust IRB kanalo][
 irc]<!-- ignoru -->, kiu vi povas aliri per [Mibbit][mibbit]. Tie vi povas
-diskuti kun aliaj Rustacauloj (ridinda kromnomo ni nomas nin) kiuj povas helpi
+diskuti kun aliaj Rustaculoj (ridinda kromnomo ni nomas nin) kiuj povas helpi
 vin. Aliaj bonegaj rimedoj inkludas la [forumo de uzuloj][uzuloj] kaj
 [Stack Overflow][stackoverflow].
 
