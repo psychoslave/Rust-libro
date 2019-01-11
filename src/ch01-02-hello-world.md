@@ -1,15 +1,15 @@
 ## Saluton ĉiuj!
 
-Nun ke vi instalis Rust, ni skribu vian unuan Rust elordonon. Estas tradicio
-kiam lerni novan lingvon ke oni skribas etan elordonon kiu linias la teksto
+Nun ke vi instalis Rust, ni skribu vian unuan Rust programon. Estas tradicio
+kiam lerni novan lingvon ke oni skribas etan programon kiu linias la teksto
 `Saluton ĉiuj!` al ekrano, do ni faru same tie!
 
 > Notu: tiu libro supozas bazan familiarecon kun ordonĉerpilo. Rust faras neniun
 > specifan demandon pri via verkilo aŭ ilaro aŭ kie via kodo vivas, do se vi
-> preferas uzi elordonamedion prefere ol ordonĉerpilo, faru tiel. Multe da
-> elordonamedioj nun havas iom grado da apogo je Rust; kontrolu la dokumentaron
-> de la elordonamedio por detaloj. Freŝdate, la teamo de Rust strebis pri ebligi
-> bonegan apogon per elordonamedioj, kaj progresoj okazis rapide pri tio.
+> preferas uzi programada medio prefere ol ordonĉerpilo, faru tiel. Multe da
+> programada medio nun havas iom grado da apogo je Rust; kontrolu la dokumentaron
+> de la programada medio por detaloj. Freŝdate, la teamo de Rust strebis pri ebligi
+> bonegan apogon per programada medio, kaj progresoj okazis rapide pri tio.
 
 ### Krei projektan datenujaron
 
@@ -46,7 +46,7 @@ Por Windows PowerShell, enigu tiun:
 > cd salutilo
 ```
 
-### Skribi kaj ruli Rust elordonon
+### Skribi kaj ruli Rust programon
 
 Sekve, faru novan fontan datenujon kaj nomu ĝin *ĉefo.rs*. Rust datenujoj ĉiam
 finiĝas per la *.rs* finaĵo. Se vi uzas pli ol unu vorto en via datenujonomo,
@@ -90,12 +90,12 @@ Sendepende de via estrilo, la ĉeno `Saltuon ĉiuj!` devus esti liniita al via
 terminalo. Se vi ne vidas eligon, direktu al la "Problemsolvado" parto de la
 Instalado sekcio por maniero akiri helpon.
 
-Se `Saluton ĉiuj!` bone liniis, gratulon! Vi oficiale skribis Rust elordono.
-Tiu faras de vi Rust elordoniston – bonvenon!
+Se `Saluton ĉiuj!` bone liniis, gratulon! Vi oficiale skribis Rust programo.
+Tiu faras de vi Rust programiston – bonvenon!
 
-### Anatomio de unu Rust elordono
+### Anatomio de unu Rust programo
 
-Ni revuu detale kio ĵus okazis en via Saluton ĉiuj! elordono. Tie estas la unua
+Ni revuu detale kio ĵus okazis en via Saluton ĉiuj! programo. Tie estas la unua
 peco de la puzlo:
 
 
@@ -108,8 +108,8 @@ fn main() {
 ```
 
 Tiuj linioj difinas aĵigilon en Rust. La ĉefa (*`main`*) aĵigilo estas speciala:
-ĝi estas ĉiam la unua kodo kiu rulas en ĉiuj rubleblaĵo de Rust elordono. La
-unua linio deklaras elordonon nomitan `main` kiu havas neniun kunaĵingon kaj
+ĝi estas ĉiam la unua kodo kiu rulas en ĉiuj rubleblaĵo de Rust programo. La
+unua linio deklaras programon nomitan `main` kiu havas neniun kunaĵingon kaj
 adresas nenion. Se estus kunaĵingojn, ili irus inter krampoj, `()`.
 
 Ankaŭ, notu ke la kodingo de la aĵigilo estas ĉirkaŭvolvita inter kunigaj
@@ -130,11 +130,11 @@ Ene de la ĉefa aĵigilo estas la sekva kodo:
     println!("Saluton ĉiuj!");
 ```
 
-Tiu linio faras ĉiu la laboro en tiu eta elordono: ĝi linias tekston al la
+Tiu linio faras ĉiu la laboro en tiu eta programo: ĝi linias tekston al la
 ekrano. Estas kvar gravaj detaloj rimarkinda tie. Unue, la stilo de Rust estas
 krommarĝeno kun kvar spacetoj, ne kun tabo.
 
-Due, `println!` vokas Rust makroo. Se ĝi vokus elordono anstataŭ, ĝi estus
+Due, `println!` vokas Rust makroo. Se ĝi vokus programo anstataŭ, ĝi estus
 vokita per `println` (sen la krisigno `!`). Ni diskusos pri Rust makrooj pli
 detale en ĉapitro 19. Ĝis tie, vi nur bezonas scii ke uzi `!` signifas ke vi
 vokas makro anstataŭ de normala aĵigilo.
@@ -148,8 +148,8 @@ kun punktokomo.
 
 ### Transigi kaj ruli estas du apartaj ŝtupoj
 
-Vi ĵus rulis novan kreita elordono, do ni ekzaminas ĉiun ŝtupon en tiu procedo.
-Antaŭ ruli Rust elordono, vi devas transigi ĝin per Rust transigilo kun `rustc`
+Vi ĵus rulis novan kreita programo, do ni ekzaminas ĉiun ŝtupon en tiu procedo.
+Antaŭ ruli Rust programo, vi devas transigi ĝin per Rust transigilo kun `rustc`
 ordono kaj pasi al ĝi la nomon de via fonta datenujo, kiel tiu:
 
 ```text
@@ -201,19 +201,19 @@ la *ĉefo* aŭ *ĉefo.exe* datenujo, tiele:
 $ ./ĉefo # aŭ .\ĉefo.exe ĉe Windows
 ```
 
-Se *ĉefo.rs* estas via Saluton ĉiuj! elordono, tiu linio linius `Saluton ĉiuj`
+Se *ĉefo.rs* estas via Saluton ĉiuj! programo, tiu linio linius `Saluton ĉiuj`
 al via terminalo.
 
 Se vi estas pli familiara kun laŭfluaj lingvoj kiel Ruby, Python, aŭ Javascript,
-vi eble ne estas kutima kun transigado kaj ruligado de elordono kiel apartaj
+vi eble ne estas kutima kun transigado kaj ruligado de programo kiel apartaj
 ŝtupoj. Rust estas *frutransigita* lingvo, kio signifas ke vi povas transigi
-elordonon kaj doni ĝi al aliulo, kaj ili povas ruli ĝin êc sen havi Rust
+programon kaj doni ĝi al aliulo, kaj ili povas ruli ĝin êc sen havi Rust
 instalita. Se vi provizas al iu kelka *.rb* aŭ *.py* aŭ *.js* datenujo, ili
 bezonas havi Ruby, Python, aŭ Javascrip realigo instalita (respektive). Sed en
-tiuj lingvoj, vi nur bezonas unu ordono por transigi kaj ruli vian elordonon.
+tiuj lingvoj, vi nur bezonas unu ordono por transigi kaj ruli vian programon.
 Ĉiu temas pri akordo en lingva projektado.
 
 Ĵus transigi kun `rustc` sufiĉas por simplaj programoj, sed kiam via projekto
 kreskas, vi volos mastrumi ĉiujn opciojn kaj faciligi la kumunigon de via kodo.
 Sekvante, ni enkondukos vin al la ilo Cargo, kiu helpos skribi realmondan
-elordonon per Rust.
+programon per Rust.

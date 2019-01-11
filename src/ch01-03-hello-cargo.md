@@ -2,14 +2,14 @@
 
 Cargo estas konstrusistemo kaj pagestrilo de Rust. Plejparte de rustaculoj uzas
 tiu ilo por estri iliaj Rust projektoj ĉar Cargo traktas multe da taskoj por vi,
-kiel konstrui vian kodon, elŝuti la elordonotekojn kiun via kodo dependas, kaj
-konstrui tiujn elordonotekojn. (Ni nomas elordonotekojn kiun bezonas via kodo
+kiel konstrui vian kodon, elŝuti la programotekojn kiun via kodo dependas, kaj
+konstrui tiujn programotekojn. (Ni nomas programotekojn kiun bezonas via kodo
 *dependecoj*.)
 
-La plej simplaj Rust elordonoj, kiel tiu ke ni skribis ĝis nun, ne havas ajnan
+La plej simplaj Rust programoj, kiel tiu ke ni skribis ĝis nun, ne havas ajnan
 dependecon. Do se ni konstruigis Saluton ĉiuj! projekton kun Cargo, ĝi nur uzus
 la partoj de Cargo kiuj traktas kodkonstruadon. Kiel vi skribas pli kompleksajn
-Rust elordonoj, vi aldonas dependecoj, kaj se vi komencas projekto uzante Cargo,
+Rust programoj, vi aldonas dependecoj, kaj se vi komencas projekto uzante Cargo,
 aldoni dependecojn estas multe pli facile farota.
 
 Ĉar la plej multa da Rust projektoj uzas Cargo, la resto de tiu libro supozas ke
@@ -78,7 +78,7 @@ sekvantaj ordonoj agordas la pakon. Kiel ni aldonas pli da informoj al tiu
 datenujo, ni aldonos novajn sekciojn.
 
 La sekva kvar linioj agordas informaojn ke Cargo bezonas por transigi vian
-elordonon: la nomo, la versio, kaj kiu skribis ĝin. Cargo akiras vian nomon kaj
+programon: la nomo, la versio, kaj kiu skribis ĝin. Cargo akiras vian nomon kaj
 retpoŝto el via medio, do se tia informo ne estas taŭga, korektu la informon nun
 kuj konservu la datenujon. Ni parolos pri la `eldono` (`edition`) datenero en
 Apendico E.
@@ -99,7 +99,7 @@ fn main() {
 }
 ```
 
-Cargo generis Saluton ĉiuj! elordono por vi, tutsame al tiu ni skribis en
+Cargo generis Saluton ĉiuj! programon por vi, tutsame al tiu ni skribis en
 listigo 1-1! Ĝis nun, la malsamoj inter nia antaŭa projekto kaj la projekto ke
 Cargo generis estas ke Cargo enmetis kodon en la datenujaro *src*, kaj ke ni
 havas *Cargo.toml* agordan datenujon en la supra datenujaro.
@@ -115,7 +115,7 @@ projekto, vi povas ŝanĝigi ĝin al projekto kiu ja uzs Cargo. Movu la kodon de
 projekto en la *src* datenujaro kaj kreu taŭgan *Cargo.toml* datenujon.
 ### Konstrui kaj ruli Cargo projekton
 
-Nun, ni rigardu kion estas malsama kiam ni konstruas kaj rulas elordonon
+Nun, ni rigardu kion estas malsama kiam ni konstruas kaj rulas programon
 Saltuon ĉiuj! kun Cargo! Ĉe via *saluton_cargo* datenujaro, konstruu vian
 projekton per enigo de la sekva ordono:
 
@@ -154,7 +154,7 @@ Saluton ĉiuj!
 
 Notu ke tiafoje ni ne vidis eligon indikantan ke Cargo faris transigadon de
 `saluton_cargo`. Cargo konkludis ke neniu datenujo ŝanĝis, do ĝi nur rulis la
-elordono. Estus ŝanĝoj, Cargo rekonstruus la projekton antaŭ ruli ĝin, kaj vi
+programon. Estus ŝanĝoj, Cargo rekonstruus la projekton antaŭ ruli ĝin, kaj vi
 vidus la sekvan eligon:
 
 ```text
@@ -177,7 +177,7 @@ Kial dezirus vin ne krei ruleblaĵon? Ofte, `cargo check` estas multe pli rapida
 ol `cargo build`, ĉar ĝi preterlasi la ŝtupon de produktado de ruleblaĵo. Se vi
 konstante kontrolas vian laboron dun vi verkas kodon, uzi `cargo check` akcelos
 la procedon! Tiel, multe da rustaculoj rulas `cargo check` periode kiel ili
-verkas iliajn elordonojn por certigi ĝi transigas. Poste ili rulas `cargo build`
+verkas iliajn programojn por certigi ĝi transigas. Poste ili rulas `cargo build`
 kiam ili estas preta por uzi la ruleblaĵon.
 
 Ni resumu kion ni lernis ĝis tie pri Cargo:
@@ -197,7 +197,7 @@ Kiam via projekto estas fine preta por eldono, vi povas uzi `cargo build
 *target/release* anstataŭ de *target/debug*. La optimumigoj akceligas vian Rust
 kodon, sed plilongigas la tempon de transigo. Tial estas dua malsamaj profiloj:
 unu por disvolvado, kiam vi deziras konstrui rapide kaj ofte, unu alia por
-konstrui la finan elordono vi donos al uzuloj kiu ne estos rekonstruota ripete
+konstrui la finan programo vi donos al uzuloj kiu ne estos rekonstruota ripete
 kaj rulas tiel rapida ol ebla. Se vi taksotestas rultempadon de via kodo,
 certigu ruli `cargo build --release` kaj taksotestu kun la ruleblaĵo en
 *target/release*.
@@ -205,7 +205,7 @@ certigu ruli `cargo build --release` kaj taksotestu kun la ruleblaĵo en
 ### Cargo kiel konvencio
 
 Kun simplaj projektoj, Cargo ne provizas tiom da valoro kompare ol ĵus uzi
-`rustc`, sed ĝi montriĝos inda kiam viaj elordonoj fariĝos pli komplikitaj.
+`rustc`, sed ĝi montriĝos inda kiam viaj programoj fariĝos pli komplikitaj.
 Kun kompleksaj projektoj, komponitaj de pluraj kestoj, estas multe pli facila
 lasi Cargo kunordigi la konstruado.
 
@@ -232,10 +232,10 @@ kiel:
 * instali lastan stabilan version de Rust per `rustup`
 * ĝisdatigi al nova versio de Rust
 * konsulti loke instalita dokumentaro
-* skribi kaj rekte ruli elordonon Saluton ĉiuj! per `rustc`
+* skribi kaj rekte ruli programon Saluton ĉiuj! per `rustc`
 * krei kaj ruli novan projekto laŭ Cargo konvencioj
 
-Tiu estas bonega tempo por konstrui pli konsiderindajn elordonojn por kumitiĝi
+Tiu estas bonega tempo por konstrui pli konsiderindajn programojn por kumitiĝi
 kun legi kaj skribi Rust kodon. Do, en ĉapitro 2, ni konstruos divinadoludan
-elordonon. Se vi vi anstataŭ preferus lerni kiel oftaj konceptoj funkcias ne
+programon. Se vi vi anstataŭ preferus lerni kiel oftaj konceptoj funkcias ne
 Rust, vidu ĉapitro 3 kaj poste iru al ĉapitro 2.

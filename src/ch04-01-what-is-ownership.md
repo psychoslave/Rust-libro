@@ -3,14 +3,14 @@
 La ĉefa ivo de Rust estas *proprigo*. Kvankam la klarigo de la  ivo estas
 simpla, ĝi havas profundajn implicojn por la resto de la lingvo.
 
-Ĉiuj elordonoj endas estri kia uzi memoro de komputilo rultempe.
+Ĉiuj programoj endas estri kia uzi memoro de komputilo rultempe.
 Iuj lingvoj havas senrubigo kiu senĉese zorgas pri ne plu uzanta memoro
-rultempe; en aliaj lingvoj, elordonisto endas eksplicite okupi kaj malokupi
+rultempe; en aliaj lingvoj, programisto endas eksplicite okupi kaj malokupi
 memoron. Rust uzas tria vojo: memoro estas estrita per sistemo de proprigo kun
 regularo, kiujn la tranigilo transtempe kontrolas. Neniu el la ivo de proprigo
-malrapidigas vian elordonon rultempe.
+malrapidigas vian programon rultempe.
 
-Ĉar proprigo estas nova koncepto por multe da elordonistoj, kutimiĝo daŭras.
+Ĉar proprigo estas nova koncepto por multe da programistoj, kutimiĝo daŭras.
 La bona novaĵo estas ke ju pli vi spertiĝu Rust kaj la proprigo-sistemo-rularo,
 des pli vi eblos spontane disvolvi sekuran kaj rendimentan kodon. Daŭrigu!
 
@@ -20,7 +20,7 @@ fokusantaj al ofta datena strukturo: ĉenoj.
 
 > ### La stako kaj la staplo
 >
-> Multe da elordonalingvoj ne devigas ke disvolvistoj ofte zorgas pri stako kaj
+> Multe da programalingvoj ne devigas ke disvolvistoj ofte zorgas pri stako kaj
 > staplo. Sed en sistema lordonalingvo kiel Rust, la taksada konduto kaj
 > kial vi farendas iajn decidojn ege dependas de ĉu la stako ĉu la staplo uzado.
 > Partoj de proprigo estos priskribitaj rilate al la stako kaj la staplo en tiu
@@ -86,14 +86,14 @@ tra ekzemploj kiuj ilustras ilin:
 
 ### Trafejo de aĵingo
 
-Ni jam trazorgis ekemplon de Rust-a elordono dum ĉapitro 2. Nun ke ni estas post
+Ni jam trazorgis ekemplon de Rust-a programo dum ĉapitro 2. Nun ke ni estas post
 simpla disponigo, ni ne plu inkludos ĉiujn la `fn main() {` kodon en ekzemploj,
 do se vi trasekvas, vi endos meti la postajn ekzemplojn ene `main` aĵigilo ule.
 Rezulte, niaj ekzemploj estos ete pli konciza, permetante al ni fokusi al
 detaloj anstataŭ plenreuzema kodo.
 
 Kiel unua ekzemplo de proprigo, ni rigardu trafejon de iuj aĵingoj. Trafejo
-estas la amplekso ene de elordono laŭ kiu iro validas. Diru ni havas aĵingon,
+estas la amplekso ene de programo laŭ kiu iro validas. Diru ni havas aĵingon,
 kiu ŝajnas jene:
 
 ```rust
@@ -102,7 +102,7 @@ let salutado = "Halo ĉiuj!";
 ```
 
 La aĵingo `salutado` ekrilatas al ĉena memaĵo, kie la aĵo de la ĉeno
-estas rektkodita en la teskto de via elordono. La aĵingo validas ekde tiu
+estas rektkodita en la teskto de via programo. La aĵingo validas ekde tiu
 punkto de kiu ĝi estas deklarita ĝis la fino de la nuna trafejo. Listigo 4-1
 havas komentoj anotaciantj kie la aĵingo `salutado` validas.
 
@@ -122,7 +122,7 @@ Alivorte, estas du grava momento tie:
 * ĝi ade validas ĝis ĝi fortrafebliĝas.
 
 Tiam, la rilato inter trafejoj kaj kiam aĵingoj validas, similas al tia en
-aliaj elordonalingvoj. Nun ni konstruos sur tion komprenon per enkonduko de
+aliaj programalingvoj. Nun ni konstruos sur tion komprenon per enkonduko de
 la `Ĉeno` (*`String`*) tipo.
 
 ### La `Ĉeno` tipo
@@ -135,10 +135,10 @@ viŝi datenojn.
 
 Ni uzos `Ĉeno` (*`String`*) kiel ekezemplo ĉi tie kaj koncentros al partoj de
 `Ĉeno`, kiuj rilatas al proprigo. Tiuj aspektoj ankaŭ aplikas al aliaj
-kompleksaj datenaj tipoj, provizita de norma elordonteko kaj ke vi povas kei.
+kompleksaj datenaj tipoj, provizita de norma programteko kaj ke vi povas kei.
 Ni diskutos `Ĉeno` pli plene dum ĉapitro 8.
 
-Ni jam vidis ĉenaj memaĵoj, kie ĉena aĵo estas rektkodita en nia elordono.
+Ni jam vidis ĉenaj memaĵoj, kie ĉena aĵo estas rektkodita en nia programo.
 Ĉenaj memaĵo estas oportuna, sed ne taŭgas ĉiujn situaciojn kie ni eble volus
 uzi tekston. Unu kialo estas ke ili estas fiksaj. Alia kialo estas ke ne ĉiuj
 ĉenaj aĵoj povas esti konita kiam ni skribas nian kodon.: ekzemple, kio okazus
@@ -196,13 +196,13 @@ enhavojn. Tiu signifas:
 
 Tiu ĉi unua parto estas farita de ni: kiam ni vokas `ĉeno fare de`
 (*`String::from`*), ĝia realigo petas memoron ke ĝi necesas. Tiu estas proksime
-universa elordonalingvoj.
+universa programalingvoj.
 
 Kvankam, la dua parto estas malsama. Kun lingvoj kun senrubigilo, tiu ĉi spuras
 kaj senrubigas ne plu uzitan memoron, kaj ni ne bezonas pensi pri tio. Sen
 senrubigilo, estas nia respondeco identigi kiam memore ne plu uzota kaj voki
 kodon por esplicite redoni ĝin, ekzate kiel ni petis ĝin. Fari tion taŭge estis
-historie malfacila elordona problemo. Se ni fogesas tion, ni disipas memoron.
+historie malfacila programa problemo. Se ni fogesas tion, ni disipas memoron.
 Se ni faras ĝin tro frue, ni havos malvalida aĵingo. Se ni faras tion dufoje,
 tio estas ankaŭ difekto. Ne devas pari ekazkte unu `asigni` kun ekzakte unu
 `malasigni`.
@@ -392,7 +392,7 @@ rultempa-redimente.
 Se ni *ja* deziras plene kopii la staplajn datenojn de `Ĉeno` (*`String`*), ne
 nur la stakaj datenoj, ni povas uzi la universala aĵigilo nomita `kloni`
 (*`clone`*). Ni diskutos disponigon de aĵigiloj dum ĉapitro 5, sed ĉar aĵigiloj
-estas universala ivo de multe da elordonalingvoj, vi probable jam vidis ilin
+estas universala ivo de multe da programalingvoj, vi probable jam vidis ilin
 antaŭe.
 
 Jen estas ekzempo de `kloni` (*`clone`*) aĵigilo en ago:

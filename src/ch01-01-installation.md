@@ -58,7 +58,7 @@ $ export PATH="$HOME/.cargo/bin:$PATH"
 ```
 
 Aldone, vi bezonos iun ligilon. Verŝajne unu estas jam instalita, sed kiam vi
-transigas Rust elordonon kaj ricevas erarojn indikantajn ke neniu ligilo estis
+transigas Rust programon kaj ricevas erarojn indikantajn ke neniu ligilo estis
 rulebla, tio signifas ke ligilo ne estas instalita ĉe via sistemo kaj vi
 bezonos unu ule. C transigiloj kutime estas liveritaj kun taŭga ligilo. Kontrolu
 la dokumetaron de via platoformo por trovi kiel instali C transigilo. Plie, iuj
@@ -130,6 +130,6 @@ vin. Aliaj bonegaj rimedoj inkludas la [forumo de uzuloj][uzuloj] kaj
 La instalilo ankaŭ inkludas kopion de dokumentaro loke, do vi povas legi ĝin
 forrete. Rulu `rustup doc` por ovri la lokan dokumentaron en via retumilo.
 
-Iam tipo aŭ aĵigilo estas provizata de norma elordonteko kaj ke vi ne estas
+Iam tipo aŭ aĵigilo estas provizata de norma programteko kaj ke vi ne estas
 certa kion ĝi faras aŭ kiel uzi ĝin, uzu la dokumenatron de uzivaro por trovi
 tion.
