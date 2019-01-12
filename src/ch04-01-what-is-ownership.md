@@ -65,9 +65,9 @@ fokusantaj al ofta datena strukturo: ĉenoj.
 > surstake) anstataŭ forajn datenojn (kiel surstaple). Asigni larĝan kvanto de
 > spaco de la staplo ankaŭ povas preni tempon.
 >
-> Kiam via kodo vokas aĵigilon, la aĵoj pasitaj al la aĵigilo (inklude eble
+> Kiam via kodo vokas funkcion, la aĵoj pasitaj al la funkcio (inklude eble
 > montriloj al datenoj de la staplo) kaj la lokaj aĵingoj puŝiĝas staken. Kiam
-> la aĵigilo finas, tiuj aĵoj foreliĝas stake.
+> la funkcio finas, tiuj aĵoj foreliĝas stake.
 >
 > Gardi spuron de kio parto de kodo uzas kion datenon de la staplo, plejetigi
 > la kvanton de duoblaj datenoj en la staplo, senrubigi foruzatajn datenojn de la
@@ -88,7 +88,7 @@ tra ekzemploj kiuj ilustras ilin:
 
 Ni jam trazorgis ekemplon de Rust-a programo dum ĉapitro 2. Nun ke ni estas post
 simpla disponigo, ni ne plu inkludos ĉiujn la `fn main() {` kodon en ekzemploj,
-do se vi trasekvas, vi endos meti la postajn ekzemplojn ene `main` aĵigilo ule.
+do se vi trasekvas, vi endos meti la postajn ekzemplojn ene `main` funkcio ule.
 Rezulte, niaj ekzemploj estos ete pli konciza, permetante al ni fokusi al
 detaloj anstataŭ plenreuzema kodo.
 
@@ -145,7 +145,7 @@ uzi tekston. Unu kialo estas ke ili estas fiksaj. Alia kialo estas ke ne ĉiuj
 se ni deziras peti enigon de uzanto kaj memori ĝin? Por tiuj situacioj, Rust
 havas duan ĉenan tipon, `Ĉeno` (*`String`*). Tiu tipo estas asignita sur la
 staplo transtempe kaj do povas memori kvanton da teskto ke ni ne konas transtempe.
-Vi povas krei `Ĉeno` el ĉena memaĵo uzante la aĵigilo `de (*`from`*), tiel:
+Vi povas krei `Ĉeno` el ĉena memaĵo uzante la funkcio `de (*`from`*), tiel:
 
 
 ```rust
@@ -154,7 +154,7 @@ let salutado = String::from("saluton!")
 ```
 
 La duobla duponkto (`::`), ke ni vortigis per "fare" en la plena esperanta
-komento, estas elaĵilo kiu eblas nin nomujigi tiun specifikan aĵigilon `eliĝi`
+komento, estas elaĵilo kiu eblas nin nomujigi tiun specifikan funkcion `eliĝi`
 (*`from`*) de la tipo `Ĉeno` (*`String`*), anstataŭ uzi ian nomon kiel
 `ĉeno_de`. Ni diskutos pri tiu disponigo plie en la "Kiomiga disponigo"
 sekcio de ĉapitro 5 kaj kiam ni parolos pri nomujado kun moduloj en
@@ -225,7 +225,7 @@ memaĵo.
 ```
 Estas evidenta ejo kie post kiu redoni memoron ke nia ĉeno necesas al la
 estrilo: kiam `salutado` fortrafebliĝas. Kiam aĵingo fortrafebliĝas,
-Rust vokas specian aĵigilon por ni. Tiu aĵigilo estas nomita `forigi` (*`drop`*)
+Rust vokas specian funkcion por ni. Tiu funkcio estas nomita `forigi` (*`drop`*)
 kaj estas kie la verkisto de `Ĉeno` (*`String`*) povas placi kodon por redoni
 memoron. Rust vokas `forigi` (*`drop`*) aŭtomate al kodblokfino, tio estas al
 arigejo signita de fermanta kuniga krampo.
@@ -233,7 +233,7 @@ arigejo signita de fermanta kuniga krampo.
 > Notu: En C++, tiu skemo de rimeda malasignado ĉe fino de trafebleco de ero
 > estas iam nomita *rimeda akiro ekuzu*
 > (*Resource Acquisition Is Initialization*, mallongige *RAII*).
-> La aĵigilo `forigi` (*`drop`*) de Rust estos familiara por vi se vi jam uzis
+> La funkcio `forigi` (*`drop`*) de Rust estos familiara por vi se vi jam uzis
 > tiun skemon.
 
 Tiu skemo havas profundan efikon pri kiel Rusta kodo estas verkita. Tio eble
@@ -314,7 +314,7 @@ estas pezegaj.
 Rust ankaŭ kopius datenojn el staplo.</span>
 
 Pli frue, ni diris ke kiam aĵingo eliras trafejon, Rust aŭtomate vokas la
-`forigi` (*`drop`*) aĵigilo kaj senrubigas la staplan memoron de tiu aĵingo. Sed
+`forigi` (*`drop`*) funkcio kaj senrubigas la staplan memoron de tiu aĵingo. Sed
 Figuro 4-2 montras ambaŭ datena deiloj almontrantaj la sama loko. Tiu estas
 problemo: kiam `sento` kaj `senso` fortrafebliĝas, ili ambaŭ pravos liberigi la
 saman memoron. Tiu estas konita kiel la eraro de *duobla liberigo* kaj estas unu
@@ -325,7 +325,7 @@ Por certigi memoran sekurecon, estas unu plia detajlo pri kio okazas en tiu
 situacio kun Rust. Anstataŭ pravi kopii la asignatan memoron, Rust konsideras
 `senso` kiel ne plu valida kaj do Rust ne bezonas liberigi ion ajn kiam
 `senso` fortrafebliĝas. Kontrolu kio okazas kiam vi pravas uzi `senso` post
-`sento` estas kreita; tio ne aĵigilos.
+`sento` estas kreita; tio ne funkcios.
 
 ```rust,ignore,does_not_compile
 // tie senso iĝu ĉeno fare de "halo" opu
@@ -390,12 +390,12 @@ rultempa-redimente.
 #### Manieroj per kiuj aĵingoj kaj datenoj interagas: kloni
 
 Se ni *ja* deziras plene kopii la staplajn datenojn de `Ĉeno` (*`String`*), ne
-nur la stakaj datenoj, ni povas uzi la universala aĵigilo nomita `kloni`
-(*`clone`*). Ni diskutos disponigon de aĵigiloj dum ĉapitro 5, sed ĉar aĵigiloj
+nur la stakaj datenoj, ni povas uzi la universala funkcio nomita `kloni`
+(*`clone`*). Ni diskutos disponigon de funkcioj dum ĉapitro 5, sed ĉar funkcioj
 estas universala ivo de multe da programalingvoj, vi probable jam vidis ilin
 antaŭe.
 
-Jen estas ekzempo de `kloni` (*`clone`*) aĵigilo en ago:
+Jen estas ekzempo de `kloni` (*`clone`*) funkcio en ago:
 
 ```rust
 // tie senso iĝu ĉeno fare de "amo" opu
@@ -461,10 +461,10 @@ estas `Kopio`. Tie estas kelkaj tipoj kiuj estas `Kopio`:
 * opo, se ili nur enhvas tipojn kiuj ankaŭ estas `Copy`. Ekzemple `(i32, i32)`
   estas `Kopio`, sed `(i32, String)` ne estas tia.
 
-### Proprigo kaj aĵigiloj
+### Proprigo kaj funkcioj
 
-Semantikoj por pasi aĵojn al aĵigilo estas simila ol tiuj por alsigni aĵon
-al aĵingo. Pasi aĵingo al aĵigilo movos aŭ kopios, ĵus kiel alsigno faras.
+Semantikoj por pasi aĵojn al funkcio estas simila ol tiuj por alsigni aĵon
+al aĵingo. Pasi aĵingo al funkcio movos aŭ kopios, ĵus kiel alsigno faras.
 Listigo 4-3 havas ekzemplon de iuj notoj montrantaj kie aĵingoj ek- kaj
 for-trafebliĝas.
 
@@ -541,20 +541,20 @@ fn main() {
 
 // ĉi proprigodonu kiele ĉeno ige
 fn proprigodoni() -> String {                // proprigodoni movos ĝian adresan
-                                             // aĵon en ĝia vokanta aĵigilo
+                                             // aĵon en ĝia vokanta funkcio
 
     // tie iuĉeno iĝu ĉeno fare de "halo" opu
     let iucxeno = String::from("halo");      // iuĉeno ektrafebliĝas
 
     iucxeno                                  // iucxeno estas adresata kaj
-                                             // elmovas al la vokanta aĵigilo
+                                             // elmovas al la vokanta funkcio
 }
 
 // `prenikajredoni` postulos kaj adresos ĉenon
 // ĉi prenikajredoni iaĉenon kiel ĉeno ope kiele ĉeno jene
 fn prenikajredoni(iacxeno: String) -> String { // iacxeno ektrafebliĝu
 
-    iacxeno  // iacxeno estas adresata kaj elmovas al la vokanta aĵigilo
+    iacxeno  // iacxeno estas adresata kaj elmovas al la vokanta funkcio
 }
 ```
 
@@ -565,10 +565,10 @@ movas ĝin. Kiam âjingo kiu stake inkludas datenon fortrafebliĝas, la aĵo est
 senrubigita per `forigi` (*`drop`*), krom se datenojn estis movitaj por esti
 proprigo de alia aĵingo.
 
-Preni proprigon kaj poste adresi ĝin kun ĉiu aĵigilo estas iomete teda. Kio
-okazus se ni dezirus ke iu aĵigilo uzas aĵon sed ne prenas proprigilon? Tio
+Preni proprigon kaj poste adresi ĝin kun ĉiu funkcio estas iomete teda. Kio
+okazus se ni dezirus ke iu funkcio uzas aĵon sed ne prenas proprigilon? Tio
 agecetas ke ion ajn ni pasigas ankaŭ necesas esti retropasigita se ni volas uzi
-ĝin denove, aldone al adresotaj datenoj el la trakto de la aĵigilo ke ni ankaŭ
+ĝin denove, aldone al adresotaj datenoj el la trakto de la funkcio ke ni ankaŭ
 volus adresi.
 
 Estas ebla adresi plurajn aĵon uzante opo, kiel montrata en listigo 4-5.

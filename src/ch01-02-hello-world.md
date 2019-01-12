@@ -4,9 +4,9 @@ Nun ke vi instalis Rust, ni skribu vian unuan Rust programon. Estas tradicio
 kiam lerni novan lingvon ke oni skribas etan programon kiu linias la teksto
 `Saluton ĉiuj!` al ekrano, do ni faru same tie!
 
-> Notu: tiu libro supozas bazan familiarecon kun ordonĉerpilo. Rust faras neniun
+> Notu: tiu libro supozas bazan familiarecon kun komanda liniilo. Rust faras neniun
 > specifan demandon pri via verkilo aŭ ilaro aŭ kie via kodo vivas, do se vi
-> preferas uzi programada medio prefere ol ordonĉerpilo, faru tiel. Multe da
+> preferas uzi programada medio prefere ol komanda liniilo, faru tiel. Multe da
 > programada medio nun havas iom grado da apogo je Rust; kontrolu la dokumentaron
 > de la programada medio por detaloj. Freŝdate, la teamo de Rust strebis pri ebligi
 > bonegan apogon per programada medio, kaj progresoj okazis rapide pri tio.
@@ -18,7 +18,7 @@ kodon por Rust, sed por la ekzercoj kaj projektoj de tiu libro, ni sugĝestas
 fari datenujaron nomita *projektaro* en via ĉefdatenujaron kaj ke vi gardas
 ĉiujn viajn projektojn tie.
 
-Rulu terminalon kaj enigu la sekvajn ordonojn por krei la datenujaron
+Rulu terminalon kaj enigu la sekvajn komandojn por krei la datenujaron
 *projektaro* kaj datenujaron por la "Saluton ĉiuj!" projekto en la *projektaro*
 datenujaro.
 
@@ -53,7 +53,7 @@ finiĝas per la *.rs* finaĵo. Se vi uzas pli ol unu vorto en via datenujonomo,
 estas kutima uzi substrekon por disigi ilin. Ekzemple uzu *iu_ezemplo.rs*
 prefere ol *iuekzemplo.rs*.
 
-Nun, ovru la datenujon *ĉefo.rs* vi ĵus kreis kaj enigu la kodo de listigo 1-1.
+Nun, malfermu la datenujon *ĉefo.rs* vi ĵus kreis kaj enigu la kodo de listigo 1-1.
 
 Now open the *ĉefo.rs* file you just created and enter the code in Listigo 1-1.
 
@@ -67,10 +67,10 @@ fn main() {
 }
 ```
 
-<span class="caption">Listigo 1-1: Elordono kiu linias `Saluton ĉiuj`</span>
+<span class="caption">Listigo 1-1: Programo kiu linias `Saluton ĉiuj`</span>
 
 Konservu la datenujon kaj reiru al la terminala fenetro. Je Linux aŭ macOS,
-enigu la sekvantajn ordonojn por transigi kaj ruli la datenujo:
+enigu la sekvantajn komandojn por transigi kaj ruli la datenujo:
 
 ```text
 $ rustc ĉefo.rs
@@ -78,7 +78,7 @@ $ ./ĉefo
 Saluton ĉiuj!
 ```
 
-Je Windows, enigu la ordono `.\ĉefo.exe` anstataŭ de `./ĉefo`:
+Je Windows, enigu la komando `.\ĉefo.exe` anstataŭ de `./ĉefo`:
 
 ```powershell
 > rustc ĉefo.rs
@@ -107,14 +107,14 @@ fn main() {
 }
 ```
 
-Tiuj linioj difinas aĵigilon en Rust. La ĉefa (*`main`*) aĵigilo estas speciala:
+Tiuj linioj difinas funkcion en Rust. La ĉefa (*`main`*) funkcio estas speciala:
 ĝi estas ĉiam la unua kodo kiu rulas en ĉiuj rubleblaĵo de Rust programo. La
 unua linio deklaras programon nomitan `main` kiu havas neniun kunaĵingon kaj
 adresas nenion. Se estus kunaĵingojn, ili irus inter krampoj, `()`.
 
-Ankaŭ, notu ke la kodingo de la aĵigilo estas ĉirkaŭvolvita inter kunigaj
-krampoj, `{}`. Rust necesas tiujn ĉirkaŭ aĵigila kodingo. Estas kutima stilo
-placi la ovra kuniga krampo samlinie ol la aĵigilo deklarado, aldonante unu
+Ankaŭ, notu ke la kodingo de la funkcio estas ĉirkaŭvolvita inter kunigaj
+krampoj, `{}`. Rust necesas tiujn ĉirkaŭ funkcia kodingo. Estas kutima stilo
+placi la malferma kuniga krampo samlinie ol la funkcio deklarado, aldonante unu
 spaceto intere.
 
 Tiuskribtempe, la aŭtoaranĝilo nomita `rustfmt` estas disvolvata. Se vi deziras
@@ -123,7 +123,7 @@ stilo. La teamo de Rust planas fakte inkludi tiun ilon kun la norma disdono,
 kiel `rustc`. Do depende de kiam vi legas tiun libron, ĝi eble jam estas
 instalita al via komputilo! Kontrolu la dokumentaro por pli da detaloj.
 
-Ene de la ĉefa aĵigilo estas la sekva kodo:
+Ene de la ĉefa funkcio estas la sekva kodo:
 
 ```rust
     // makrolinii "Saluton ĉiuj!" opu
@@ -137,7 +137,7 @@ krommarĝeno kun kvar spacetoj, ne kun tabo.
 Due, `println!` vokas Rust makroo. Se ĝi vokus programo anstataŭ, ĝi estus
 vokita per `println` (sen la krisigno `!`). Ni diskusos pri Rust makrooj pli
 detale en ĉapitro 19. Ĝis tie, vi nur bezonas scii ke uzi `!` signifas ke vi
-vokas makro anstataŭ de normala aĵigilo.
+vokas makro anstataŭ de normala funkcio.
 
 Trie, vi vidas la `"Salution ĉiuj!"` ĉeno. Ni pasas tiun ĉenon kiel kunaĵo al
 `println!`, kaj la ĉeno estas liniita al la ekrano.
@@ -150,7 +150,7 @@ kun punktokomo.
 
 Vi ĵus rulis novan kreita programo, do ni ekzaminas ĉiun ŝtupon en tiu procedo.
 Antaŭ ruli Rust programo, vi devas transigi ĝin per Rust transigilo kun `rustc`
-ordono kaj pasi al ĝi la nomon de via fonta datenujo, kiel tiu:
+komando kaj pasi al ĝi la nomon de via fonta datenujo, kiel tiu:
 
 ```text
 $ rustc ĉefo.rs
@@ -210,7 +210,7 @@ vi eble ne estas kutima kun transigado kaj ruligado de programo kiel apartaj
 programon kaj doni ĝi al aliulo, kaj ili povas ruli ĝin êc sen havi Rust
 instalita. Se vi provizas al iu kelka *.rb* aŭ *.py* aŭ *.js* datenujo, ili
 bezonas havi Ruby, Python, aŭ Javascrip realigo instalita (respektive). Sed en
-tiuj lingvoj, vi nur bezonas unu ordono por transigi kaj ruli vian programon.
+tiuj lingvoj, vi nur bezonas unu komando por transigi kaj ruli vian programon.
 Ĉiu temas pri akordo en lingva projektado.
 
 Ĵus transigi kun `rustc` sufiĉas por simplaj programoj, sed kiam via projekto

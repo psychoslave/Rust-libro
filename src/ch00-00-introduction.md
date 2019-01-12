@@ -1,7 +1,7 @@
 # Enkonduko
 
 Bonvenon al la *Rust programalingvo*, enkonduka libro pri Rust. La Rust
-programalingvo helpas vin verki pli rapida, pli fidinda programoj. Alt-nivelaj
+programalingvo helpas vin verki pli rapidan, pli fidindan programojn. Alt-nivelaj
 ergonomaĵoj kaj bas-nivelaj stirado estas ofte antagonistaj en programalingvaj
 projekto; Rust kontestas tiun konfllikton. Per ekvilibrigo de fortaj teknikaj
 kapabloj kaj bonegaj spertoj de programistoj, Rust provizas al vi opcion stiri
@@ -47,7 +47,7 @@ konceptoj pli alirebla por pli da personoj, speciale tiuj novaj en programado.
 ### Kompanioj
 
 Centoj da kompanioj, larĝaj kaj etaj, uzas Rust en produktejo por multe da
-taskoj. Tiuj taskoj inkludas ordonĉerpajn ilojn, retservilojn,
+taskoj. Tiuj taskoj inkludas komanda liniajn ilojn, retservilojn,
 disvolva-operaciajn iladojn, enkorpigitajn aparatojn, aŭdiajn kaj videajn
 transkodadojn, ĉifravalutojn, bioinformadikojn, serĉilojn, aplikaĵojn de
 aĵreton, kaj eĉ ĉefajn partojn de la Firefox retumilo.
@@ -112,7 +112,7 @@ numeradon, `kongrui` (*`match`*) esprimojn, kaj la `se tie` (*`if let`*)
 ŝaltpelo. Vi uzos strukturojn kaj numeradojn por fari laŭsituan tipojn en Rust.
 
 En ĉapitro 7, vi lernos pri sistemo de moduloj de Rust, pri reguloj de privateco
-por organizi vian kodon kaj ĝian ĉies uzivaro. Ĉapitro 8 diskutas kurantajn
+por organizi vian kodon kaj ĝian ĉies aplikprograma interfaco. Ĉapitro 8 diskutas kurantajn
 strukturojn de datena kolekto provizatajn en la norma programteko, kiel
 vektoroj, ĉenoj, kaj hakujoj. Ĉapitro 9 esploras filozofio ka teknikoj de
 erartraktado de Rust.
@@ -121,11 +121,11 @@ erartraktado de Rust.
 povon difini kodon kiu aplikas al plurajn tipojn. Ĉapitro 11 estas dediĉa al
 testado, kiu eĉ kun garantioj de sekureco de Rust estas necesa por certigi ke
 la logiko de via programo estas korekta. En ĉapitro 12, ni konstruos nian
-propran realigon de subaro de funkciaro de la ordonĉerpa ilo `grep` kiu serĉas
+propran realigon de subaro de funkciaro de la komanda linia ilo `grep` kiu serĉas
 tekston en datenujoj. Por tio, ni uzos multe da konceptoj antaŭdiskutitaj.
 
 Ĉapitro 13 esploras fermoj kaj sekvigiloj: ivoj de Rust kiuj venas el
-aĵigila-programa-lingvoj. En ĉapitro 14, ni ekzaminos Cargo pli ampleks kaj
+funkcia-programa-lingvoj. En ĉapitro 14, ni ekzaminos Cargo pli ampleks kaj
 parolos pri plej bonaj paktikoj por komunigi viajn programtekoj kun aliaj.
 Ĉapitro 15 pritraktas saĝajn deiloj kiujn provizas la norma programteko kaj la
 trajtoj kiuj eblas iliaj funkciaro.
@@ -138,7 +138,7 @@ eble kutimiĝis.
 Ĉapitro 18 estas referenco pri skemoj kaj skemkongruo, kiuj estas fleksegaj
 manieroj esprimi ideojn tra la tutaj programoj de Rust. Ĉapitro 19 enhavas
 plenan perspektivon de evoluintaj interesindaj temoj, inklude sensekura Rust,
-makrooj, kaj pli pri traftuto, trajtoj, tipoj, aĵigiloj, kaj fermoj.
+makrooj, kaj pli pri traftuto, trajtoj, tipoj, funkcioj, kaj fermoj.
 
 En ĉapitro 20, ni kompletigos projekton en kiu ni realigos basanivela multfadena
 retservilo!

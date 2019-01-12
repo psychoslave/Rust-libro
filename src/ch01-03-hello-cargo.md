@@ -21,7 +21,7 @@ rimedo, kontrolu ĉu Cargo estas instalita enigante la sekvanto en via terminalo
 $ cargo --version
 ```
 
-Se vi vidas numeron de versio, vi havas ĝin! Se vi vidas eraron, kiel `ordono ne
+Se vi vidas numeron de versio, vi havas ĝin! Se vi vidas eraron, kiel `komando ne
 trovita`, rigardu en la dokumentaron de via metodo de instalado por determini
 kiel intali Cargo aparte.
 
@@ -36,7 +36,7 @@ $ cargo new saluton_cargo
 $ cd saluton_cargo
 ```
 
-La unua ordono kreas novan datenujaron nomitan *saluton_cargo*. Ni nomis nian
+La unua komando kreas novan datenujaron nomitan *saluton_cargo*. Ni nomis nian
 projekton *saluton_cargo*, kaj Cargo kreas ĝiajn datenujojn en datenujaro kun la
 sama nomo.
 
@@ -74,7 +74,7 @@ aranĝo de Cargo.
 [toml]: https://github.com/toml-lang/toml
 
 La unua linio, `[pako]` *`[package]`*, estas ĉapo de sekcio kiu indikas ke la
-sekvantaj ordonoj agordas la pakon. Kiel ni aldonas pli da informoj al tiu
+sekvantaj komandoj agordas la pakon. Kiel ni aldonas pli da informoj al tiu
 datenujo, ni aldonos novajn sekciojn.
 
 La sekva kvar linioj agordas informaojn ke Cargo bezonas por transigi vian
@@ -89,7 +89,7 @@ kestoj (*crates*). Ni ne bezonos ajnan keston por tiu projekto, sed ni bezonos
 tian en la unua projekto de ĉapitro 2, do ni uzos tiam tiun sekcion de
 dependecoj.
 
-Nun ovru *src/main.rs* kaj rigardu:
+Nun malfermu *src/main.rs* kaj rigardu:
 
 <span class="filename">Datenujonomo: src/main.rs</span>
 
@@ -117,7 +117,7 @@ projekto en la *src* datenujaro kaj kreu taŭgan *Cargo.toml* datenujon.
 
 Nun, ni rigardu kion estas malsama kiam ni konstruas kaj rulas programon
 Saltuon ĉiuj! kun Cargo! Ĉe via *saluton_cargo* datenujaro, konstruu vian
-projekton per enigo de la sekva ordono:
+projekton per enigo de la sekva komando:
 
 ```text
 $ cargo build
@@ -125,9 +125,9 @@ $ cargo build
     Finished dev [unoptimized + debuginfo] target(s) in 2.85 secs
 ```
 
-Tiu ordono kreas ruleblan datenujon en *target/debug/saluton_cargo* (aŭ
+Tiu komando kreas ruleblan datenujon en *target/debug/saluton_cargo* (aŭ
 *target\debug\saluton_cargo.exe* ĉe Windows) anstataŭ de via nuna datenujaro.
-Vi povas ruli ĝin kun tiu ordono:
+Vi povas ruli ĝin kun tiu komando:
 
 ```text
 $ ./target/debug/saluton_cargo # aŭ .\target\debug\saluton_cargo.exe ĉe Windows
@@ -143,7 +143,7 @@ estas iomete maldensa. Vi neniam bezonos ŝanĝi tiun datenujon ule; Cargo estra
 
 Ni ĵus konstruis projekton kun `cargo build` kaj rulis ĝin kun
 `./target/debug/saluton_cargo`, sed ni ankaŭ povas uzi `cargo run` por transigi
-la kodon kaj tiam ruli la rezulontan rulebla-datenujo per unu sola ordono:
+la kodon kaj tiam ruli la rezulontan rulebla-datenujo per unu sola komando:
 
 ```text
 $ cargo run
@@ -164,7 +164,7 @@ $ cargo run
      Running `target/debug/saluton_cargo`
 Saluton ĉiuj!
 ```
-Cargo ankaŭ provizas ordonon nomitan `cargo check`. Tiu ordono rapide kontrolas
+Cargo ankaŭ provizas komandon nomitan `cargo check`. Tiu komando rapide kontrolas
 vian kodon por certigi ĝi estas transigebla sed ne produktas ruleblaĵon.
 
 ```text
@@ -186,14 +186,14 @@ Ni resumu kion ni lernis ĝis tie pri Cargo:
 * anstataŭ konservi la rezulton de la konstruon en la sama datenujaro de la
   kodo, Cargo deponas ĝin en la datenujaro *target/debug*
 
-Kroma avantaĝo de Cargo uzado estas ke ordonoj estas la samaj sendepende de la
+Kroma avantaĝo de Cargo uzado estas ke komandoj estas la samaj sendepende de la
 estrilo vi uzas. Do, post tie ĉi, ni ne pli provizos specifajn uzindikojn por
 Linux kaj macOS kompare al Windows.
 
 ### Konstrui por eldono
 
 Kiam via projekto estas fine preta por eldono, vi povas uzi `cargo build
---release` por transigi ĝin kun optimumigoj. Tiu ordono kreos ruleblaĵon en
+--release` por transigi ĝin kun optimumigoj. Tiu komando kreos ruleblaĵon en
 *target/release* anstataŭ de *target/debug*. La optimumigoj akceligas vian Rust
 kodon, sed plilongigas la tempon de transigo. Tial estas dua malsamaj profiloj:
 unu por disvolvado, kiam vi deziras konstrui rapide kaj ofte, unu alia por
@@ -211,7 +211,7 @@ lasi Cargo kunordigi la konstruado.
 
 Krom la simpleco de `saluton_cargo`, tiu projekto nun uzas plejparte de la
 realaj iloj vi uzos en la resto de via kariero. Fakte, por labori kun ajna
-ekzistanta projekto, vi povas uzi la sekvaj ordonoj por elmeti la kodon per Git,
+ekzistanta projekto, vi povas uzi la sekvaj komandoj por elmeti la kodon per Git,
 iru al la datenujaro de la projekto, kaj konstruu:
 
 ```text

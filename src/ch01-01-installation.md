@@ -1,6 +1,6 @@
 ## Instalado
 
-La unua ŝtupo estas instali Rust. Ni elŝutos Rust per `rustup`, ordonĉerpilo por
+La unua ŝtupo estas instali Rust. Ni elŝutos Rust per `rustup`, komanda liniilo por
 estri versiojn de Rust kaj ĝiajn asociataj iloj. Vi bezonos rekkontekto por
 elŝuti.
 
@@ -14,24 +14,24 @@ kontinuos transigi kun novaj versioj. La eligo povus iomete ŝanĝi inter versio
 stabila versio de Rust vi instalas uzante tiuj ŝtupoj devus funkcii kiel
 atendita laŭ la enhavo de tiu libro.
 
-> ### Ordonĉerpa notacio
+> ### Komanda linia notacio
 >
-> En tiu ĉapitro kaj tra la libro, ni montros kelkaj ordonoj uzitaj en
+> En tiu ĉapitro kaj tra la libro, ni montros kelkajn komandojn uzitajn en
 > la terminalo.  Linioj ke vi devus enigi en la terminalo komencas kun `$`. Vi
-> ne bezonas tajpi la `$` signo; ĝi indikas la komenco de ĉiu ordono. Linioj
-> kiuj ne komencas kun `$` tipe montras la eligo de la antaŭa ordono. Aldone,
+> ne bezonas tajpi la `$` signo; ĝi indikas la komencon de ĉiu komando. Linioj
+> kiuj ne komencas kun `$` tipe montras la eligo de la antaŭa komando. Aldone,
 > PowerShell-specifaj ekzemploj uzos `>` anstataŭ `$`.
 
 ### Instali `rustup` ĉe Linux aŭ macOS
 
-Se vi uzas Linux aŭ macOS, ovru terminalon kaj enigu la sekvan ordonon:
+Se vi uzas Linux aŭ macOS, malfermu terminalon kaj enigu la sekvan komandon:
 
 
 ```text
 $ curl https://sh.rustup.rs -sSf | sh
 ```
 
-La ordono elŝutas la scripto kaj ekinstalas `rustup` ilon, kiu instalas la
+La komando elŝutas la scripto kaj ekinstalas `rustup` ilon, kiu instalas la
 lastan version de Rust. Vi eble estas petita pri via pasvorto. Se la instalado
 sukcesas, la sekvantaj linioj aperos:
 
@@ -44,7 +44,7 @@ Se vi preferas, libere elŝuti la skripto kaj inspektu ĝin antaŭ ruli ĝin.
 
 La instaladoskripto aŭtomate aldonos Rust al via mediaĵingo PATH post
 via sekvanta ensalutado. Se vi volas ekuzi Rust anstataŭ restarti vian
-terminalo, rulu la sekvanta ordono en via ŝelo por aldoni ule Rust al
+terminalo, rulu la sekvantan komandon en via ŝelo por aldoni ule Rust al
 via mediaĵingo PATH.
 
 ```text
@@ -77,7 +77,7 @@ Frameworks*)
 [install]: https://www.rust-lang.org/install.html
 [visualstudio]: https://www.visualstudio.com/downloads/
 
-La resto de la libro uzas ordonoj kiuj funkcias kaj kun *cmd.exe* kaj
+La resto de la libro uzas komanadojn, kiuj funkcias kaj kun *cmd.exe* kaj
 PowerShell. Se estas specifaj malsamoj, ni eksplikos kiun uzi.
 
 ### Ĝisdatigi kaj malinstali
@@ -98,7 +98,7 @@ $ rustup self uninstall
 
 ### Problemsolvado
 
-Por kontroli ĉu vi havis Rust taŭge instalita, ovru ŝelon kaj enigu tiun linion:
+Por kontroli ĉu vi havis Rust taŭge instalita, malfermu ŝelon kaj enigu tiun linion:
 
 ```text
 $ rustc --version
@@ -128,8 +128,8 @@ vin. Aliaj bonegaj rimedoj inkludas la [forumo de uzuloj][uzuloj] kaj
 ### Loka dokumentaro
 
 La instalilo ankaŭ inkludas kopion de dokumentaro loke, do vi povas legi ĝin
-forrete. Rulu `rustup doc` por ovri la lokan dokumentaron en via retumilo.
+forrete. Rulu `rustup doc` por malfermi la lokan dokumentaron en via retumilo.
 
-Iam tipo aŭ aĵigilo estas provizata de norma programteko kaj ke vi ne estas
+Iam tipo aŭ funkcio estas provizata de norma programteko kaj ke vi ne estas
 certa kion ĝi faras aŭ kiel uzi ĝin, uzu la dokumenatron de uzivaro por trovi
 tion.
