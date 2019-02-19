@@ -5,7 +5,7 @@
 Tiu deponejo enhavas fontaro de ĉiuj eldonoj de "*the Rust Programming Language*",
 kiel la [oficiala deponejo][oficaladeponejo], sed plie celanta plene esperante traduki la verkaron.
 
-[oficialadeponejo]: https://github.com/rust-lang/book
+[oficaladeponejo]: https://github.com/rust-lang/book
 
 La projekto estas ĵus komencanta, helpo estas ja bonvena. Laborfluo ne jam estas
 difinita, se ne hezitu krei novan bileton por esprimi viajn ideon, deziron helpi
