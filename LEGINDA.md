@@ -1,4 +1,4 @@
-# Rust elordonolingvo
+# Rust programlingvo
 
 [![Build Status](https://travis-ci.org/rust-lang/book.svg?branch=master)](https://travis-ci.org/rust-lang/book)
 
@@ -123,42 +123,27 @@ proponas ektraduki tian version por tiuj kiuj ne deziras refari laboron.
 
 ## No Starch
 
-As the second edition of the book will be published by No Starch, we first
-iterate here, then ship the text off to No Starch. Then they do editing, and we
-fold it back in.
-
-As such, there’s a directory, *nostarch*, which corresponds to the text in No
-Starch’s system.
-
-When we've started working with No Starch in a word doc, we will also check
-those into the repo in the *nostarch/odt* directory. To extract the text from
-the word doc as markdown in order to backport changes to the online book:
-
-1. Open the doc file in LibreOffice
-1. Accept all tracked changes
-1. Save as Microsoft Word 2007-2013 XML (.docx) in the *tmp* directory
-1. Run `./doc-to-md.sh`
-1. Inspect changes made to the markdown file in the *nostarch* directory and
-   copy the changes to the *src* directory as appropriate.
+La dua eldono de la libro estas eldonata de *No Starch*. Ili uzas la tekston unue verkitan ĉe [la ĉefa origina deponejo](https://github.com/rust-lang/book).
+Tiu ĉi tradukita versio nune ne estas celanta presado. Tial estas *nostarch* dosierujo ke tiu deponejo nune ne celas ŝanĝi.
 
    ## Graphviz dot
-
-   We're using [Graphviz](http://graphviz.org/) for some of the diagrams in the
-   book. The source for those files live in the `dot` directory. To turn a `dot`
-   file, for example, `dot/trpl04-01.dot` into an `svg`, run:
+   
+   La kodo uzas [Graphviz](http://graphviz.org/) por iuj diagramoj en la libro.
+   La fonto de tiuj dosieroj troviĝas en la `dot` dosierujo. Por transformi ekde `dot`
+   dosiero al `svg`, ekzemple `dot/trpl04-01.dot` , rulu:
 
    ```bash
    $ dot dot/trpl04-01.dot -Tsvg > src/img/trpl04-01.svg
    ```
 
-   In the generated SVG, remove the width and the height attributes from the `svg`
-   element and set the `viewBox` attribute to `0.00 0.00 1000.00 1000.00` or other
-   values that don't cut off the image.
+   En la generita SVG, forigu la atributoj de larĝo kaj alto de la `svg` elementoj
+   kaj fiksu la `viewBox` atributon al `0.00 0.00 1000.00 1000.00` aŭ alia valoro,
+   kiu ne trunkas la bildon.
 
-   ## Spellchecking
+   ## Literumado
 
-   To scan source files for spelling errors, you can use the `spellcheck.sh`
-   script. It needs a dictionary of valid words, which is provided in
-   `dictionary.txt`. If the script produces a false positive (say, you used word
-   `BTreeMap` which the script considers invalid), you need to add this word to
-   `dictionary.txt` (keep the sorted order for consistency).
+   Por skani la fontdosierojn, vi povas uzi la skripton `spellcheck.sh`.
+   Ĝi bezonas vortaron de validaj vortoj, kiu estas provizita per `dictionary.txt`.
+   Se la skripto produktas malprave pozitivan rezulton (ekezemple, vi uzis la vorto
+   `BTreeMap` kiu la skripto konsideras malvalidan), vi devas aldoni tiun vorton al
+   `dictionary.txt` (konservu la ordigo por kongrueco).
